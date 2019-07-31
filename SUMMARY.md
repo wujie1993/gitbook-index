@@ -10,4 +10,6 @@
 * [测试](sui-bi/untitled/README.md)
   * [Http并发测试](sui-bi/untitled/http-bing-fa-ce-shi.md)
   * [IO性能测试](sui-bi/untitled/io-xing-neng-ce-shi.md)
+* [Linux](sui-bi/linux/README.md)
+  * [Dnsmasq](sui-bi/linux/dnsmasq.md)
 
