@@ -12,6 +12,8 @@
     * [Cgroup](sui-bi/linux/rong-qi/cgroup.md)
     * [Namespace](sui-bi/linux/rong-qi/namespace.md)
   * [域名解析](sui-bi/linux/yu-ming-jie-xi/README.md)
+    * [Dig](sui-bi/linux/yu-ming-jie-xi/dig.md)
+    * [Nslookup](sui-bi/linux/yu-ming-jie-xi/nslookup.md)
     * [Dnsmasq](sui-bi/linux/yu-ming-jie-xi/dnsmasq.md)
   * [防火墙](sui-bi/linux/fang-huo-qiang/README.md)
     * [Firewalld](sui-bi/linux/fang-huo-qiang/firewalld.md)
