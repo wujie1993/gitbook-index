@@ -6,7 +6,7 @@
 
 在使用dd工具进行性能测试时，需要附加参数oflag=dsync或conv=fdatasync，否则测试结果会因为缓存机制而出现误差
 
-### 读取测试
+### 写入测试
 
 例子：使用dd进行硬盘写入测试
 
@@ -24,7 +24,7 @@ dd if=/dev/zero of=/tmp/testALT.img bs=1G count=1 conv=fdatasync
 /dev/zero是一个虚拟的设备，从/dev/zero设备中可以不断地读取到0x00值，其读取速度远远高于硬盘，因此作为数据的读取来源
 {% endhint %}
 
-### 写入测试
+### 读取测试
 
 例子：使用dd进行硬盘读取测试
 
