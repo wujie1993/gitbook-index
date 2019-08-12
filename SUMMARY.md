@@ -5,6 +5,8 @@
 
 ## 随笔
 
+* [Markdown](sui-bi/markdown/README.md)
+  * [mermaid](sui-bi/markdown/mermaid.md)
 * [Linux](sui-bi/linux/README.md)
   * [TLS加密](sui-bi/linux/tls-jia-mi/README.md)
     * [Openssl](sui-bi/linux/tls-jia-mi/openssl.md)
