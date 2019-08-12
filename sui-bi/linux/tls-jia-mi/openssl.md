@@ -1,5 +1,11 @@
 # Openssl
 
+## 安装
+
+```text
+yum install openssl -y
+```
+
 ## 查看证书
 
 查看证书内容
@@ -21,4 +27,10 @@ openssl x509 -in {{ 证书路径 }} -noout -subject
 ```
 
 ## 生成证书
+
+
+
+## 参考资料
+
+
 
