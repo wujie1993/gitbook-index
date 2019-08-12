@@ -115,5 +115,7 @@ merge newbranch
 
 ![](http://knsv.github.io/mermaid/img/git.png)
 
+## VSCode插件
 
+{% embed url="https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview" %}
 
