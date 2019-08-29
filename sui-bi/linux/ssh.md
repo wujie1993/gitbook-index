@@ -26,14 +26,12 @@ cat ~/.ssh/id_rsa.pub
 当需要同时连接多个git仓库，而使用的邮箱又不相同时，可以通过`~/.ssh/config`配置针对不同域名访问时所使用的策略
 
 ```text
-Host github    # 关键词
-    HostName github.com    # 主机地址
-    IdentityFile ~/.ssh/id_rsa    # 认证文件
+Host github.com
+    HostName github.com
+    IdentityFile ~/.ssh/id_rsa
     Port 22
-Host example
-    HostName example.com
+Host example.com
     IdentityFile ~/.ssh/example
-    Port 22
 ```
 
 ## 服务端
