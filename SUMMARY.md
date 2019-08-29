@@ -8,6 +8,7 @@
 * [Markdown](sui-bi/markdown/README.md)
   * [mermaid](sui-bi/markdown/mermaid.md)
 * [Linux](sui-bi/linux/README.md)
+  * [SSH](sui-bi/linux/ssh.md)
   * [TLS加密](sui-bi/linux/tls-jia-mi/README.md)
     * [Openssl](sui-bi/linux/tls-jia-mi/openssl.md)
     * [Untitled](sui-bi/linux/tls-jia-mi/untitled-1.md)
