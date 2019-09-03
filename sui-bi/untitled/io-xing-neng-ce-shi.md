@@ -1,8 +1,4 @@
-# IO性能测试
-
-对于IO的性能测试比较常用的工具有大部分linux系统自带的dd工具
-
-## dd
+# dd
 
 在使用dd工具进行性能测试时，需要附加参数oflag=dsync或conv=fdatasync，否则测试结果会因为缓存机制而出现误差
 
