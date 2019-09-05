@@ -20,6 +20,8 @@
     * [Chroot](sui-bi/linux/rong-qi/chroot.md)
     * [Cgroup](sui-bi/linux/rong-qi/cgroup.md)
     * [Namespace](sui-bi/linux/rong-qi/namespace.md)
+  * [存储](sui-bi/linux/cun-chu/README.md)
+    * [NFS](sui-bi/linux/cun-chu/nfs.md)
   * [域名解析](sui-bi/linux/yu-ming-jie-xi/README.md)
     * [Dig](sui-bi/linux/yu-ming-jie-xi/dig.md)
     * [Nslookup](sui-bi/linux/yu-ming-jie-xi/nslookup.md)
