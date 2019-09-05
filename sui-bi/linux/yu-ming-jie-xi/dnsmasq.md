@@ -93,6 +93,13 @@ address=/{{ 域名 }}/{{ ip地址 }}
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+例子：泛域名解析
+
+```text
+# 解析*.example.com到192.168.1.1
+address=/.example.com/192.168.1.1
+```
+
 重启_dnsmasq_服务使配置生效
 
 ```bash
