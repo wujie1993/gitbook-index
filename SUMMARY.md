@@ -5,6 +5,7 @@
 
 ## 随笔
 
+* [Git](sui-bi/git.md)
 * [Markdown](sui-bi/markdown/README.md)
   * [mermaid](sui-bi/markdown/mermaid.md)
 * [测试工具](sui-bi/untitled/README.md)
