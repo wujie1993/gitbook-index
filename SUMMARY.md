@@ -6,6 +6,8 @@
 ## 随笔
 
 * [Git](sui-bi/git.md)
+* [IDE](sui-bi/ide/README.md)
+  * [vim](sui-bi/ide/vim.md)
 * [Markdown](sui-bi/markdown/README.md)
   * [mermaid](sui-bi/markdown/mermaid.md)
 * [测试工具](sui-bi/untitled/README.md)
