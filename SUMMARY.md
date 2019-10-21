@@ -39,4 +39,6 @@
     * [Fluentd](sui-bi/linux/ri-zhi-cai-ji/fluentd/README.md)
       * [根据字段匹配对日志进行结构化](sui-bi/linux/ri-zhi-cai-ji/fluentd/gen-ju-zi-duan-pi-pei-dui-ri-zhi-jin-hang-jie-gou-hua.md)
     * [Logstash](sui-bi/linux/ri-zhi-cai-ji/logstash.md)
+* [Kubernetes](sui-bi/kubernetes/README.md)
+  * [部署](sui-bi/kubernetes/deployment.md)
 
