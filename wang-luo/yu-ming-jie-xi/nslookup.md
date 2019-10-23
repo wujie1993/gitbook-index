@@ -1,4 +1,4 @@
-# Nslookup
+# nslookup
 
 ## 安装
 

@@ -1,2 +1,2 @@
-# IPtables
+# iptables
 
