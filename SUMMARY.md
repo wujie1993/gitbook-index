@@ -39,9 +39,11 @@
 
 ## 网络
 
+* [IPVS](wang-luo/ipvs.md)
 * [抓包](wang-luo/zhua-bao/README.md)
   * [tcpdump](wang-luo/zhua-bao/tcpdump.md)
 * [防火墙](wang-luo/fang-huo-qiang/README.md)
+  * [nftables](wang-luo/fang-huo-qiang/nftables.md)
   * [firewalld](wang-luo/fang-huo-qiang/firewalld.md)
   * [iptables](wang-luo/fang-huo-qiang/iptables.md)
 * [域名解析](wang-luo/yu-ming-jie-xi/README.md)
