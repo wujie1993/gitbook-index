@@ -54,6 +54,7 @@
   * [部署](yun-ji-suan/kubernetes/deployment.md)
 * [Openshift](yun-ji-suan/openshift/README.md)
   * [集群部署](yun-ji-suan/openshift/bu-shu.md)
+  * [快速使用](yun-ji-suan/openshift/kuai-su-shi-yong.md)
 * [Istio](yun-ji-suan/istio.md)
 * [Untitled](yun-ji-suan/untitled.md)
 
