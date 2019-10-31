@@ -53,7 +53,7 @@
 * [Kubernetes](yun-ji-suan/kubernetes/README.md)
   * [部署](yun-ji-suan/kubernetes/deployment.md)
 * [Openshift](yun-ji-suan/openshift/README.md)
-  * [部署](yun-ji-suan/openshift/bu-shu.md)
+  * [集群部署](yun-ji-suan/openshift/bu-shu.md)
 * [Istio](yun-ji-suan/istio.md)
 * [Untitled](yun-ji-suan/untitled.md)
 
