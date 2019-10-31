@@ -33,9 +33,6 @@
     * [Fluentd](sui-bi/linux/ri-zhi-cai-ji/fluentd/README.md)
       * [根据字段匹配对日志进行结构化](sui-bi/linux/ri-zhi-cai-ji/fluentd/gen-ju-zi-duan-pi-pei-dui-ri-zhi-jin-hang-jie-gou-hua.md)
     * [Logstash](sui-bi/linux/ri-zhi-cai-ji/logstash.md)
-* [Kubernetes](sui-bi/kubernetes/README.md)
-  * [部署](sui-bi/kubernetes/deployment.md)
-* [Istio](sui-bi/istio.md)
 
 ## 网络
 
@@ -50,6 +47,15 @@
   * [dig](wang-luo/yu-ming-jie-xi/dig.md)
   * [nslookup](wang-luo/yu-ming-jie-xi/nslookup.md)
   * [dnsmasq](wang-luo/yu-ming-jie-xi/dnsmasq.md)
+
+## 云计算
+
+* [Kubernetes](yun-ji-suan/kubernetes/README.md)
+  * [部署](yun-ji-suan/kubernetes/deployment.md)
+* [Openshift](yun-ji-suan/openshift/README.md)
+  * [部署](yun-ji-suan/openshift/bu-shu.md)
+* [Istio](yun-ji-suan/istio.md)
+* [Untitled](yun-ji-suan/untitled.md)
 
 ## 基础平台建设
 
