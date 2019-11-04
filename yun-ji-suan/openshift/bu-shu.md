@@ -92,7 +92,7 @@ ssh-copy-id okd-2
 
 {% code-tabs %}
 {% code-tabs-item title="okd-X:~/ \#" %}
-```text
+```bash
 yum install -y wget git net-tools bind-utils yum-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct
 yum update -y
 reboot
@@ -107,7 +107,7 @@ systemctl enable docker
 
 {% code-tabs %}
 {% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
-```text
+```bash
 yum install -y java-1.8.0-openjdk-headless python-passlib
 ```
 {% endcode-tabs-item %}
@@ -117,7 +117,7 @@ yum install -y java-1.8.0-openjdk-headless python-passlib
 
 {% code-tabs %}
 {% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
-```text
+```bash
 yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sed -i -e "s/^enabled=1/enabled=0/" /etc/yum.repos.d/epel.repo
 yum -y --enablerepo=epel install ansible pyOpenSSL
@@ -192,11 +192,18 @@ okd-2 openshift_schedulable=true openshift_node_labels="{'zone': 'default'}"
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+配置node域名解析
+
+```bash
+ansible nodes -m shell -a "mkdir -p /etc/origin/node"
+ansible nodes -m shell -a "echo 'nameserver 8.8.8.8' > /etc/origin/node/resolv.conf"
+```
+
 安装预检查
 
 {% code-tabs %}
 {% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
-```text
+```bash
 ansible-playbook playbooks/prerequisites.yml
 ```
 {% endcode-tabs-item %}
@@ -206,7 +213,7 @@ ansible-playbook playbooks/prerequisites.yml
 
 {% code-tabs %}
 {% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
-```text
+```bash
 ansible-playbook playbooks/deploy_cluster.yml
 ```
 {% endcode-tabs-item %}
@@ -234,7 +241,7 @@ ansible-playbook playbooks/deploy_cluster.yml
 
 {% code-tabs %}
 {% code-tabs-item title="okd-X:~/ \#" %}
-```text
+```bash
 yum install -y keepalived
 ```
 {% endcode-tabs-item %}
@@ -242,7 +249,7 @@ yum install -y keepalived
 
 开启ipv4转发
 
-```text
+```bash
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 sysctl -p
 ```
@@ -251,7 +258,7 @@ sysctl -p
 
 {% code-tabs %}
 {% code-tabs-item title="okd-X:~/ \#" %}
-```text
+```bash
 firewall-cmd --direct --permanent --add-rule ipv4 filter INPUT 0 --in-interface ens33 --destination 224.0.0.18 --protocol vrrp -j ACCEPT
 firewall-cmd --direct --permanent --add-rule ipv4 filter OUTPUT 0 --out-interface ens33 --destination 224.0.0.18 --protocol vrrp -j ACCEPT
 firewall-cmd --reload
@@ -336,7 +343,7 @@ vrrp_instance VI_1 {
 
 {% code-tabs %}
 {% code-tabs-item title="okd-X:~/ \#" %}
-```text
+```bash
 systemctl start keepalived
 systemctl enable keepalived
 ```
@@ -403,11 +410,18 @@ okd-1 openshift_schedulable=true openshift_node_labels="{'region': 'infra', 'zon
 okd-2 openshift_schedulable=true openshift_node_labels="{'zone': 'default'}"
 ```
 
+配置node域名解析
+
+```bash
+ansible nodes -m shell -a "mkdir -p /etc/origin/node"
+ansible nodes -m shell -a "echo 'nameserver 8.8.8.8' > /etc/origin/node/resolv.conf"
+```
+
 安装预检查
 
 {% code-tabs %}
 {% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
-```text
+```bash
 ansible-playbook playbooks/prerequisites.yml
 ```
 {% endcode-tabs-item %}
@@ -417,7 +431,7 @@ ansible-playbook playbooks/prerequisites.yml
 
 {% code-tabs %}
 {% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
-```text
+```bash
 ansible-playbook playbooks/deploy_cluster.yml
 ```
 {% endcode-tabs-item %}
