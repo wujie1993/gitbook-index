@@ -26,7 +26,7 @@ graph TD;
 
 显示效果：
 
-![](http://knsv.github.io/mermaid/img/flow.png)
+![&#x6D41;&#x7A0B;&#x56FE;](https://mermaidjs.github.io/img/flow.png)
 
 ### 序列图
 
@@ -46,7 +46,7 @@ sequenceDiagram
 
 显示效果：
 
-![](http://knsv.github.io/mermaid/img/sequence.png)
+![&#x5E8F;&#x5217;&#x56FE;](https://mermaidjs.github.io/img/sequence.png)
 
 ### 甘特图
 
@@ -65,7 +65,7 @@ Future task2               :         des4, after des3, 5d
 
 显示效果：
 
-![](http://knsv.github.io/mermaid/img/gantt.png)
+![&#x7518;&#x7279;&#x56FE;](https://mermaidjs.github.io/img/gantt.png)
 
 ### 类图（实验性）
 
@@ -88,7 +88,7 @@ Class08 <--> C2: Cool label
 
 显示效果：
 
-![](../../.gitbook/assets/image.png)
+![&#x7C7B;&#x56FE;](../../.gitbook/assets/image.png)
 
 ### Git分支图（实验性）
 
@@ -113,7 +113,7 @@ merge newbranch
 
 显示效果：
 
-![](http://knsv.github.io/mermaid/img/git.png)
+![GIt&#x5206;&#x652F;&#x56FE;](https://mermaidjs.github.io/img/git.png)
 
 ## VSCode插件
 
