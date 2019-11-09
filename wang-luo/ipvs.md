@@ -4,15 +4,15 @@
 
 添加sysctl配置
 
-{% code-tabs %}
-{% code-tabs-item title="/etc/sysctl.conf" %}
+{% tabs %}
+{% tab title="/etc/sysctl.conf" %}
 ```text
 net.ipv4.ip_forward=1
 net.bridge.bridge-nf-call-iptables=1
 net.bridge.bridge-nf-call-ip6tables=1
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 使配置生效
 

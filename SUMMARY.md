@@ -51,6 +51,7 @@
 ## 云计算
 
 * [Kubernetes](yun-ji-suan/kubernetes/README.md)
+  * [Q&A](yun-ji-suan/kubernetes/q-and-a.md)
   * [部署](yun-ji-suan/kubernetes/deployment.md)
 * [Openshift](yun-ji-suan/openshift/README.md)
   * [集群部署](yun-ji-suan/openshift/bu-shu.md)

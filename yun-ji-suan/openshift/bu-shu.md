@@ -10,20 +10,24 @@
 
 在每台节点上，安装dnsmasq
 
+{% tabs %}
+{% tab title="" %}
 ```text
 yum install -y dnsmasq
 ```
+{% endtab %}
+{% endtabs %}
 
 添加Router域名解析策略
 
-{% code-tabs %}
-{% code-tabs-item title="/etc/dnsmasq.d/external-hosts.conf" %}
+{% tabs %}
+{% tab title="/etc/dnsmasq.d/external-hosts.conf" %}
 ```text
 address=/.apps.oc.local/192.168.149.129
 address=/.apps.oc.local/192.168.149.130
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 启动dnsmasq并设置开机自启动
 
@@ -44,40 +48,40 @@ systemctl enable dnsmasq
 
 首先修改每个节点的主机名
 
-{% code-tabs %}
-{% code-tabs-item title="okd-0:~/ \#" %}
+{% tabs %}
+{% tab title="okd-0:~/ \#" %}
 ```text
 hostnamectl set-hostname okd-0
 hostname okd-0
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="okd-1:~/ \#" %}
+{% tab title="okd-1:~/ \#" %}
 ```
 hostnamectl set-hostname okd-1
 hostname okd-1
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="okd-2:~/ \#" %}
+{% tab title="okd-2:~/ \#" %}
 ```
 hostnamectl set-hostname okd-2
 hostname okd-2
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 配置hosts名称解析，在每个节点的/etc/hosts文件中追加以下内容
 
-{% code-tabs %}
-{% code-tabs-item title="okd-X:/etc/hosts" %}
+{% tabs %}
+{% tab title="okd-X:/etc/hosts" %}
 ```text
 192.168.149.129 okd-0
 192.168.149.130 okd-1
 192.168.149.131 okd-2
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 以okd-0为集群引导节点，配置到所有节点的ssh免密码登录
 
@@ -90,8 +94,8 @@ ssh-copy-id okd-2
 
 为每个节点安装并更新必要的依赖软件和docker
 
-{% code-tabs %}
-{% code-tabs-item title="okd-X:~/ \#" %}
+{% tabs %}
+{% tab title="okd-X:~/ \#" %}
 ```bash
 yum install -y wget git net-tools bind-utils yum-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct
 yum update -y
@@ -100,30 +104,30 @@ yum install -y docker
 systemctl start docker
 systemctl enable docker
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 在master节点安装openjdk与python-passlib
 
-{% code-tabs %}
-{% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
+{% tabs %}
+{% tab title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
 ```bash
 yum install -y java-1.8.0-openjdk-headless python-passlib
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 在引导节点上安装ansible
 
-{% code-tabs %}
-{% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
+{% tabs %}
+{% tab title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
 ```bash
 yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sed -i -e "s/^enabled=1/enabled=0/" /etc/yum.repos.d/epel.repo
 yum -y --enablerepo=epel install ansible pyOpenSSL
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 由于openshift-ansible v3.9不支持ansible&gt;=2.8的版本，建议使用以下命令安装
 
@@ -133,19 +137,19 @@ yum install https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansib
 
 下载安装脚本
 
-{% code-tabs %}
-{% code-tabs-item title="okd-0:/root/Downloads/ \#" %}
+{% tabs %}
+{% tab title="okd-0:/root/Downloads/ \#" %}
 ```bash
 wget https://github.com/openshift/openshift-ansible/archive/openshift-ansible-3.9.99-1.tar.gz
 tar xvf openshift-ansible-3.9.99-1.tar.gz && cd openshift-ansible-openshift-ansible-3.9.99-1
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 配置inventory
 
-{% code-tabs %}
-{% code-tabs-item title="okd-0:/etc/ansible/hosts" %}
+{% tabs %}
+{% tab title="okd-0:/etc/ansible/hosts" %}
 ```text
 [OSEv3:children]
 masters
@@ -189,8 +193,8 @@ okd-0 openshift_schedulable=true openshift_node_labels="{'region': 'infra', 'zon
 okd-1 openshift_schedulable=true openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
 okd-2 openshift_schedulable=true openshift_node_labels="{'zone': 'default'}"
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 配置node域名解析
 
@@ -201,23 +205,23 @@ ansible nodes -m shell -a "echo 'nameserver 8.8.8.8' > /etc/origin/node/resolv.c
 
 安装预检查
 
-{% code-tabs %}
-{% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
+{% tabs %}
+{% tab title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
 ```bash
 ansible-playbook playbooks/prerequisites.yml
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 安装集群
 
-{% code-tabs %}
-{% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
+{% tabs %}
+{% tab title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
 ```bash
 ansible-playbook playbooks/deploy_cluster.yml
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 必须保证安装脚本完全执行通过，如果出现错误可以在排查完错误后重复执行
@@ -239,13 +243,13 @@ ansible-playbook playbooks/deploy_cluster.yml
 
 首先为三个主节点都安装keepalived
 
-{% code-tabs %}
-{% code-tabs-item title="okd-X:~/ \#" %}
+{% tabs %}
+{% tab title="okd-X:~/ \#" %}
 ```bash
 yum install -y keepalived
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 开启ipv4转发
 
@@ -256,20 +260,20 @@ sysctl -p
 
 为keepalived添加防火墙策略
 
-{% code-tabs %}
-{% code-tabs-item title="okd-X:~/ \#" %}
+{% tabs %}
+{% tab title="okd-X:~/ \#" %}
 ```bash
 firewall-cmd --direct --permanent --add-rule ipv4 filter INPUT 0 --in-interface ens33 --destination 224.0.0.18 --protocol vrrp -j ACCEPT
 firewall-cmd --direct --permanent --add-rule ipv4 filter OUTPUT 0 --out-interface ens33 --destination 224.0.0.18 --protocol vrrp -j ACCEPT
 firewall-cmd --reload
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 配置okd-0作为keepalived主节点，另外两个节点作为备用节点
 
-{% code-tabs %}
-{% code-tabs-item title="okd-0:/etc/keepalived/keepalived.conf" %}
+{% tabs %}
+{% tab title="okd-0:/etc/keepalived/keepalived.conf" %}
 ```text
 global_defs {
 	router_id LVS_okd-0
@@ -290,9 +294,9 @@ vrrp_instance VI_1 {
 	}
 }
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="okd-1:/etc/keepalived/keepalived.conf" %}
+{% tab title="okd-1:/etc/keepalived/keepalived.conf" %}
 ```
 global_defs {
 	router_id LVS_okd-1
@@ -313,9 +317,9 @@ vrrp_instance VI_1 {
 	}
 }
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="okd-0:/etc/keepalived/keepalived.conf" %}
+{% tab title="okd-0:/etc/keepalived/keepalived.conf" %}
 ```
 global_defs {
 	router_id LVS_okd-2
@@ -336,19 +340,19 @@ vrrp_instance VI_1 {
 	}
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 启动keepalived
 
-{% code-tabs %}
-{% code-tabs-item title="okd-X:~/ \#" %}
+{% tabs %}
+{% tab title="okd-X:~/ \#" %}
 ```bash
 systemctl start keepalived
 systemctl enable keepalived
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 这时okd-0节点上的ens33网络接口上会绑定一个新的地址，当okd-0节点故障时，ip地址会浮动到其他节点
 
@@ -419,23 +423,23 @@ ansible nodes -m shell -a "echo 'nameserver 8.8.8.8' > /etc/origin/node/resolv.c
 
 安装预检查
 
-{% code-tabs %}
-{% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
+{% tabs %}
+{% tab title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
 ```bash
 ansible-playbook playbooks/prerequisites.yml
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 安装集群
 
-{% code-tabs %}
-{% code-tabs-item title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
+{% tabs %}
+{% tab title="okd-0:/root/Downloads/openshift-ansible-openshift-ansible-3.9.99-1/ \#" %}
 ```bash
 ansible-playbook playbooks/deploy_cluster.yml
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 ## 额外组件
 

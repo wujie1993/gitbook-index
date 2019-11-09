@@ -48,13 +48,13 @@ curl http://hello-openshift-demo.apps.oc.local
 由于通过router发布的服务以域名方式访问，因此需要配置域名解析，修改hosts文件并添加以下条目
 {% endhint %}
 
-{% code-tabs %}
-{% code-tabs-item title="/etc/hosts" %}
+{% tabs %}
+{% tab title="/etc/hosts" %}
 ```text
 + 192.168.149.129 hello-openshift-demo.apps.oc.local
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 通过以上步骤我们发布了一个简单的openshift定制镜像，以同样的方式还可以运行镜像仓库中的其他镜像。
 

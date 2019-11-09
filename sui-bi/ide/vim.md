@@ -81,8 +81,8 @@ make VIMRUNTIMEDIR=/usr/local/share/vim/vim81 && make install
 
 在~/.vimrc路径上创建vim配置文件
 
-{% code-tabs %}
-{% code-tabs-item title="~/.vimrc" %}
+{% tabs %}
+{% tab title="~/.vimrc" %}
 ```text
 set number
 syntax on
@@ -158,8 +158,8 @@ nmap <F8> :TagbarToggle<CR>
 " neocomplete
 " let g:neocomplete#enable_at_startup = 1
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 安装vim插件管理工具
 
