@@ -73,6 +73,12 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
+### SCC授权
+
+```text
+oc adm policy add-scc-to-user hostmount-anyuid nfs-client-provisioner -n default -z nfs-client-provisioner
+```
+
 ### 创建nfs-provisioner
 
 ```text
