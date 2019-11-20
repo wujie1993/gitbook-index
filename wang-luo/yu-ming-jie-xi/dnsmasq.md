@@ -36,13 +36,11 @@ systemctl enable dnsmasq
 
 修改/etc/resolv.conf，将系统的域名解析服务地址指向当前机器上的dnsmasq服务
 
-{% tabs %}
-{% tab title="/etc/resolv.conf" %}
+{% code title="/etc/resolv.conf" %}
 ```text
 nameserver {{ 本机ip地址 }}
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 这时如果访问外部域名是不通的，因为还没有添加解析策略，需要配置upstream使域名解析指向上游的dns服务
 
@@ -50,27 +48,23 @@ nameserver {{ 本机ip地址 }}
 
 添加上游dns配置文件/etc/dnsmasq.d/public\_upstream.conf，添加以下配置项
 
-{% tabs %}
-{% tab title="/etc/dnsmasq.d/public\_upstream.conf" %}
+{% code title="/etc/dnsmasq.d/public\_upstream.conf" %}
 ```text
 # 上游dns服务器地址配置文件路径
 resolv-file=/etc/resolv.dnsmasq.conf
 # 使上游dns服务器查询按照配置文件中的顺序查询而不是同时查询
 strict-order
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 添加上游dns服务地址配置文件
 
-{% tabs %}
-{% tab title="/etc/resolv.dnsmasq.conf" %}
+{% code title="/etc/resolv.dnsmasq.conf" %}
 ```text
 nameserver 8.8.8.8
 nameserver 114.114.114.114
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 重启_dnsmasq_服务使配置生效
 
@@ -82,16 +76,14 @@ systemctl restart dnsmasq
 
 添加自定义域名解析配置文件/etc/dnsmasq.d/local\_host.conf，添加以下配置项
 
-{% tabs %}
-{% tab title="/etc/dnsmasq.d/local\_host.conf" %}
+{% code title="/etc/dnsmasq.d/local\_host.conf" %}
 ```text
 # 不使用/etc/hosts中的解析配置
 no-hosts
 # 将指定域名解析为指定的地址，可添加多条策略
 address=/{{ 域名 }}/{{ ip地址 }}
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 例子：泛域名解析
 

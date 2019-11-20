@@ -40,13 +40,11 @@ chmod 755 /data
 
 配置导出目录
 
-{% tabs %}
-{% tab title="/etc/exports" %}
+{% code title="/etc/exports" %}
 ```text
 /data/     10.192.31.0/24(rw,sync,no_root_squash,no_all_squash)
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 1. /data: 共享目录位置。
 2. 192.168.0.0/24: 客户端 IP 范围，\* 代表所有，即没有限制。
@@ -102,11 +100,9 @@ mount -t nfs 10.192.31.113:/data /data
 
 配置开机自动挂载
 
-{% tabs %}
-{% tab title="/etc/fstab" %}
+{% code title="/etc/fstab" %}
 ```text
 10.192.31.113:/data     /data                   nfs     defaults        0 0
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 

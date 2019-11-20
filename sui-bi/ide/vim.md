@@ -81,8 +81,7 @@ make VIMRUNTIMEDIR=/usr/local/share/vim/vim81 && make install
 
 在~/.vimrc路径上创建vim配置文件
 
-{% tabs %}
-{% tab title="~/.vimrc" %}
+{% code title="~/.vimrc" %}
 ```text
 set number
 syntax on
@@ -158,8 +157,7 @@ nmap <F8> :TagbarToggle<CR>
 " neocomplete
 " let g:neocomplete#enable_at_startup = 1
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 安装vim插件管理工具
 
@@ -189,6 +187,16 @@ git clone git@github.com:golang/lint.git $GOPATH/src/golang.org/x/lint
 ```
 
 重新打开vim编辑器，完成插件加载
+
+## 快捷键
+
+| 键位 | 作用 |
+| :--- | :--- |
+| ctrl+w+w | 将光标切换到下一个窗口 |
+| ctrl+w+h | 将光标切换到第一个窗口 |
+| ctrl+o+x | 自动列出可用字段与方法 |
+| ctrl+\] | 从引用处跳转到定义处 |
+| ctrl+t | 从定义处跳转回引用处 |
 
 ## Q&A
 
