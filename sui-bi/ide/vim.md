@@ -188,6 +188,13 @@ git clone git@github.com:golang/lint.git $GOPATH/src/golang.org/x/lint
 
 重新打开vim编辑器，完成插件加载
 
+## 快捷命令
+
+| 命令 |  作用 |
+| :--- | :--- |
+| grep {{ 关键字 }} {{ 路径 }} | 在路径中搜索具有指定关键字的文件位置 |
+| set ff={{ 格式 }} | 设置当前打开文件的的格式，可选：unix和dos |
+
 ## 快捷键
 
 | 键位 | 作用 |
