@@ -1,6 +1,6 @@
 # 部署
 
-## 单机minikube
+## Minikube
 
 环境准备：CentOS 7/8
 
