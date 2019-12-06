@@ -21,10 +21,6 @@
   * [Systemd](sui-bi/linux/systemd.md)
   * [TLS加密](sui-bi/linux/tls-jia-mi/README.md)
     * [Openssl](sui-bi/linux/tls-jia-mi/openssl.md)
-  * [容器](sui-bi/linux/rong-qi/README.md)
-    * [Chroot](sui-bi/linux/rong-qi/chroot.md)
-    * [Cgroup](sui-bi/linux/rong-qi/cgroup.md)
-    * [Namespace](sui-bi/linux/rong-qi/namespace.md)
   * [存储](sui-bi/linux/cun-chu/README.md)
     * [rsync](sui-bi/linux/cun-chu/rsync.md)
     * [NFS](sui-bi/linux/cun-chu/nfs.md)
@@ -50,6 +46,12 @@
 
 ## 云计算
 
+* [容器](yun-ji-suan/rong-qi/README.md)
+  * [Docker](yun-ji-suan/rong-qi/docker.md)
+  * [原理](yun-ji-suan/rong-qi/yuan-li/README.md)
+    * [Chroot](yun-ji-suan/rong-qi/yuan-li/chroot.md)
+    * [Namespace](yun-ji-suan/rong-qi/yuan-li/namespace.md)
+    * [Cgroup](yun-ji-suan/rong-qi/yuan-li/cgroup.md)
 * [Kubernetes](yun-ji-suan/kubernetes/README.md)
   * [StorageClass](yun-ji-suan/kubernetes/storageclass.md)
   * [Q&A](yun-ji-suan/kubernetes/q-and-a.md)
