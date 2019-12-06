@@ -24,8 +24,7 @@ yum install -y kubectl-1.15.5
 ### 安装minikube
 
 ```bash
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-1.3.1.rpm \
- && sudo rpm -ivh minikube-1.3.1.rpm
+yum install -y https://storage.googleapis.com/minikube/releases/latest/minikube-1.3.1.rpm
 ```
 
 ### 关闭防火墙
