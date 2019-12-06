@@ -67,6 +67,7 @@ http://127.0.0.1:35951/api/v1/namespaces/kube-system/services/http:kubernetes-da
 ```text
 kubectl delete svc kubernetes-dashboard -n kube-system
 kubectl expose deployment kubernetes-dashboard --type=NodePort --port=80 -n kube-system
+kubectl get svc kubernetes-dashboard -n kube-system
 ```
 
 ## Q&A
