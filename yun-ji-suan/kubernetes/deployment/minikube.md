@@ -1,10 +1,16 @@
-# 部署
+# Minikube
 
-## Minikube
+## 部署
 
-环境准备：CentOS 7/8
+### 环境准备
+
+操作系统：CentOS 7
+
+docker-ce版本：19.03.5
 
 minikube版本：1.3.1
+
+kubernetes版本：1.15.5
 
 ### 安装kubectl
 
@@ -63,7 +69,9 @@ kubectl delete svc kubernetes-dashboard -n kube-system
 kubectl expose deployment kubernetes-dashboard --type=NodePort --port=80 -n kube-system
 ```
 
-### 在CentOS8中运行
+## Q&A
+
+### 如何在CentOS8中运行
 
 默认情况下minikube使用iptables模式启动kube-proxy，在centos8中使用的是nftables，与kube-proxy使用的iptables指令不兼容，因而无法写入规则并导致ip地址转发不生效，解决这个问题的一种途径是以IPVS方式启动kube-proxy
 
