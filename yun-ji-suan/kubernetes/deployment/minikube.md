@@ -95,3 +95,19 @@ modprobe ip_vs
 由于kube-proxy中使用的iptables指令与CentOS8不兼容，因此networkpolicy不会生效
 {% endhint %}
 
+### 如何开启AdmissionWebhook
+
+在启动命令中添加以下参数
+
+```text
+--extra-config=apiserver.enable-admission-plugins="NamespaceLifecycle,LimitRanger,ServiceAccount,PersistentVolumeLabel,DefaultStorageClass,DefaultTolerationSeconds,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota"
+```
+
+### 如何查看启动日志
+
+在启动命令中添加以下参数
+
+```text
+-v 10 --logtostderr
+```
+
