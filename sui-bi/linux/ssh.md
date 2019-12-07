@@ -36,3 +36,11 @@ Host example.com
 
 ## 服务端
 
+
+
+## Q&A
+
+### 如何配置免密ssh连接
+
+在`~/.ssh/authorized_keys`中存放着已授权的密钥，如果配置`host1`连接`host2`的免密码ssh登录，可以将`host1`上的公钥（默认：`~/.ssh/id_rsa.pub`）中的内容拷贝追加到`host2`上的`~/.ssh/authorized_keys`中
+
