@@ -204,6 +204,8 @@ git clone git@github.com:golang/lint.git $GOPATH/src/golang.org/x/lint
 | ctrl+o+x | 自动列出可用字段与方法 |
 | ctrl+\] | 从引用处跳转到定义处 |
 | ctrl+t | 从定义处跳转回引用处 |
+| z+c | 内容折叠 |
+| z+o | 展开折叠 |
 
 ## Q&A
 
