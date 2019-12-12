@@ -24,5 +24,11 @@ grep Ready
 wc -l
 ```
 
+## shell
 
+例子：删除命名空间openshift-monitoring中的所有PrometheusRule
+
+```text
+oc get PrometheusRule --all-namespaces|grep -v NAMESPACE|awk '{print $2}'|while read name; do oc delete prometheusrule $name -n openshift-monitoring; done
+```
 
