@@ -30,6 +30,11 @@
       * [根据字段匹配对日志进行结构化](sui-bi/linux/ri-zhi-cai-ji/fluentd/gen-ju-zi-duan-pi-pei-dui-ri-zhi-jin-hang-jie-gou-hua.md)
     * [Logstash](sui-bi/linux/ri-zhi-cai-ji/logstash.md)
 
+## 存储
+
+* [Ceph](cun-chu/ceph/README.md)
+  * [安装](cun-chu/ceph/an-zhuang.md)
+
 ## 网络
 
 * [IPVS](wang-luo/ipvs.md)
