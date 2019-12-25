@@ -63,6 +63,28 @@ upgrade_ceph_packages: False
 ceph_origin: repository
 valid_ceph_origins:
   - repository
+ceph_repository: community
+valid_ceph_repository:
+  - community
+ceph_mirror: http://download.ceph.com
+ceph_stable_key: https://download.ceph.com/keys/release.asc
+ceph_stable_release: nautilus
+ceph_stable_repo: "{{ ceph_mirror }}/debian-{{ ceph_stable_release }}"
+ceph_stable_redhat_distro: el7
+generate_fsid: true
+ceph_conf_key_directory: /etc/ceph
+ceph_keyring_permissions: '0600'
+cephx: true
+monitor_interface: eth0
+ip_version: ipv4
+public_network: 172.17.209.112/28
+cluster_network: "{{ public_network | regex_replace(' ', '') }}"
+osd_mkfs_type: xfs
+osd_mkfs_options_xfs: -f -i size=2048
+osd_mount_options_xfs: noatime,largeio,inode64,swalloc
+osd_objectstore: bluestore
+dashboard_enabled: False
+
 ```
 {% endcode %}
 
