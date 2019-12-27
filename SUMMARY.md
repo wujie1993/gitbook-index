@@ -65,6 +65,8 @@
 * [Openshift](yun-ji-suan/openshift/README.md)
   * [集群部署](yun-ji-suan/openshift/bu-shu.md)
   * [快速使用](yun-ji-suan/openshift/kuai-su-shi-yong.md)
+* [Prometheus](yun-ji-suan/prometheus/README.md)
+  * [Q&A](yun-ji-suan/prometheus/q-and-a.md)
 * [Istio](yun-ji-suan/istio.md)
 * [Helm](yun-ji-suan/helm.md)
 
