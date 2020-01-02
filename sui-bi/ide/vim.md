@@ -221,9 +221,9 @@ git clone git@github.com:golang/lint.git $GOPATH/src/golang.org/x/lint
 
 ### 如何避免粘贴时自动缩进和注释？
 
-在粘贴前使用指令set paste进入粘贴模式
+在粘贴前使用指令`set paste`进入粘贴模式
 
-在粘贴后使用指令set nopaste退出粘贴模式
+在粘贴后使用指令`set nopaste`退出粘贴模式
 
 也可以将该指令加入快捷键中
 

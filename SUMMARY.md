@@ -60,6 +60,8 @@
 * [Kubernetes](yun-ji-suan/kubernetes/README.md)
   * [部署](yun-ji-suan/kubernetes/deployment/README.md)
     * [Minikube](yun-ji-suan/kubernetes/deployment/minikube.md)
+  * [Operator](yun-ji-suan/kubernetes/operator/README.md)
+    * [OperatorSDK](yun-ji-suan/kubernetes/operator/operatorsdk.md)
   * [StorageClass](yun-ji-suan/kubernetes/storageclass.md)
   * [Q&A](yun-ji-suan/kubernetes/q-and-a.md)
 * [Openshift](yun-ji-suan/openshift/README.md)

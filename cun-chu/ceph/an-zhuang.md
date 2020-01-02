@@ -6,6 +6,10 @@
 
 {% embed url="https://github.com/ceph/ceph-ansible" %}
 
+### 安装文档
+
+{% embed url="https://docs.ceph.com/ceph-ansible/master/" %}
+
 ### 快速安装
 
 安装python-pip
@@ -42,8 +46,10 @@ centos7-dev
 
 配置group\_vars
 
-{% code title="group\_vars/all.yml" %}
+{% tabs %}
+{% tab title="group\_vars/all.yml" %}
 ```text
+---
 ceph_release_num:
   nautilus: 14
 fetch_directory: fetch/
@@ -83,8 +89,27 @@ osd_mkfs_type: xfs
 osd_mkfs_options_xfs: -f -i size=2048
 osd_mount_options_xfs: noatime,largeio,inode64,swalloc
 osd_objectstore: bluestore
-dashboard_enabled: False
-
+dashboard_enabled: False-
 ```
-{% endcode %}
+{% endtab %}
+
+{% tab title="group\_vars/osds.yml" %}
+```
+---
+devices:
+  - /dev/sdb
+  - /dev/sdc
+  - /dev/sdd
+```
+{% endtab %}
+{% endtabs %}
+
+执行部署
+
+```text
+cp site.yml.sample site.yml
+ansible-playbook -i /etc/ansible/hosts-ceph-nautilus site.yml
+```
+
+检查集群状态`ceph -s`
 
