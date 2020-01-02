@@ -16,8 +16,6 @@ count by (__name__) ({__name__=~".+"}) > 10000
 
 ## 时区修复
 
-prometheus默认使用格林威治时间，发送到alertmanager的告警通知请求中携带了触发时间，alertmanager会将该时间作为告警触发的时间，为了避免告警时间出现偏差，需要将prometheus的时区改为当前所使用的时区
-
 ```text
 cp /usr/share/zoneinfo/PRC ./
 

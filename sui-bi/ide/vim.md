@@ -219,5 +219,20 @@ git clone git@github.com:golang/lint.git $GOPATH/src/golang.org/x/lint
 
 可以通过`:set ff=unix`保存为linux所能识别的格式，可以通过`:set ff=dos`再重新保存回windows所能识别的格式
 
+### 如何避免粘贴时自动缩进和注释？
+
+在粘贴前使用指令set paste进入粘贴模式
+
+在粘贴后使用指令set nopaste退出粘贴模式
+
+也可以将该指令加入快捷键中
+
+{% code title="~/.vimrc" %}
+```text
+...
+set pastetoggle=<F9>
+```
+{% endcode %}
+
 
 
