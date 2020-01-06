@@ -32,11 +32,3 @@ wc -l
 oc get PrometheusRule --all-namespaces|grep -v NAMESPACE|awk '{print $2}'|while read name; do oc delete prometheusrule $name -n openshift-monitoring; done
 ```
 
-## sed
-
-例子：将/etc/fstab中的swap分区注释
-
-```text
-sed -i '/ swap / s/^/#/' /etc/fstab
-```
-
