@@ -40,6 +40,12 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
+### 关闭swap
+
+```text
+swapoff -a && sed -i '/ swap / s/^/#/' /etc/fstab
+```
+
 ### 启动minikube
 
 ```text
@@ -109,5 +115,13 @@ modprobe ip_vs
 
 ```text
 -v 10 --logtostderr
+```
+
+### 国内网络如何拉取gcr.io镜像
+
+在启动命令中添加以下参数
+
+```text
+ --image-repository="registry.cn-hangzhou.aliyuncs.com/google_containers"
 ```
 
