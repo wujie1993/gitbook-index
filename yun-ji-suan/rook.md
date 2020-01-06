@@ -35,3 +35,7 @@ kubectl create -f toolbox.yaml
 
 在toolbox中使用命令`ceph -s`查看集群状态
 
+{% hint style="info" %}
+在重装ceph集群时需要清理rook数据目录（默认：/var/lib/rook）
+{% endhint %}
+
