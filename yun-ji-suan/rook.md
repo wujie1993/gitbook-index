@@ -10,15 +10,6 @@
 
 ## 快速开始
 
-前置准备
-
-```text
-modprobe rbd
-yum install -y lvm2
-```
-
-安装测试集群
-
 ```text
 git clone --single-branch --branch release-1.2 https://github.com/rook/rook.git
 cd rook/cluster/examples/kubernetes/ceph
@@ -27,15 +18,5 @@ kubectl create -f operator.yaml
 kubectl create -f cluster-test.yaml
 ```
 
-安装命令行工具
 
-```text
-kubectl create -f toolbox.yaml
-```
-
-在toolbox中使用命令`ceph -s`查看集群状态
-
-{% hint style="info" %}
-在重装ceph集群时需要清理rook数据目录（默认：/var/lib/rook）
-{% endhint %}
 

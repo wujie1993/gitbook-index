@@ -68,6 +68,7 @@
   * [集群部署](yun-ji-suan/openshift/bu-shu.md)
   * [快速使用](yun-ji-suan/openshift/kuai-su-shi-yong.md)
 * [Prometheus](yun-ji-suan/prometheus/README.md)
+  * [原理](yun-ji-suan/prometheus/yuan-li.md)
   * [参考资料](yun-ji-suan/prometheus/can-kao-zi-liao.md)
   * [Q&A](yun-ji-suan/prometheus/q-and-a.md)
 * [Rook](yun-ji-suan/rook.md)
