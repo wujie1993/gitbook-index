@@ -42,6 +42,7 @@ kubectl create -f operator.yaml
 安装ceph集群
 
 ```text
+---
 apiVersion: ceph.rook.io/v1
 kind: CephCluster
 metadata:
@@ -112,6 +113,7 @@ kubectl create -f toolbox.yaml
 创建rbd存储池
 
 ```text
+---
 apiVersion: ceph.rook.io/v1
 kind: CephBlockPool
 metadata:
@@ -130,6 +132,7 @@ spec:
 创建以rbd为存储的storageclass
 
 ```text
+---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -151,6 +154,7 @@ reclaimPolicy: Delete
 测试通过storageclass挂载rbd存储
 
 ```text
+---
 kind: StatefulSet
 apiVersion: apps/v1
 metadata:
@@ -159,7 +163,7 @@ metadata:
   labels:
     app: storageclass-rbd-test
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: storageclass-rbd-test
@@ -197,6 +201,7 @@ spec:
 创建mds服务与cephfs文件系统myfs
 
 ```text
+---
 apiVersion: ceph.rook.io/v1
 kind: CephFilesystem
 metadata:
@@ -225,6 +230,7 @@ spec:
 创建以cephfs为存储的storageclass
 
 ```text
+---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -242,5 +248,58 @@ reclaimPolicy: Delete
 mountOptions:
 ```
 
+测试通过storageclass挂载cephfs存储
 
+```text
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: data-storageclass-cephfs-test
+  namespace: default
+  labels:
+    app: storageclass-cephfs-test
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: csi-cephfs
+  volumeMode: Filesystem
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: storageclass-cephfs-test
+  namespace: default
+  labels:
+    app: storageclass-cephfs-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: storageclass-cephfs-test
+  template:
+    metadata:
+      labels:
+        app: storageclass-cephfs-test
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: storageclass-cephfs-test
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: data
+              mountPath: /data
+          image: 'centos:7'
+          args:
+            - 'sh'
+            - '-c'
+            - 'sleep 3600'
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: data-storageclass-cephfs-test
+```
 
