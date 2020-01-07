@@ -18,7 +18,7 @@
 | sde | 50GB | OSD Metadata |
 
 {% hint style="info" %}
-安装前使用命令lvm lvs,lvm vgs和lvm pvs检查上述硬盘是否已经被使用，若已经使用需要删除，且确保硬盘上不存在分区和文件系统
+安装前使用命令`lvm lvs`,`lvm vgs`和`lvm pvs`检查上述硬盘是否已经被使用，若已经使用需要删除，且确保硬盘上不存在分区和文件系统
 {% endhint %}
 
 前置准备
