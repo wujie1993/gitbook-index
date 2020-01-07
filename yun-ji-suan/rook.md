@@ -50,3 +50,20 @@ kubectl create -f toolbox.yaml
 在重装ceph集群时需要清理rook数据目录（默认：/var/lib/rook）
 {% endhint %}
 
+创建块设备存储池
+
+```text
+apiVersion: ceph.rook.io/v1
+kind: CephBlockPool
+metadata:
+  name: replicapool
+  namespace: rook-ceph
+spec:
+  # 由于仅有一个节点三个OSD,因此以osd作为故障域
+  failureDomain: osd
+  replicated:
+    size: 3
+```
+
+
+
