@@ -108,7 +108,7 @@ kubectl create -f toolbox.yaml
 在重装ceph集群时需要清理rook数据目录（默认：/var/lib/rook）
 {% endhint %}
 
-为ceph-dashboard服务创建ingress
+为ceph-dashboard服务添加ingress路由
 
 ```text
 apiVersion: extensions/v1beta1
@@ -348,6 +348,7 @@ spec:
 创建对象存储网关与存储池
 
 ```text
+---
 apiVersion: ceph.rook.io/v1
 kind: CephObjectStore
 metadata:
@@ -383,4 +384,69 @@ spec:
 * my-store.rgw.control
 * my-store.rgw.log
 * my-store.rgw.meta
+
+为ceph-rgw服务添加ingress路由
+
+```text
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rook-ceph-rgw
+  namespace: rook-ceph
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/tls-acme: "true"
+spec:
+  tls:
+   - hosts:
+     - rook-ceph-rgw.minikube.local
+     secretName: rook-ceph-rgw.minikube.local
+  rules:
+  - host: rook-ceph-rgw.minikube.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: rook-ceph-rgw-my-store
+          servicePort: http
+```
+
+将域名rook-ceph-rgw.minikube.local加入/etc/hosts后通过浏览器访问
+
+{% embed url="https://rook-ceph-rgw.minikube.local/" %}
+
+添加对象存储用户
+
+```text
+---
+apiVersion: ceph.rook.io/v1
+kind: CephObjectStoreUser
+metadata:
+  name: my-user
+  namespace: rook-ceph
+spec:
+  store: my-store
+  displayName: "my display name"
+```
+
+创建对象存储用户的同时会生成AccessKey和SecretKey，以secret的方式保存
+
+获取AccessKey
+
+```text
+kubectl get secret rook-ceph-object-user-my-store-my-user -n rook-ceph -o jsonpath='{.data.AccessKey}'|base64 -d
+```
+
+获取SecretKey
+
+```text
+kubectl get secret rook-ceph-object-user-my-store-my-user -n rook-ceph -o jsonpath='{.data.SecretKey}'|base64 -d
+```
+
+根据上述步骤获取到的信息使用S3客户端进行连接
+
+![](../.gitbook/assets/image%20%282%29.png)
+
+
 
