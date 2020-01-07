@@ -10,6 +10,8 @@
 
 ## 快速上手
 
+### 安装集群
+
 | 硬盘符号 | 大小 | 作用 |
 | :--- | :--- | :--- |
 | sdb | 50GB | OSD Data |
@@ -105,7 +107,9 @@ kubectl create -f toolbox.yaml
 在重装ceph集群时需要清理rook数据目录（默认：/var/lib/rook）
 {% endhint %}
 
-创建块设备存储池
+### 使用rbd存储
+
+创建rbd存储池
 
 ```text
 apiVersion: ceph.rook.io/v1
@@ -123,7 +127,7 @@ spec:
 由于仅有一个节点和三个OSD，因此采用osd作为故障域
 {% endhint %}
 
-创建块存储storageclass
+创建以rbd为存储的storageclass
 
 ```text
 apiVersion: storage.k8s.io/v1
@@ -142,6 +146,100 @@ parameters:
   csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
   csi.storage.k8s.io/fstype: ext4
 reclaimPolicy: Delete
+```
+
+测试通过storageclass挂载rbd存储
+
+```text
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: storageclass-rbd-test
+  namespace: default
+  labels:
+    app: storageclass-rbd-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storageclass-rbd-test
+  template:
+    metadata:
+      labels:
+        app: storageclass-rbd-test
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: storageclass-rbd-test
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: data
+              mountPath: /data
+          image: 'centos:7'
+          args:
+            - 'sh'
+            - '-c'
+            - 'sleep 3600'
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+        storageClassName: rook-ceph-block
+```
+
+### 使用cephfs存储
+
+创建mds服务与cephfs文件系统myfs
+
+```text
+apiVersion: ceph.rook.io/v1
+kind: CephFilesystem
+metadata:
+  name: myfs
+  namespace: rook-ceph
+spec:
+  metadataPool:
+    failureDomain: osd
+    replicated:
+      size: 3
+  dataPools:
+    - failureDomain: osd
+      replicated:
+        size: 3
+  preservePoolsOnDelete: true
+  metadataServer:
+    activeCount: 1
+    activeStandby: true
+    placement:
+    annotations:
+    resources:
+```
+
+> 创建完成后在rook-ceph-tools中使用指令`ceph osd pool ls`可以看到新建了两个存储池myfs-metadata和myfs-data0
+
+创建以cephfs为存储的storageclass
+
+```text
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: csi-cephfs
+provisioner: rook-ceph.cephfs.csi.ceph.com
+parameters:
+  clusterID: rook-ceph
+  fsName: myfs
+  pool: myfs-data0
+  csi.storage.k8s.io/provisioner-secret-name: rook-csi-cephfs-provisioner
+  csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph
+  csi.storage.k8s.io/node-stage-secret-name: rook-csi-cephfs-node
+  csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
+reclaimPolicy: Delete
+mountOptions:
 ```
 
 
