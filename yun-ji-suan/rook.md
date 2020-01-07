@@ -129,6 +129,10 @@ spec:
 由于仅有一个节点和三个OSD，因此采用osd作为故障域
 {% endhint %}
 
+创建完成后在rook-ceph-tools中使用指令`ceph osd pool ls`可以看到新建了以下存储池
+
+* replicapool
+
 创建以rbd为存储的storageclass
 
 ```text
@@ -225,7 +229,10 @@ spec:
     resources:
 ```
 
-> 创建完成后在rook-ceph-tools中使用指令`ceph osd pool ls`可以看到新建了两个存储池myfs-metadata和myfs-data0
+创建完成后在rook-ceph-tools中使用指令`ceph osd pool ls`可以看到新建了以下存储池
+
+* myfs-metadata
+* myfs-data0
 
 创建以cephfs为存储的storageclass
 
@@ -302,4 +309,45 @@ spec:
           persistentVolumeClaim:
             claimName: data-storageclass-cephfs-test
 ```
+
+### 使用对象存储
+
+创建对象存储网关与存储池
+
+```text
+apiVersion: ceph.rook.io/v1
+kind: CephObjectStore
+metadata:
+  name: my-store
+  namespace: rook-ceph
+spec:
+  metadataPool:
+    failureDomain: osd
+    replicated:
+      size: 3
+  dataPool:
+    failureDomain: osd
+    replicated:
+      size: 3
+  preservePoolsOnDelete: false
+  gateway:
+    type: s3
+    sslCertificateRef:
+    port: 80
+    securePort:
+    instances: 1
+    placement:
+    annotations:
+    resources:
+```
+
+创建完成后在rook-ceph-tools中使用指令`ceph osd pool ls`可以看到新建了以下存储池
+
+* .rgw.root
+* my-store.rgw.buckets.data
+* my-store.rgw.buckets.index
+* my-store.rgw.buckets.non-ec
+* my-store.rgw.control
+* my-store.rgw.log
+* my-store.rgw.meta
 
