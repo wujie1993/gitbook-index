@@ -40,10 +40,22 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
+### 关闭swap
+
+```text
+swapoff -a && sed -i '/ swap / s/^/#/' /etc/fstab
+```
+
 ### 启动minikube
 
 ```text
 minikube start --vm-driver=none --kubernetes-version v1.15.5
+```
+
+### 启动ingress
+
+```text
+minikube addons enable ingress
 ```
 
 ### 启动dashboard
@@ -109,5 +121,13 @@ modprobe ip_vs
 
 ```text
 -v 10 --logtostderr
+```
+
+### 国内网络如何拉取gcr.io镜像
+
+在启动命令中添加以下参数
+
+```text
+ --image-repository="registry.cn-hangzhou.aliyuncs.com/google_containers"
 ```
 
