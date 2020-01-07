@@ -343,7 +343,7 @@ spec:
             claimName: data-storageclass-cephfs-test
 ```
 
-### 使用对象存储
+### 使用s3存储
 
 创建对象存储网关与存储池
 
@@ -448,5 +448,31 @@ kubectl get secret rook-ceph-object-user-my-store-my-user -n rook-ceph -o jsonpa
 
 ![](../.gitbook/assets/image%20%282%29.png)
 
+创建以s3为存储的storageclass
 
+```text
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+   name: rook-ceph-delete-bucket
+provisioner: ceph.rook.io/bucket
+reclaimPolicy: Delete
+parameters:
+  objectStoreName: my-store
+  objectStoreNamespace: rook-ceph
+  region: default
+```
+
+为storageclass分配存储桶
+
+```text
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: ceph-delete-bucket
+spec:
+  generateBucketName: ceph-bkt
+  storageClassName: rook-ceph-delete-bucket
+```
 
