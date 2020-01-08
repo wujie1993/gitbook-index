@@ -139,9 +139,17 @@ spec:
           servicePort: https-dashboard
 ```
 
+获取访问dashboard所需的admin账号密码
+
+```text
+kubectl get secret rook-ceph-dashboard-password -n rook-ceph -o jsonpath='{.data.password}'|base64 -d
+```
+
 将域名rook-ceph.minikube.local加入/etc/hosts后通过浏览器访问
 
 {% embed url="https://rook-ceph.minikube.local/" %}
+
+![](../.gitbook/assets/image%20%284%29.png)
 
 ### 使用rbd存储
 
@@ -168,7 +176,7 @@ spec:
 
 * replicapool
 
-创建以rbd为存储的storageclass
+以rbd为存储后端创建storageclass
 
 ```text
 ---
@@ -237,7 +245,7 @@ spec:
 
 ### 使用cephfs存储
 
-创建mds服务与cephfs文件系统myfs
+创建mds服务与cephfs文件系统
 
 ```text
 ---
@@ -269,7 +277,7 @@ spec:
 * myfs-metadata
 * myfs-data0
 
-创建以cephfs为存储的storageclass
+以cephfs为存储后端创建storageclass
 
 ```text
 ---
@@ -347,7 +355,7 @@ spec:
 
 ### 使用s3存储
 
-创建对象存储网关与存储池
+创建对象存储网关
 
 ```text
 ---
@@ -418,6 +426,8 @@ spec:
 
 {% embed url="https://rook-ceph-rgw.minikube.local/" %}
 
+![](../.gitbook/assets/image%20%285%29.png)
+
 #### 使用S3用户
 
 添加对象存储用户
@@ -470,6 +480,10 @@ parameters:
   region: default
 ```
 
+{% hint style="info" %}
+目前不支持以s3存储创建pvc，仅可用于创建存储桶
+{% endhint %}
+
 为storageclass创建对应的存储桶资源申请
 
 ```text
@@ -497,6 +511,6 @@ kubectl get secret ceph-delete-bucket -n rook-ceph -o jsonpath='{.data.AWS_SECRE
 ```
 
 {% hint style="info" %}
-使用该方式获取的s3账号已经配额限制只能使用一个存储桶
+使用该方式获取的s3用户已经做了配额限制只能使用一个存储桶
 {% endhint %}
 
