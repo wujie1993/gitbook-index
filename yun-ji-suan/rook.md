@@ -12,6 +12,8 @@
 
 ### 安装集群
 
+准备osd存储介质
+
 | 硬盘符号 | 大小 | 作用 |
 | :--- | :--- | :--- |
 | sdb | 50GB | OSD Data |
@@ -23,7 +25,7 @@
 安装前使用命令`lvm lvs`,`lvm vgs`和`lvm pvs`检查上述硬盘是否已经被使用，若已经使用需要删除，且确保硬盘上不存在分区和文件系统
 {% endhint %}
 
-前置准备
+确保开启内核rbd模块并安装lvm2
 
 ```text
 modprobe rbd
@@ -416,6 +418,8 @@ spec:
 
 {% embed url="https://rook-ceph-rgw.minikube.local/" %}
 
+#### 使用S3用户
+
 添加对象存储用户
 
 ```text
@@ -430,7 +434,7 @@ spec:
   displayName: "my display name"
 ```
 
-创建对象存储用户的同时会生成AccessKey和SecretKey，以secret的方式保存
+创建对象存储用户的同时会生成以`{{.metadata.namespace}}-object-user-{{.spec.store}}-{{.metadata.name}}`为命名规则的secret，其中保存了该S3用户的AccessKey和SecretKey
 
 获取AccessKey
 
@@ -444,9 +448,11 @@ kubectl get secret rook-ceph-object-user-my-store-my-user -n rook-ceph -o jsonpa
 kubectl get secret rook-ceph-object-user-my-store-my-user -n rook-ceph -o jsonpath='{.data.SecretKey}'|base64 -d
 ```
 
-根据上述步骤获取到的信息使用S3客户端进行连接
+根据上述步骤获取到的信息，使用S3客户端进行连接即可使用该S3用户
 
 ![](../.gitbook/assets/image%20%282%29.png)
+
+#### 使用S3存储桶
 
 创建以s3为存储的storageclass
 
@@ -464,7 +470,7 @@ parameters:
   region: default
 ```
 
-为storageclass创建对应的存储桶
+为storageclass创建对应的存储桶资源申请
 
 ```text
 apiVersion: objectbucket.io/v1alpha1
@@ -475,4 +481,22 @@ spec:
   generateBucketName: ceph-bkt
   storageClassName: rook-ceph-delete-bucket
 ```
+
+存储桶创建后会生成与桶资源申请同名的secret，其中保存着用于连接该存储桶的AccessKey和SecretKey
+
+获取AccessKey
+
+```text
+kubectl get secret ceph-delete-bucket -n rook-ceph -o jsonpath='{.data.AWS_ACCESS_KEY_ID}'|base64 -d
+```
+
+获取SecretKey
+
+```text
+kubectl get secret ceph-delete-bucket -n rook-ceph -o jsonpath='{.data.AWS_SECRET_ACCESS_KEY}'|base64 -d
+```
+
+{% hint style="info" %}
+使用该方式获取的s3账号已经配额限制只能使用一个存储桶
+{% endhint %}
 
