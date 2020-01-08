@@ -188,7 +188,7 @@ parameters:
 reclaimPolicy: Delete
 ```
 
-测试通过storageclass挂载rbd存储
+使用statefulset测试通过storageclass挂载rbd存储
 
 ```text
 ---
@@ -288,7 +288,7 @@ reclaimPolicy: Delete
 mountOptions:
 ```
 
-测试通过storageclass挂载cephfs存储
+使用deployment测试通过storageclass挂载cephfs共享存储
 
 ```text
 ---
@@ -464,7 +464,7 @@ parameters:
   region: default
 ```
 
-为storageclass分配存储桶
+为storageclass创建对应的存储桶
 
 ```text
 apiVersion: objectbucket.io/v1alpha1
