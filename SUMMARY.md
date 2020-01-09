@@ -72,6 +72,7 @@
   * [参考资料](yun-ji-suan/prometheus/can-kao-zi-liao.md)
   * [Q&A](yun-ji-suan/prometheus/q-and-a.md)
 * [Rook](yun-ji-suan/rook.md)
+* [Thanos](yun-ji-suan/thanos.md)
 * [Istio](yun-ji-suan/istio.md)
 * [Helm](yun-ji-suan/helm.md)
 

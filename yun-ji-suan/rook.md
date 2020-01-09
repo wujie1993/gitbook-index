@@ -176,7 +176,7 @@ spec:
 
 * replicapool
 
-以rbd为存储后端创建storageclass
+以rbd为存储介质创建storageclass
 
 ```text
 ---
@@ -277,7 +277,7 @@ spec:
 * myfs-metadata
 * myfs-data0
 
-以cephfs为存储后端创建storageclass
+以cephfs为存储介质创建storageclass
 
 ```text
 ---
