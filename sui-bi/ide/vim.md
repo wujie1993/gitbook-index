@@ -174,19 +174,11 @@ git clone git@github.com:golang/tools.git $GOPATH/src/golang.org/x/tools
 git clone git@github.com:golang/lint.git $GOPATH/src/golang.org/x/lint
 ```
 
-打开vim编辑器，安装vim插件
+打开vim编辑器并加载插件
 
 ```text
-:PluginInstall
+vim -c PluginInstall -c GoInstallBinaries
 ```
-
-安装golang插件
-
-```text
-:GoInstallBinaries
-```
-
-重新打开vim编辑器，完成插件加载
 
 ## 快捷命令
 
