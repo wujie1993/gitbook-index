@@ -96,6 +96,7 @@ set nobackup
 set noswapfile
 " code fold by indent
 set fdm=indent
+set pastetoggle=<F9>
 
 " This enables us to undo files even if you exit Vim.
 if has('persistent_undo')
