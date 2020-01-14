@@ -34,6 +34,15 @@ oc get PrometheusRule --all-namespaces|grep -v NAMESPACE|awk '{print $2}'|while 
 
 ## sed
 
+例子：文件内容追加
+
+```text
+sed -i '1i 在第一行头部追加的内容' file.txt
+sed -i '1a 在第一行尾部追加的内容' file.txt
+sed -i '$i 在最后一行头部追加的内容' file.txt
+sed -i '$i 在最后一行尾部追加的内容' file.txt
+```
+
 例子：替换匹配的行
 
 ```text
