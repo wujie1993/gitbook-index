@@ -1,4 +1,4 @@
-# 命令行
+# 命令行工具
 
 ## awk
 
@@ -34,9 +34,20 @@ oc get PrometheusRule --all-namespaces|grep -v NAMESPACE|awk '{print $2}'|while 
 
 ## sed
 
-例子：将/etc/fstab中的swap分区注释
+例子：替换匹配的行
 
 ```text
 sed -i '/ swap / s/^/#/' /etc/fstab
+```
+
+例子：删除匹配的行
+
+```text
+# 移除/etc/profile中golang环境变量
+sed -i '/export PATH=\$PATH:\/usr\/local\/go\/bin:\/root\/go\/bin/d' /etc/profile
+sed -i '/export GOPATH=\/root\/go/d' /etc/profile
+
+# 删除/etc/fstab中的注释行
+sed -i 's/^#/d' /etc/profile
 ```
 
