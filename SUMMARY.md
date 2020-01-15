@@ -15,7 +15,7 @@
   * [apache bench](sui-bi/untitled/http-bing-fa-ce-shi.md)
   * [dd](sui-bi/untitled/io-xing-neng-ce-shi.md)
   * [postman](sui-bi/untitled/postman.md)
-* [命令行工具](sui-bi/linux/ming-ling-hang.md)
+* [命令行工具](sui-bi/ming-ling-hang.md)
 * [Linux](sui-bi/linux/README.md)
   * [SSH](sui-bi/linux/ssh.md)
   * [Systemd](sui-bi/linux/systemd.md)
@@ -72,7 +72,8 @@
   * [参考资料](yun-ji-suan/prometheus/can-kao-zi-liao.md)
   * [Q&A](yun-ji-suan/prometheus/q-and-a.md)
 * [Rook](yun-ji-suan/rook.md)
-* [Thanos](yun-ji-suan/thanos.md)
+* [Thanos](yun-ji-suan/thanos/README.md)
+  * [整体结构](yun-ji-suan/thanos/zheng-ti-jie-gou.md)
 * [Istio](yun-ji-suan/istio.md)
 * [Helm](yun-ji-suan/helm.md)
 
