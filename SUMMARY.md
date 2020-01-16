@@ -73,7 +73,12 @@
   * [Q&A](yun-ji-suan/prometheus/q-and-a.md)
 * [Rook](yun-ji-suan/rook.md)
 * [Thanos](yun-ji-suan/thanos/README.md)
-  * [整体结构](yun-ji-suan/thanos/zheng-ti-jie-gou.md)
+  * [Sidecar](yun-ji-suan/thanos/sidecar.md)
+  * [Querier](yun-ji-suan/thanos/querier.md)
+  * [Store Gateway](yun-ji-suan/thanos/store-gateway.md)
+  * [Compactor](yun-ji-suan/thanos/compactor.md)
+  * [Ruler](yun-ji-suan/thanos/ruler.md)
+  * [Receiver](yun-ji-suan/thanos/receiver.md)
 * [Istio](yun-ji-suan/istio.md)
 * [Helm](yun-ji-suan/helm.md)
 
