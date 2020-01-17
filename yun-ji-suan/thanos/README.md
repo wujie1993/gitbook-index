@@ -10,7 +10,7 @@
 
 ## 架构图
 
-![](../../.gitbook/assets/image%20%286%29.png)
+![](../../.gitbook/assets/image%20%282%29.png)
 
 ## 组件介绍
 
@@ -37,7 +37,7 @@ thanos包括以下组件：
 
 ## Q&A
 
-### compactor是如何进行下采样和压缩的
+### querier以什么规则判断需要读取下采样的值
 
 ### querier是如何去重的
 
