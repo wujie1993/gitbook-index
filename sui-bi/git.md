@@ -17,10 +17,6 @@ git config user.email "your@email.com"
 
 ## 实用技巧
 
-### 将多次提交进行合并
-
-{% embed url="https://segmentfault.com/a/1190000007748862" %}
-
 ### 撤销上回的提交
 
 1. `git reset commitId`，\(注：不要带--hard\)到上个版本  

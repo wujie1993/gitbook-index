@@ -53,6 +53,7 @@
 ## 云原生 <a id="yun-ji-suan"></a>
 
 * [容器](yun-ji-suan/rong-qi/README.md)
+  * [镜像源](yun-ji-suan/rong-qi/jing-xiang-yuan.md)
   * [Docker](yun-ji-suan/rong-qi/docker.md)
   * [原理](yun-ji-suan/rong-qi/yuan-li/README.md)
     * [Chroot](yun-ji-suan/rong-qi/yuan-li/chroot.md)
