@@ -35,6 +35,29 @@ thanos包括以下组件：
 
 ## 快速开始
 
+```text
+# 获取项目
+git clone --single-branch --branch v0.35.1 git@github.com:coreos/prometheus-operator.git
+cd prometheus-operator
+
+# 部署prometheus-operator
+kubectl create -f bundle.yaml
+
+# 部署prometheus与sidecar
+kubectl create -f prometheus-role.yaml
+kubectl create -f prometheus-role-binding.yaml
+kubectl create -f prometheus.yaml
+kubectl create -f prometheus-service.yaml
+kubectl create -f sidecar-service.yaml
+
+# 添加prometheus指标采集规则
+kubectl create -f prometheus-servicemonitor.yaml
+
+# 部署query
+kubectl create -f query-deployment.yaml
+kubectl create -f query-service.yaml
+```
+
 ## Q&A
 
 ### querier以什么规则判断需要读取下采样的值
