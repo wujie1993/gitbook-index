@@ -37,7 +37,7 @@ thanos包括以下组件：
 
 ```text
 # 获取项目
-git clone --single-branch --branch v0.35.1 git@github.com:coreos/prometheus-operator.git
+git clone --single-branch --branch v0.35.1 https://github.com/coreos/prometheus-operator.git
 cd prometheus-operator
 
 # 部署prometheus-operator
@@ -56,6 +56,9 @@ kubectl create -f prometheus-servicemonitor.yaml
 # 部署query
 kubectl create -f query-deployment.yaml
 kubectl create -f query-service.yaml
+
+# 部署store gateway
+
 ```
 
 ## Q&A
@@ -63,6 +66,8 @@ kubectl create -f query-service.yaml
 ### querier以什么规则判断需要读取下采样的值
 
 ### querier是如何去重的
+
+是取平均值还是其中的某一份
 
 ## 交互式教程
 

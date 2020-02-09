@@ -75,7 +75,7 @@
   * [原理](yun-ji-suan/prometheus/yuan-li.md)
   * [prometheus-operator](yun-ji-suan/prometheus/prometheus-operator.md)
   * [Thanos](yun-ji-suan/prometheus/thanos/README.md)
-    * [Sidecar](yun-ji-suan/thanos/sidecar.md)
+    * [Sidecar](yun-ji-suan/prometheus/thanos/sidecar.md)
     * [Querier](yun-ji-suan/thanos/querier.md)
     * [Store Gateway](yun-ji-suan/thanos/store-gateway.md)
     * [Compactor](yun-ji-suan/thanos/compactor.md)
