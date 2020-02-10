@@ -3,7 +3,7 @@
 Querier实现了与Prometheus相同的查询接口，作为指标查询的访问入口。当PromQL查询请求到达时，  
 Querier会将该请求转为StoreAPI请求发送到Sidecar，Store Gateway，Ruler或其他的Querier，将所有结果进行合并去重后再返回给客户端。
 
-![](../../.gitbook/assets/image%20%286%29.png)
+![](../../../.gitbook/assets/image%20%286%29.png)
 
 Querier本身是无状态的，可以水平拓展成多个副本以提高服务的可用性和降低单个实例的查询压力。
 
