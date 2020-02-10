@@ -23,9 +23,12 @@ git拉取推送代码的方式有http和ssh两种
 
 http方式的代理可通过设置环境变量http\_proxy和https\_proxy指定。
 
-ssh方式的代理可通过配置ssh的代理命令指定
+```text
+export http_proxy=http://{{ http代理服务地址 }}:{{ http代理服务端口 }}
+export https_proxy=http://{{ http代理服务地址 }}:{{ http代理服务端口 }}
+```
 
-例子：为github指定ssh协议代理地址
+ssh方式的代理可通过配置ssh的代理命令指定
 
 {% code title="~/.ssh/config" %}
 ```text
@@ -33,7 +36,25 @@ Host github.com
         User    git
         Hostname        github.com
         Port    22
-        Proxycommand    /usr/bin/ncat --proxy {{ sock5代理服务地址 }}:{{ sock5代理服务端口 }} --proxy-type socks5 %h %p
+        Proxycommand    /usr/bin/ncat --proxy 127.0.0.1:1081 --proxy-type socks5 %h %p
+```
+{% endcode %}
+
+以上方式是直接修改系统的代理配置，也可通过git自身的配置修改代理，通过命令行
+
+```text
+git config --global http.proxy 'socks5://127.0.0.1:1081'
+git config --global https.proxy 'socks5://127.0.0.1:1081'
+```
+
+或者修改配置文件
+
+{% code title="~/.gitconfig" %}
+```text
+[http]
+        proxy = socks5://127.0.0.1:1081
+[https]
+        proxy = socks5://127.0.0.1:1081
 ```
 {% endcode %}
 

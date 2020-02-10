@@ -10,7 +10,7 @@
 
 ## 架构图
 
-![](../../../.gitbook/assets/image%20%282%29.png)
+![](../../.gitbook/assets/image%20%282%29.png)
 
 ## 组件介绍
 
@@ -35,54 +35,11 @@ thanos包括以下组件：
 
 ## 快速开始
 
-```text
-export WORKSPACE=$(pwd)
-
-# 获取项目
-git clone --single-branch --branch v0.35.1 https://github.com/coreos/prometheus-operator.git
-cd prometheus-operator
-
-# 部署prometheus-operator
-kubectl apply -f bundle.yaml
-
-# 部署prometheus与sidecar
-sed -i 's/namespace: default/namespace: thanos/g' prometheus-role.yaml
-sed -i 's/namespace: default/namespace: thanos/g' prometheus-role-binding.yaml
-sed -i 's/namespace: default/namespace: thanos/g' prometheus.yaml
-sed -i 's/namespace: default/namespace: thanos/g' prometheus-service.yaml
-sed -i 's/namespace: default/namespace: thanos/g' sidecar-service.yaml
-kubectl apply -f prometheus-role.yaml
-kubectl apply -f prometheus-role-binding.yaml
-kubectl apply -f prometheus.yaml
-kubectl apply -f prometheus-service.yaml
-kubectl apply -f sidecar-service.yaml
-
-# 添加prometheus指标采集规则
-sed -i 's/namespace: default/namespace: thanos/g' prometheus-servicemonitor.yaml
-kubectl apply -f prometheus-servicemonitor.yaml
-
-cd $WORKSPACE
-git clone https://github.com/thanos-io/kube-thanos.git
-cd kube-thanos/examples/all/manifests
-
-# 编辑thanos-query-deployment.yaml
-# 添加参数- --store=dnssrv+_grpc._tcp.thanos-sidecar.thanos.svc.cluster.local
-kubectl apply -f thanos-query-deployment.yaml
-kubectl apply -f thanos-query-service.yaml
-kubectl apply -f thanos-query-serviceMonitor.yaml
-
-# 部署store gateway
-kubectl apply -f thanos-store-statefulSet.yaml
-kubectl apply -f 
-```
-
 ## Q&A
 
 ### querier以什么规则判断需要读取下采样的值
 
 ### querier是如何去重的
-
-是取平均值还是其中的某一份
 
 ## 交互式教程
 
