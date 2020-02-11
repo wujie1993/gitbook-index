@@ -81,6 +81,7 @@
     * [Compactor](yun-ji-suan/thanos/compactor.md)
     * [Ruler](yun-ji-suan/thanos/ruler.md)
     * [Receiver](yun-ji-suan/thanos/receiver.md)
+    * [Bucket](cloud-native/prometheus/thanos/bucket.md)
   * [Cortex](cloud-native/prometheus/cortex.md)
   * [参考资料](yun-ji-suan/prometheus/can-kao-zi-liao.md)
   * [Q&A](yun-ji-suan/prometheus/q-and-a.md)
