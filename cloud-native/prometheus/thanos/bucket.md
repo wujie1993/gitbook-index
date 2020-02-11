@@ -1,6 +1,6 @@
 # Bucket
 
-Thanos的bucket组件是一个用于查看对象存储桶中数据内容的命令集合。它通常作為獨立命令運行，以幫助進行故障排除。
+Thanos的bucket组件是一个用于查看对象存储桶中数据块内容的命令集合。它通常作為獨立命令運行，以幫助進行故障排除。
 
 例子：
 
@@ -18,9 +18,7 @@ config:
 
 可以在`/cmd/thanos/bucket.go`添加新的命令以用于帮助我们更好地使用对象存储桶。
 
-## 使用
-
-### 可用参数
+### 可选参数
 
 ```text
 usage: thanos bucket [<flags>] <command> [<args> ...]
