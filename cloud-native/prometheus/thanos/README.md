@@ -28,6 +28,8 @@ thanos包括以下组件：
 
 ### 指标采集
 
+
+
 ### 指标评估
 
 ### 指标查询
@@ -109,8 +111,6 @@ kubectl apply -f thanos-bucket-service.yaml
 ## Q&A
 
 ### querier如何实现自动下采样的值
-
-### querier是如何去重的
 
 ### store内存缓存和本地缓存有何区别
 
