@@ -1,0 +1,10 @@
+# Sidecar
+
+Sidecar主要用于短期数据的查询和Prometheus本地数据上传
+
+每个Prometheus实例都会对应运行着一个Sidecar，其本体主要分为两个部分：StoreAPI和Snipper
+
+StoreAPI是Thanos内部约定的一套gRPC查询接口，对Prometheus原生的查询接口做了二次封装。外部（如：Querier）在查询指标时会将请求发送到Sidecar的StoreAPI，由Sidecar将该请求转为PromSQL代理到自身所绑定的Prometheus查询接口上，将Prometheus返回的结果通过StoreAPI返回给查询方。
+
+Snipper用于本地文件的嗅探和上传。当Prometheus在本地生成新的只读块（非Head Block）时，会将该数据块上传到远端对象存储中。做为长期历史数据。
+

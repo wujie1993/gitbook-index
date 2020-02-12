@@ -84,7 +84,7 @@ Flags:
 
 ### 部分响应
 
-rule对原有的prometheus规则配置做了拓展，在每条规则配置上新加了字段partial\_response\_strategy用以指定向query发起查询时的部分响应策略。可选值有warn和abort（默认值）。
+rule对原有的prometheus规则配置做了拓展，在每条规则配置上新加了字段partial\_response\_strategy用以指定向query发起查询时的部分响应策略。可选值有`warn`和`abort`（默认值）。
 
 warn表示忽略所有的StoreAPI响应异常并返回结果，在控制台打印警告日志。
 
@@ -112,7 +112,7 @@ groups:
 
 ### 高可用
 
-rule组件支持高可用部署，每个副本实例都会使用独立的存储空间和特定的外部标签，为了避免发送到alertmanager的告警产生重复告警，需要在启动时附加参数--alert.label-drop="{{ 外部标签键 }}"以消除告警通知中的不同标签。alertmanager在判断告警通知时判断标签是相同的会认定为是同一个告警，不会重复发送。
+rule组件支持高可用部署，每个副本实例都会使用独立的存储空间和特定的外部标签，为了避免发送到alertmanager的告警产生重复告警，需要在启动时附加参数`--alert.label-drop="{{ 外部标签键 }}"`以消除告警通知中的不同标签。alertmanager在判断告警通知时判断标签是相同的会认定为是同一个告警，不会重复发送。
 
 ### 告警对接
 
@@ -144,7 +144,7 @@ alertmanagers:
   api_version: v1
 ```
 
-其中api\_version支持v1和v2。可以配置多个alermanager接入地址，rule将所有接入地址认定为一个接收组，按配置顺序向其中的一个发起通知，只有在所有接入地址都报错的情况下才会认定为告警通知发送失败。
+其中`api_version`支持`v1`和`v2`。可以配置多个alermanager接入地址，rule将所有接入地址认定为一个接收组，按配置顺序向其中的一个发起通知，只有在所有接入地址都报错的情况下才会认定为告警通知发送失败。
 
 ### 查询对接
 
