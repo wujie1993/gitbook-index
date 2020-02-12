@@ -77,7 +77,7 @@
   * [Thanos](cloud-native/prometheus/thanos/README.md)
     * [Bucket](cloud-native/prometheus/thanos/bucket.md)
     * [Check](cloud-native/prometheus/thanos/check.md)
-    * [Compactor](cloud-native/prometheus/thanos/compactor.md)
+    * [Compact](cloud-native/prometheus/thanos/compactor.md)
     * [Sidecar](yun-ji-suan/thanos/sidecar.md)
     * [Querier](yun-ji-suan/thanos/querier.md)
     * [Ruler](yun-ji-suan/thanos/ruler.md)

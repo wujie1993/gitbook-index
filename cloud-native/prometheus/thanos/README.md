@@ -56,44 +56,63 @@ cd prometheus-operator
 # 部署prometheus-operator
 kubectl apply -f bundle.yaml
 
-# 部署prometheus与sidecar
+# 部署prometheus与sidecar并配置prometheus指标采集
 sed -i 's/namespace: default/namespace: thanos/g' prometheus-role.yaml
 sed -i 's/namespace: default/namespace: thanos/g' prometheus-role-binding.yaml
 sed -i 's/namespace: default/namespace: thanos/g' prometheus.yaml
 sed -i 's/namespace: default/namespace: thanos/g' prometheus-service.yaml
 sed -i 's/namespace: default/namespace: thanos/g' sidecar-service.yaml
+sed -i 's/namespace: default/namespace: thanos/g' prometheus-servicemonitor.yaml
 kubectl apply -f prometheus-role.yaml
 kubectl apply -f prometheus-role-binding.yaml
 kubectl apply -f prometheus.yaml
 kubectl apply -f prometheus-service.yaml
 kubectl apply -f sidecar-service.yaml
-
-# 添加prometheus指标采集规则
-sed -i 's/namespace: default/namespace: thanos/g' prometheus-servicemonitor.yaml
 kubectl apply -f prometheus-servicemonitor.yaml
 
 cd $WORKSPACE
 git clone https://github.com/thanos-io/kube-thanos.git
 cd kube-thanos/examples/all/manifests
 
+# 部署query并配置指标采集
 # 编辑thanos-query-deployment.yaml
 # 添加参数- --store=dnssrv+_grpc._tcp.thanos-sidecar.thanos.svc.cluster.local
 kubectl apply -f thanos-query-deployment.yaml
 kubectl apply -f thanos-query-service.yaml
 kubectl apply -f thanos-query-serviceMonitor.yaml
 
-# 部署store gateway
+# 部署store并配置指标采集
 kubectl apply -f thanos-store-statefulSet.yaml
-kubectl apply -f 
+kubectl apply -f thanos-store-service.yaml
+kubectl apply -f thanos-store-serviceMonitor.yaml
+
+# 部署compact并配置指标采集
+kubectl apply -f thanos-compact-statefulSet.yaml
+kubectl apply -f thanos-compact-service.yaml
+kubectl apply -f thanos-compact-serviceMonitor.yaml
+
+# 部署rule并配置指标采集
+kubectl apply -f thanos-rule-statefulSet.yaml
+kubectl apply -f thanos-rule-service.yaml
+kubectl apply -f thanos-rule-serviceMonitor.yaml
+
+# 部署receive并配置指标采集
+kubectl apply -f thanos-receive-statefulSet.yaml
+kubectl apply -f thanos-receive-service.yaml
+kubectl apply -f thanos-receive-serviceMonitor.yaml
+
+# 部署bucket
+kubectl apply -f thanos-bucket-deployment.yaml
+kubectl apply -f thanos-bucket-service.yaml
 ```
 
 ## Q&A
 
-### querier以什么规则判断需要读取下采样的值
+### querier如何实现自动下采样的值
 
 ### querier是如何去重的
 
-是取平均值还是其中的某一份
+### store内存缓存和本地缓存有何区别
 
 ## 交互式教程
 
