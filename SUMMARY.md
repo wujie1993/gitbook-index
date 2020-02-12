@@ -80,7 +80,7 @@
     * [Compactor](cloud-native/prometheus/thanos/compactor.md)
     * [Sidecar](yun-ji-suan/thanos/sidecar.md)
     * [Querier](yun-ji-suan/thanos/querier.md)
-    * [Ruler](cloud-native/prometheus/thanos/ruler.md)
+    * [Ruler](yun-ji-suan/thanos/ruler.md)
     * [Store](cloud-native/prometheus/thanos/store-gateway.md)
   * [Cortex](cloud-native/prometheus/cortex.md)
   * [参考资料](yun-ji-suan/prometheus/can-kao-zi-liao.md)
