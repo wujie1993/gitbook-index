@@ -28,8 +28,6 @@ thanos包括以下组件：
 
 ### 指标采集
 
-
-
 ### 指标评估
 
 ### 指标查询
@@ -39,12 +37,12 @@ thanos包括以下组件：
 ## 优势特性
 
 * 统一查询入口——以Querier作为统一的查询入口，其自身实现了Prometheus的查询接口和StoreAPI，可为其他的Querier提供查询服务，在查询时会从每个Prometheus实例的Sidecar和Store Gateway获取到指标数据。
-* 查询去重——每个Prometheus实例都会带有特定的集群标签（如：region=east,replica=0）。Prometheus会为每个采集到的指标添加该集群标签，当多个Prometheus实例采集到同一个指标源时，会生成除以上集群标签外完全一致的标签。Querier在启动时可添加多个`--query.replica-label {{标签名}}`参数，Querier在从多个Prometheus实例获取到查询结果后，可以忽略以上的集群标签，并匹配每个指标的名称和标签，将完全一致的指标进行去重。
-* 高空间利用率——每个Prometheus都是以建议的单实例的方式运行，不会采集多份数据。Compactor会定时将远端对象存储中的长期数据进行压缩和降精度，节约存储空间。
-* 高可用——Querier是无状态服务，可以进行水平拓展，在Prometheus实例出现故障时，仍然可以通过Store Gateway查询远端数据
+* 查询去重——每个数据块都会带有特定的集群标签，Querier在做查询时会去除集群标签，将指标名称和标签一致的序列根据时间排序合并。虽然指标数据来自不同的采集源，但是只会响应一份结果而不是多份重复的结果。
+* 高空间利用率——每个Prometheus本身不存储长时间的数据，Sidecar会将Prometheus已经持久化的数据块上传到对象存储中。Compactor会定时将远端对象存储中的长期数据进行压缩，并且根据采样时长做清理，节约存储空间。
+* 高可用——Querier是无状态服务，天生支持水平拓展和高可用。Store，Rule和Sidecar是有状态服务，在多副本部署的情况下也支持高可用，不过会产生数据冗余，需要牺牲存储空间。
 * 存储长期数据——Prometheus实例的Sidecar会将本地数据上传到远端对象存储中作为长期数据
-* 横向拓展——当Prometheus的指标采集压力过大时，可以创建新的prometheus实例，将scrape job拆分给多个prometheus，Querier从多个prometheus查询汇聚结果，降低单个prometheus的压力
-* 跨集群查询——需要合并多个集群的查询结果时，仅需要在每个集群的Querier之上再添加一层Querier，像树一样，每个根节点作为所涵盖区域的查询入口
+* 横向拓展——当Prometheus的指标采集压力过大时，可以创建新的Prometheus实例，将scrape job拆分给多个Prometheus，Querier从多个Prometheus查询汇聚结果，降低单个Prometheus的压力
+* 跨集群查询——需要合并多个集群的查询结果时，仅需要在每个集群的Querier之上再添加一层Querier，这样的层层嵌套，可以使得集群规模无限制拓展。
 
 ## 快速开始
 
