@@ -101,7 +101,5 @@ Flags:
                                https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config
 ```
 
-### 在Store做查询时在什么条件下会使用到下采样的数据
-
 
 
