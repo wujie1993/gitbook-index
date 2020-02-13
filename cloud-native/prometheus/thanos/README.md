@@ -24,7 +24,7 @@
 
 ## 工作流程
 
-### 指标写入 
+### 指标写入
 
 1. prometheus从所采集服务的metrics接口抓取指标数据，同时根据自身所配置的recording rules定期的对抓取到的指标数据进行评估，将结果以TSDB格式分块存储到本地，每个数据块的存储时长为2小时，且默认禁用了压缩功能。
 2. sidecar嗅探到prometheus的数据存储目录生成了新的只读数据块（不包含head block）时，会将该数据块上传到对象存储桶中做为长期历史数据保存，在上传时会将数据块中的meta.json进行修改添加thanos相关的字段，如external\_labels。
