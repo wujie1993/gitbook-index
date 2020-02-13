@@ -116,10 +116,6 @@ kubectl apply -f thanos-bucket-deployment.yaml
 kubectl apply -f thanos-bucket-service.yaml
 ```
 
-## Q&A
-
-### store内存缓存和本地缓存有何区别
-
 ## 交互式教程
 
 {% embed url="https://katacoda.com/bwplotka/courses/thanos" %}
