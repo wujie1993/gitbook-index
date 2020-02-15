@@ -34,6 +34,12 @@ oc get PrometheusRule --all-namespaces|grep -v NAMESPACE|awk '{print $2}'|while 
 
 ## sed
 
+例子：替换文件内容
+
+```text
+sed -i 's/替换前的内容/替换后的内容/g' file.txt
+```
+
 例子：文件内容追加
 
 ```text
