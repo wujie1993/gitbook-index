@@ -1,6 +1,6 @@
 # Check
 
-Check组件用于Prometheus Rules的规则校验。在Thanos rule组件中使用了该组件进行规则校验。可以看作是`promtool check rules`的拓展，新增了对于 `partial_response_strategy` 字段的校验。
+check组件用于Prometheus Rules的规则校验。在Thanos rule组件中使用了该组件进行规则校验。可以看作是`promtool check rules`的拓展，新增了对于 `partial_response_strategy` 字段的校验。
 
 如果检查失败命令行会返回退出码Exit Code\(1\)，成功返回Exit Code\(0\)
 
