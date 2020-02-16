@@ -1,0 +1,4 @@
+# Receiver
+
+Receiver组件实现了Prometheus的Remote Write API，Prometheus节点上采集的指标数据不会写到本地而是通过该接口写入到Receiver中。Receiver将接收到的数据以TSDB的Block形式存储在本地，当生成只读块时，Receiver会将该块上传到对象存储桶中。
+

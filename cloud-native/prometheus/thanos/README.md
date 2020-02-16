@@ -120,5 +120,3 @@ kubectl apply -f thanos-bucket-service.yaml
 
 {% embed url="https://katacoda.com/bwplotka/courses/thanos" %}
 
-
-
