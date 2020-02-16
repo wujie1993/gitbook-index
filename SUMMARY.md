@@ -72,7 +72,6 @@
   * [集群部署](cloud-native/openshift/bu-shu.md)
   * [快速使用](cloud-native/openshift/kuai-su-shi-yong.md)
 * [Prometheus](cloud-native/prometheus/README.md)
-  * [原理](cloud-native/prometheus/yuan-li.md)
   * [prometheus-operator](cloud-native/prometheus/prometheus-operator.md)
   * [Thanos](cloud-native/prometheus/thanos/README.md)
     * [组件](cloud-native/prometheus/thanos/zu-jian/README.md)
