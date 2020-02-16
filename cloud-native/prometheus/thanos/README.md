@@ -2,7 +2,7 @@
 
 ## 项目简介
 
-Thanos是一个基于Prometheus实现的监控方案，其主要设计目的是解决原生Prometheus上的几个痛点：高可用，拓展性，长期存储
+Thanos是一个基于Prometheus实现的监控方案，其主要设计目的是解决原生Prometheus上的痛点问题并且做进一步的提升，主要的特性有：全局查询，高可用，动态拓展，长期存储。
 
 项目由Fabian Reinartz和Bartłomiej Płotka创建于2017年12月份。在2019年8月份成为CNCF沙盒项目。目前的维护成员主要来自于Red Hat。
 

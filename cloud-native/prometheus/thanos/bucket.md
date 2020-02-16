@@ -1,8 +1,26 @@
 # Bucket
 
-Bucket组件是一个用于查看对象存储桶中数据块内容的命令集合。它通常作為獨立命令運行，以幫助進行故障排除。
+Thanos的bucket组件是一个用于查看对象存储桶中数据内容的命令集合。它通常作為獨立命令運行，以幫助進行故障排除。
 
-### 可选参数
+例子：
+
+```text
+$ thanos bucket verify --objstore.config-file=bucket.yml
+```
+
+bucket.yml内容：
+
+```text
+type: GCS
+config:
+  bucket: example-bucket
+```
+
+可以在`/cmd/thanos/bucket.go`添加新的命令以用于帮助我们更好地使用对象存储桶。
+
+## 使用
+
+### 可用参数
 
 ```text
 usage: thanos bucket [<flags>] <command> [<args> ...]
@@ -48,15 +66,13 @@ Subcommands:
     Web interface for remote storage bucket
 ```
 
-可以在`/cmd/thanos/bucket.go`添加新的命令以用于帮助我们更好地使用对象存储桶。
-
 ### web
 
 `bucket web`模块提供了可交互的web界面用于查看对象存储桶中的数据块。服务启动后会定期地刷新并更新视图内容。
 
 ![](https://thanos.io/img/bucket-web.jpg)
 
-显示列表分为多行，每一行表示一个数据推送源实例（如sidecar或rule）。每行又从左到右分为多个时间区间，按时间由远及近将数据块进行排序，在每个时间区间中又分为多行块（最多3行），每行块的不同颜色表示不同的压缩级别和解析度，块的长度表示其存储数据的时间区间长度。
+显示列表分为多行，每一行表示一个数据推送源实例（如sidecar或rule）。每行又分为多个块，每个块的不同颜色表示不同的压缩级别和解析度，块的长度表示其存储数据的时间区间长度。
 
 例子：`$ thanos bucket web --objstore.config-file="..."`
 
