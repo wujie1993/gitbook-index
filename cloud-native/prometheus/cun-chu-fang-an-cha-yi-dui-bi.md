@@ -55,9 +55,9 @@ Thanos使用TSDB的blocks存储，每个blocks块初始存储2小时长的数据
 
 Cortex使用TSDB的chunks存储，每个chunks块存储12小时长的数据。新推出的实验性特性将支持blocks存储。
 
-Thanos将长期存储的数据都存放于对象存储中。Cortex则将index和chunks分开存储，index存储于NoSQL键值存储中如BigTable，Cassandra和DynamoDB，chunks存储于对象存储中。
+Thanos将长期存储的数据都存放于对象存储中。
 
-这两种
+Cortex则将index和chunks分开存储，index存储于NoSQL键值存储中如BigTable，Cassandra和DynamoDB，chunks存储于BigTable，Cassandra，DynamoDB和对象存储中。
 
 ### 数据去重
 
@@ -89,16 +89,12 @@ Thanos的外部组件依赖仅有对象存储后端（存放长期数据）。�
 
 ### 部署配置复杂性
 
-Thanos的部署目前分为以下几个部分：
+Thanos的部署目前分为两个部分：
 
-1. Prometheus+Sidecar。必装组件，可通过prometheus-operator配置部署，包括每个prometehus实例所对应的recording和alerting规则；
-2. Querier。必装组件，单集群情况下部署3个实例即可；
-3. Store。
-4. 对象存储后端，可自行部署或使用云存储；
+1. 通过[prometheus-operator](https://github.com/coreos/prometheus-operator)部署Prometheus+Sidecar，包括配置每个prometheus集群所对应的recording和alerting规则；
+2. 通过[helm charts](https://hub.helm.sh/charts?q=thanos)部署其他的组件。
 
-由于Thanos的部署架构较为灵活，不建议使用Helm部署。
-
-Cortex的部署分为
+Cortex的部署可以使用[helm charts](https://github.com/cortexproject/cortex-helm-chart)。
 
 ### 参考资料
 
