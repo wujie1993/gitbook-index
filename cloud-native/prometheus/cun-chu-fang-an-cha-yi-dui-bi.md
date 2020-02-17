@@ -1,20 +1,45 @@
 # Thanos与Cortex方案对比
 
-### 项目情况
+## 项目发展现状
 
 Thanos项目创建于2017年12月份。在2019年8月份成为CNCF沙盒项目。目前的维护成员主要来自于Red Hat。
 
 Cortex项目创建于2016年2月份。在2018年8月成为CNCF沙盒项目。项目维护成员主要来自于Weavework。
 
-Thanos和Cortex都具有的特性：全局查询，高可用，长期存储。
+| 项目名称 | Watch | Star | Fork | Issues | Contributors |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| [Thanos](https://github.com/thanos-io/thanos) | 157 | 5.2k | 654 | 87 | 188 |
+| [Cortex](https://github.com/cortexproject/cortex) | 90 | 2.4k | 296 | 230 | 90 |
 
-从项目发展上讲Thano相对于Cortex更加年轻，且目前Prometheus项目中已经引入了Thanos的部署用例和代码库，两者的契合度相对较高。
+从项目发展上讲Thano相对于Cortex更加年轻，在活跃度上呈后来者居上的态势。且目前Prometheus项目中已经引入了Thanos的部署用例和代码库，两者的契合度相对较高。Cortex目前实验性的blocks数据块写入后端存储的特性也复用了Thanos的代码。
 
-### 集群架构
+## 集群架构
 
 Cortex的定位是提供Prometheus as a Service，采用中心化的架构。Prometheus可能来自于多个数据中心，所有的数据都汇入一个Cortex数据中心，由Cortex集中写入和查询。
 
+![](../../.gitbook/assets/image%20%2811%29.png)
+
+
+
 Thanos采用的是分散式的架构，其数据可以分散在多个数据中心，且分别存储于多个对象存储桶中。对于数据的查询可分散也可集中。
+
+![](../../.gitbook/assets/image%20%282%29.png)
+
+## 特性对比
+
+| 特性名称 | Thanos | Cortex |
+| :--- | :--- | :--- |
+| 全局查询 | 支持 | 有条件支持 |
+| 全局告警 | 支持 | 有条件支持 |
+| 高可用 | 部分支持 | 支持 |
+| 长期存储 | 支持 | 支持 |
+| 多集群 | 支持 | 不支持 |
+| 多租户 | 不支持 | 支持 |
+| 集群拓展 | 支持 | 支持 |
+| 查询缓存 | 不支持 | 支持 |
+| 查询拆分 | 按时间区间拆分 | 按天拆分 |
+| 下采样 | 支持 | 不支持 |
+| 数据去重 | 查询时去重 | 写入时去重 |
 
 ### 数据写入
 
@@ -24,11 +49,58 @@ Cortex使用push方式的数据写入，prometheus通过remote wirte接口将数
 
 值得注意的是Thanos新推出的实验性组件Receiver也采用与Cortex相同的数据写入方式，通过Prometheus的Remote Write接口将数据写入Receiver组件，也使用哈希环的的方式保证写入数据的多副本可靠性。
 
-Thanos只支持S3一种存储后端，而Cortex支持Google Cloud Tables，S3
+### 存储
+
+Thanos使用TSDB的blocks存储，每个blocks块初始存储2小时长的数据，后续在长期存储中经过压缩存储时长会增大。
+
+Cortex使用TSDB的chunks存储，每个chunks块存储12小时长的数据。新推出的实验性特性将支持blocks存储。
+
+Thanos将长期存储的数据都存放于对象存储中。Cortex则将index和chunks分开存储，index存储于NoSQL键值存储中如BigTable，Cassandra和DynamoDB，chunks存储于对象存储中。
+
+这两种
 
 ### 数据去重
 
 Thanos在读取时才对数据进行去重，而Cortex在写入时就会进行去重。这意味着Thanos会存储多份的冗余数据。存储的开销也会相应地更大。
+
+### 查询优化
+
+目前prometheus的查询痛点在于做大时间跨度的查询时需要耗费大量的时间和内存资源。
+
+Thanos采取的优化方式包括对长期存储的数据进行下采样，在查询大跨度时间的数据时使用采样跨度更大的数据块做查询。除此之外还可以按时间段进行拆分，分配每个长期存储网关所负责查询的时间段。还可以安装存储桶进行拆分，数据写入到多个存储桶中，而每个长期存储网关负责查询一个存储桶。时间拆分和桶拆分可以同时使用，从部署架构层面进行优化。
+
+Cortex采取的优化方式是将数据进行缓存，在查询时通过读取缓存中的index和chunks，并生成子查询用以补足缓存中所遗漏的内容。在查询多天的大查询时会将其拆分为多个单天的子查询并行处理。并且查询后的结果也会被缓存下来用于后续的查询。
+
+### 多租户
+
+### 高可用
+
+### 集群拓展
+
+## 维护成本
+
+### 资源开销
+
+
+
+### 第三方组件依赖
+
+Thanos的外部组件依赖仅有对象存储后端（存放长期数据）。而Cortex的外部组件依赖包括了Postgres（存放各租户的规则配置），Consul键值存储（集群治理，后续会以gossip替代），存储后端（存放长期数据），Redis或Memcached（查询缓存）。
+
+### 部署配置复杂性
+
+Thanos的部署目前分为以下几个部分：
+
+1. Prometheus+Sidecar。必装组件，可通过prometheus-operator配置部署，包括每个prometehus实例所对应的recording和alerting规则；
+2. Querier。必装组件，单集群情况下部署3个实例即可；
+3. Store。
+4. 对象存储后端，可自行部署或使用云存储；
+
+由于Thanos的部署架构较为灵活，不建议使用Helm部署。
+
+Cortex的部署分为
+
+### 现存的问题
 
 ### 参考资料
 
