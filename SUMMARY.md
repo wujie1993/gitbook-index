@@ -96,7 +96,7 @@
   * [参考资料](yun-ji-suan/prometheus/can-kao-zi-liao.md)
   * [Q&A](yun-ji-suan/prometheus/q-and-a.md)
 * [Rook](yun-ji-suan/rook.md)
-* [Istio](yun-ji-suan/istio.md)
+* [Istio](cloud-native/istio.md)
 * [Helm](yun-ji-suan/helm.md)
 
 ## 基础平台建设
