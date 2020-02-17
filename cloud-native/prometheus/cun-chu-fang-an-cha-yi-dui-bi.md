@@ -100,8 +100,6 @@ Thanos的部署目前分为以下几个部分：
 
 Cortex的部署分为
 
-### 现存的问题
-
 ### 参考资料
 
 {% embed url="https://www.youtube.com/watch?time\_continue=80&v=KmJnmd3K3Ws&feature=emb\_logo" %}
