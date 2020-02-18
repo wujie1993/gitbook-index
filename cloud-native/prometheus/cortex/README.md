@@ -20,12 +20,13 @@ Cortex是基于Proemtheus实现的集群监控方案，具有水平拓展，高�
 
 ## 组件介绍
 
-* Config。作为租户的alertmanager配置，规则和模板的配置接口。
-* Distributor。作为Cortex集群的数据写入入口，接收来自prometheus的remote write API写入数据。对写入的数据进行过滤和去重，将结果存入ingester。
+* Distributor。用于接收并分发各个租户的写入请求，接收来自prometheus的remote write API写入数据。对写入的数据进行过滤和去重，将结果存入ingester。
 * Ingester。用于存储短期的指标数据，并定期将数据刷写到后端存储中。同时提供了用于查询短期指标数据的查询接口。
 * Querier。实现了与prometheus相同的查询接口，处理来自外部的查询请求。对TSDB的index和chunks进行缓存以加速查询。在部署了Query Frontend的情况下则作为处理子查询的工作节点。
-* Query Frontend。实现了与prometheus相同的查询接口，处理来自外部的查询请求。将单个大查询拆分为多个子查询并放入查询队列，交由querier完成查询后进行汇聚，同时也会对查询结果进行缓存用以加速查询。
-* Ruler。用以评估recording和alerting规则。将recording结果写入ingester，将告警消息发送到alertmanager。
+* Query Frontend（可选）。实现了与prometheus相同的查询接口，处理来自外部的查询请求。将单个大查询拆分为多个子查询并放入查询队列，交由querier完成查询后进行汇聚，同时也会对查询结果进行缓存用以加速查询。
+* Config（可选）。作为租户的alertmanager配置，规则和模板的配置接口。
+* Ruler（可选）。用以评估每个租户的recording和alerting规则。将recording结果写入ingester，将告警消息发送到alertmanager。
+* Alertmanager（可选）。向租户发送告警通知，基于prometheus的alertmanager做的进一步拓展，支持多租户。
 
 ## 工作机制
 

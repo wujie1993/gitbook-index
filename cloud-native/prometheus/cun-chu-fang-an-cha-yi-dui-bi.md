@@ -50,7 +50,7 @@ Cortex使用push方式的数据写入，prometheus通过remote wirte接口将数
 
 值得注意的是Thanos新推出的实验性组件Receiver也采用与Cortex相同的数据写入方式，通过Prometheus的Remote Write接口将数据写入Receiver组件，也使用哈希环的的方式保证写入数据的多副本可靠性。
 
-### 存储
+### 数据存储
 
 Thanos使用TSDB的blocks存储，每个blocks块初始存储2小时长的数据，后续在长期存储中经过压缩存储时长会增大。
 
@@ -58,7 +58,7 @@ Cortex使用TSDB的chunks存储，每个chunks块存储12小时长的数据。�
 
 Thanos将长期存储的数据都存放于对象存储中。
 
-Cortex则将index和chunks分开存储，index存储于NoSQL键值存储中如BigTable，Cassandra和DynamoDB，chunks存储于BigTable，Cassandra，DynamoDB和对象存储中。
+Cortex则将index和chunks分开存储，index存储于NoSQL键值存储中如BigTable，Cassandra和DynamoDB，chunks存储于BigTable，Cassandra，DynamoDB和对象存储中。其实验性的blocks存储只支持存放于对象存储。
 
 ### 数据去重
 
@@ -74,9 +74,9 @@ Cortex采取的优化方式是将数据进行缓存，在查询时通过读取�
 
 ### 多租户
 
-所有的Cortex组件在发送的请求中都会携带一个Header X-Scope-OrgID，表示租户ID。当Ingester在写入数据时发现有一个新的租户ID时，则认为这是一个新的租户，当Querier在读取数据时，会请求中的租户ID是否已经存在。创建新租户的过程是随着指标数据的写入自动完成的，不存在租户的创建或删除接口，也不存在租户的鉴权和认证，这些需要在入口网关中实现。
+Cortex的多租户实现了租户的查询和告警相关配置的隔离。所有的Cortex组件在发送的请求中都会携带一个Header X-Scope-OrgID，表示租户ID。当Ingester在写入数据时发现有一个新的租户ID时，则认为这是一个新的租户，当Querier在读取数据时，会请求中的租户ID是否已经存在。创建新租户的过程是随着指标数据的写入自动完成的，不存在租户的创建或删除接口，也不存在租户的鉴权和认证，这些需要在入口网关中实现。
 
-Thanos的多租户目前只是实验性功能，其中的Reciever组件实现了多租户的数据写入，与Cortex相似也是使用了请求头携带租户ID，相当于Cortex中Distributor和Ingester的结合体。对于多租户的查询目前推荐的方式是为每个租户的Prometheus+Sidecar设置专门查询用的Query，或者是通过[prom-label-proxy](https://github.com/openshift/prom-label-proxy)来为查询强制添加过滤标签，以标签作为租户隔离的依据。
+Thanos的多租户目前只是实验性功能且不完整，其中的Reciever组件实现了多租户的数据写入隔离，与Cortex相似也是使用了请求头携带租户ID，相当于Cortex中Distributor和Ingester的结合体。对于多租户的查询目前推荐的方式是为每个租户的Prometheus+Sidecar设置专门查询用的Query，或者是通过[prom-label-proxy](https://github.com/openshift/prom-label-proxy)来为查询强制添加过滤标签，以标签作为租户隔离的依据。
 
 ### 多集群
 
@@ -114,12 +114,12 @@ Thanos的外部组件依赖仅有对象存储后端（存放长期数据）。�
 
 ### 部署配置复杂性
 
-Thanos的部署目前分为两个部分：
+Thanos的部署配置目前分为两个部分：
 
 1. 通过[prometheus-operator](https://github.com/coreos/prometheus-operator)部署Prometheus+Sidecar，包括配置每个prometheus集群所对应的recording和alerting规则；
-2. 通过[helm charts](https://hub.helm.sh/charts?q=thanos)部署其他的组件。
+2. 通过[helm charts](https://hub.helm.sh/charts?q=thanos)部署配置其他的组件。
 
-Cortex的部署可以使用[helm charts](https://github.com/cortexproject/cortex-helm-chart)。
+Cortex的部署配置可以使用[helm charts](https://github.com/cortexproject/cortex-helm-chart)，对于多租户的告警相关配置需要通过接口请求配置。
 
 ### 其他痛点
 

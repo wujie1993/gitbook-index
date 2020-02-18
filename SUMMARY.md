@@ -86,6 +86,7 @@
     * [参考资料](cloud-native/prometheus/thanos/xiang-guan-zi-liao.md)
   * [Cortex](cloud-native/prometheus/cortex/README.md)
     * [组件](cloud-native/prometheus/cortex/zu-jian/README.md)
+      * [Alertmanager](cloud-native/prometheus/cortex/zu-jian/alertmanager.md)
       * [Config](cloud-native/prometheus/cortex/zu-jian/config.md)
       * [Distributor](cloud-native/prometheus/cortex/zu-jian/distributor.md)
       * [Ingester](cloud-native/prometheus/cortex/zu-jian/ingester.md)

@@ -1,0 +1,4 @@
+# Alertmanager
+
+Alertmanager组件是对Prometheus Alertmanager的进一步拓展，支持了多租户的特性，需要依赖配置数据库读取各个租户的alertmanager配置和告警消息模板。接收Ruler的告警消息并向租户发送告警。
+
