@@ -100,10 +100,3 @@
 * [Istio](cloud-native/istio.md)
 * [Helm](cloud-native/helm.md)
 
-## 基础平台建设
-
-* [云平台](ji-chu-ping-tai-jian-she/yun-ping-tai.md)
-* [技术中台](ji-chu-ping-tai-jian-she/ji-shu-zhong-tai.md)
-* [数据中台](ji-chu-ping-tai-jian-she/shu-ju-zhong-tai.md)
-* [业务中台](ji-chu-ping-tai-jian-she/ye-wu-zhong-tai.md)
-
