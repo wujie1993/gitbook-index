@@ -1,18 +1,4 @@
 # Receiver
 
-Recevier目前是实验性的组件，其设计目的在于构建Prometheus即服务。
-
 Receiver组件实现了Prometheus的Remote Write API，Prometheus节点上采集的指标数据不会写到本地而是通过该接口写入到Receiver中。Receiver将接收到的数据以TSDB的Block形式存储在本地，当生成只读块时，Receiver会将该块上传到对象存储桶中。
-
-Receiver扮演着数据写入网关的角色，接收来自于现有的Prometheus服务器的数据，既保留的架构的简单性，同时通过长期存储，水平可伸缩性和下采样扩展了其功能。只有在推送方式是唯一可行的解决方案时才推荐使用Receiver组件，例如跨数据中心的数据汇集。
-
-### 多租户
-
-Receiver提供了对于数据写入的租户隔离，可以在服务启动时指定该组件所对应的租户ID和用以识别租户ID的请求头名称。Receiver会通过哈希环组集群，当携带了租户ID头部的请求到达时，会判断该Receiver是否与租户ID对应，是则将数据写入，否则将请求转到其他对应的Receiver上。
-
-对于租户级全局查询，建议使用分层的Querier的划分所属Sidecar的方法。此外，可以使用[prom-label-proxy](https://github.com/openshift/prom-label-proxy)来强制为查询添加额外的过滤标签。
-
-### 多副本
-
-可以为Receiver设置副本因子（一般为3）以及用以识别该因子的请求头部名称，当写入请求到达时，Receiver会判断是否携带了副本因子头部，如果没有则将请求复制为三个请求，每个请求上都携带了副本因子的头部以及因子序号，根据哈希环判断后将请求发出，当超过一半的副本成功写入到Receiver后才会响应写入成功。
 

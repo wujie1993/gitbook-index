@@ -23,7 +23,7 @@ Thanos是一个基于Prometheus实现的监控方案，其主要设计目的是�
 * Sidecar。主要用于短期数据的查询和Prometheus本地数据上传。以gRPC的方式暴露StoreAPI接口，在Querier查询时将请求转为PromSQL代理到Prometheus并返回Querier。同时实现了本地文件的嗅探器，将Promethues所产生的本地只读块上传到远端对象存储中。
 * Store。主要用于长期数据的查询。以gRPC的方式暴露StoreAPI接口，在Querier查询时读取远端对象存储中的数据并返回Querier。
 * Compactor。定期地读取对象存储中的历史数据，进行下采样和压缩后保存回对象存储中，加速做大时间跨度查询时的速度。
-* Receiver（实验性）。接收Prometheus的远程写入数据并上传到云存储中，支持写入时的租户隔离以及多副本写入。
+* Receiver。接收Prometheus的远程写入数据并上传到云存储中
 * Ruler/Rule。通过Querier的Prometheus查询接口定期地获取指标并评估record和alert规则，将record规则的评估结果保存到本地，通过嗅探器将文件上传到远端对象存储中，将alert规则的评估结果用于触发Alertmanager告警。
 * Querier/Query。作为指标查询入口，实现了Prometheus的查询接口，在接收到查询请求后通过StoreAPI转发请求到Sidecar和Store Gateway，将结果进行汇聚去重后返回客户端。在做大范围时间的指标查询时会通过自动下采样加速查询。同时自身也实现了StoreAPI，可处理来自于其他Querier的查询请求。Querier本身集成了与Prometheus类似的UI面板。
 * Bucket。主要用于展示对象存储中历史数据的存储情况，查看每个指标源中数据块的压缩级别，解析度，存储时段和时间长度等信息
