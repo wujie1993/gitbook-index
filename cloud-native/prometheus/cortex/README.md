@@ -44,7 +44,12 @@ Cortex是基于Proemtheus实现的集群监控方案，具有水平拓展，高�
 
 ### 数据查询
 
-
+1. 用户向Cortex网关发起查询请求，由网关将请求代理到QueryFrontend。
+2. QueryFrontend首先从缓存中查询是否有满足查询条件的内容，根据缓存中缺少的时间段补齐生成多个子查询放入查询队列中。
+3. Querier向Query Frontend消费查询队列，获取子查询。
+4. Querier根据子查询从缓存中尝试读取满足条件的index和chunks，缺失的时间段如果在12小时内则向Ingester查询，确实的时间段如果在12小时外则向后端存储查询。
+5. Querier将查询结果返回给Query Frontend，并缓存index和chunks。
+6. Query Frontend对Query的返回结果进行汇聚和对其，返回查询结果并将结果更新到结果缓存中。
 
 ## 优势特性
 
