@@ -35,7 +35,7 @@ Cortex是基于Proemtheus实现的集群监控方案，具有水平拓展，高�
 1. Prometheus将采集到的指标数据推送到Cortex网关，由网关将请求代理到Distributor上。
 2. Distributor对写入的内容进行格式校验，包括指标的名称格式，标签格式，标签数量和时间戳范围。
 3. Distributor对数据以集群标签为分组，副本标签为依据进行去重，保证来自于同一个Prometheus集群的数据只保留一个副本。
-4. 根据副本因子（表示写多少个副本的数据）通过哈希计算将写入请求以副本因子数分发给多个Ingester实例。
+4. Distributor根据副本因子（表示写多少个副本的数据）通过哈希计算将写入请求分批次，以副本因子数分发给多个Ingester实例。
 5. Ingester首先将写入请求记录到WAL中，再按顺序消费记录到chunks中，在生成一个chunks（12小时）之后，将chunks和index分别写入到后端存储中，同时进行缓存更新。
 6. 租户根据自身需要将alertmanager配置，recording规则，alerting规则和告警消息模板配置发送到Cortex网关，由网关代理到Config上。
 7. Config将配置写入到PostgresSQL。
