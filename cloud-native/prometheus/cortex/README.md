@@ -37,11 +37,6 @@ Cortex是基于Proemtheus实现的集群监控方案，具有水平拓展，高�
 3. Distributor对数据以集群标签为分组，副本标签为依据进行去重，保证来自于同一个Prometheus集群的数据只保留一个副本。
 4. Distributor根据副本因子（表示写多少个副本的数据）通过哈希计算将写入请求分批次，以副本因子数分发给多个Ingester实例。
 5. Ingester首先将写入请求记录到WAL中，再按顺序消费记录到chunks中，在生成一个chunks（12小时）之后，将chunks和index分别写入到后端存储中，同时进行缓存更新。
-6. 租户根据自身需要将alertmanager配置，recording规则，alerting规则和告警消息模板配置发送到Cortex网关，由网关代理到Config上。
-7. Config将配置写入到PostgresSQL。
-8. Ruler从Config读取到各个租户的配置规则，生成对应的recording规则和alerting规则进行评估。
-9. Ruler将告警消息发送至Alertmanager发出告警。
-10. Ruler将规则评估结果写入Ingester。
 
 ### 数据查询
 
@@ -51,6 +46,14 @@ Cortex是基于Proemtheus实现的集群监控方案，具有水平拓展，高�
 4. Querier根据子查询从缓存中尝试读取满足条件的index和chunks，缺失的时间段如果在12小时内则向Ingester查询，确实的时间段如果在12小时外则向后端存储查询。
 5. Querier将查询结果返回给Query Frontend，并缓存index和chunks。
 6. Query Frontend对Query的返回结果进行汇聚和对其，返回查询结果并将结果更新到结果缓存中。
+
+### 告警发送
+
+1. 租户根据自身需要将alertmanager配置，recording规则，alerting规则和告警消息模板配置发送到Cortex网关，由网关代理到Config上。
+2. Config将配置写入到PostgresSQL。
+3. Ruler从Config读取到各个租户的配置规则，生成对应的recording规则和alerting规则进行评估。
+4. Ruler将告警消息发送至Alertmanager发出告警。
+5. Ruler将规则评估结果写入Ingester。
 
 ## 优势特性
 

@@ -23,7 +23,7 @@ Thanos是一个基于Prometheus实现的监控方案，其主要设计目的是�
 * Sidecar。主要用于短期数据的查询和Prometheus本地数据上传。以gRPC的方式暴露StoreAPI接口，在Querier查询时将请求转为PromSQL代理到Prometheus并返回Querier。同时实现了本地文件的嗅探器，将Promethues所产生的本地只读块上传到远端对象存储中。
 * Store。主要用于长期数据的查询。以gRPC的方式暴露StoreAPI接口，在Querier查询时读取远端对象存储中的数据并返回Querier。
 * Compactor。定期地读取对象存储中的历史数据，进行下采样和压缩后保存回对象存储中，加速做大时间跨度查询时的速度。
-* Receiver。接收Prometheus的远程写入数据并上传到云存储中
+* Receiver（实验性）。接收Prometheus的远程写入数据并上传到云存储中，支持写入时的租户隔离以及多副本写入。
 * Ruler/Rule。通过Querier的Prometheus查询接口定期地获取指标并评估record和alert规则，将record规则的评估结果保存到本地，通过嗅探器将文件上传到远端对象存储中，将alert规则的评估结果用于触发Alertmanager告警。
 * Querier/Query。作为指标查询入口，实现了Prometheus的查询接口，在接收到查询请求后通过StoreAPI转发请求到Sidecar和Store Gateway，将结果进行汇聚去重后返回客户端。在做大范围时间的指标查询时会通过自动下采样加速查询。同时自身也实现了StoreAPI，可处理来自于其他Querier的查询请求。Querier本身集成了与Prometheus类似的UI面板。
 * Bucket。主要用于展示对象存储中历史数据的存储情况，查看每个指标源中数据块的压缩级别，解析度，存储时段和时间长度等信息
@@ -62,6 +62,8 @@ Thanos是一个基于Prometheus实现的监控方案，其主要设计目的是�
 
 ## 快速开始
 
+部署prometheus+sidecar
+
 ```text
 export WORKSPACE=$(pwd)
 
@@ -71,56 +73,132 @@ cd prometheus-operator
 
 # 部署prometheus-operator
 kubectl apply -f bundle.yaml
+```
 
+部署prometheus+sidecar
+
+```text
 # 部署prometheus与sidecar并配置prometheus指标采集
+cd example/thanos
+kubectl create ns thanos
 sed -i 's/namespace: default/namespace: thanos/g' prometheus-role.yaml
 sed -i 's/namespace: default/namespace: thanos/g' prometheus-role-binding.yaml
 sed -i 's/namespace: default/namespace: thanos/g' prometheus.yaml
 sed -i 's/namespace: default/namespace: thanos/g' prometheus-service.yaml
 sed -i 's/namespace: default/namespace: thanos/g' sidecar-service.yaml
 sed -i 's/namespace: default/namespace: thanos/g' prometheus-servicemonitor.yaml
-kubectl apply -f prometheus-role.yaml
-kubectl apply -f prometheus-role-binding.yaml
-kubectl apply -f prometheus.yaml
-kubectl apply -f prometheus-service.yaml
-kubectl apply -f sidecar-service.yaml
-kubectl apply -f prometheus-servicemonitor.yaml
-
-cd $WORKSPACE
-git clone https://github.com/thanos-io/kube-thanos.git
-cd kube-thanos/examples/all/manifests
-
-# 部署query并配置指标采集
-# 编辑thanos-query-deployment.yaml
-# 添加参数- --store=dnssrv+_grpc._tcp.thanos-sidecar.thanos.svc.cluster.local
-kubectl apply -f thanos-query-deployment.yaml
-kubectl apply -f thanos-query-service.yaml
-kubectl apply -f thanos-query-serviceMonitor.yaml
-
-# 部署store并配置指标采集
-kubectl apply -f thanos-store-statefulSet.yaml
-kubectl apply -f thanos-store-service.yaml
-kubectl apply -f thanos-store-serviceMonitor.yaml
-
-# 部署compact并配置指标采集
-kubectl apply -f thanos-compact-statefulSet.yaml
-kubectl apply -f thanos-compact-service.yaml
-kubectl apply -f thanos-compact-serviceMonitor.yaml
-
-# 部署rule并配置指标采集
-kubectl apply -f thanos-rule-statefulSet.yaml
-kubectl apply -f thanos-rule-service.yaml
-kubectl apply -f thanos-rule-serviceMonitor.yaml
-
-# 部署receive并配置指标采集
-kubectl apply -f thanos-receive-statefulSet.yaml
-kubectl apply -f thanos-receive-service.yaml
-kubectl apply -f thanos-receive-serviceMonitor.yaml
-
-# 部署bucket
-kubectl apply -f thanos-bucket-deployment.yaml
-kubectl apply -f thanos-bucket-service.yaml
+kubectl apply -f prometheus-role.yaml -n thanos
+kubectl apply -f prometheus-role-binding.yaml -n thanos
+kubectl apply -f prometheus.yaml -n thanos
+kubectl apply -f prometheus-service.yaml -n thanos
+kubectl apply -f sidecar-service.yaml -n thanos
+kubectl apply -f prometheus-servicemonitor.yaml -n thanos
 ```
+
+部署alertmanager
+
+```text
+---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: alertmanager-main
+  namespace: default
+data:
+  alertmanager.yaml: >-
+    Z2xvYmFsOgogIHJlc29sdmVfdGltZW91dDogMWgKcm91dGU6CiAgcmVjZWl2ZXI6IGRlZmF1bHQKICBncm91cF93YWl0OiAxMHMKICBncm91cF9pbnRlcnZhbDogMTBtCiAgZ3JvdXBfYnk6IFsnYWxlcnRuYW1lJ10KICByZXBlYXRfaW50ZXJ2YWw6IDMwbQogIHJvdXRlczogW10KcmVjZWl2ZXJzOgotIG5hbWU6IGRlZmF1bHQ=
+type: Opaque
+---
+apiVersion: monitoring.coreos.com/v1
+kind: Alertmanager
+metadata:
+  name: main
+  namespace: default
+spec:
+  listenLocal: false
+  imagePullPolicy: Always
+  version: latest
+  replicas: 1
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: alertmanager-main
+  namespace: default
+  labels:
+    alertmanager: main
+spec:
+  ports:
+    - name: web
+      protocol: TCP
+      port: 9093
+      targetPort: web
+  selector:
+    alertmanager: main
+    app: alertmanager
+```
+
+配置thanos
+
+{% code title="my-values.yaml" %}
+```text
+query:
+  replicaCount: 3
+
+# 启用bucket web
+bucketweb:
+  enabled: true
+
+# 启用compactor
+compactor:
+  enabled: true
+
+# 启用storegateway
+storegateway:
+  enabled: true
+
+# 启用ruler
+ruler:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+  alertmanagers:
+  - http://alertmanager-main.default:9093
+  config:
+    groups: []
+
+# 配置存储桶
+objstoreConfig:
+  type: S3
+  config:
+    bucket: "thanos"
+    endpoint: "minio-my-store.rook-minio:9000"
+    region: "default"
+    access_key: "TEMP_DEMO_ACCESS_KEY"
+    insecure: true
+    signature_version2: true
+    encrypt_sse: false
+    secret_key: "TEMP_DEMO_SECRET_KEY"
+    put_user_metadata: {}
+    http_config:
+      idle_conn_timeout: 90s
+      response_header_timeout: 2m
+      insecure_skip_verify: false
+    trace:
+      enable: false
+    part_size: 134217728
+```
+{% endcode %}
+
+部署thanos
+
+```text
+cd $WORKSPACE
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install my-release bitnami/thanos --namespace cortex -f my-values.yaml
+```
+
+打开grafana添加prometheus数据源，配置thanos query访问地址： `http://my-release-thanos-querier.thanos:9090`
 
 ## 交互式教程
 
