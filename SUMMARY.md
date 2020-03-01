@@ -63,6 +63,7 @@
     * [Cgroup](cloud-native/rong-qi/yuan-li/cgroup.md)
 * [Kubernetes](cloud-native/kubernetes/README.md)
   * [部署](cloud-native/kubernetes/deployment/README.md)
+    * [Kind](cloud-native/kubernetes/deployment/kind.md)
     * [Minikube](cloud-native/kubernetes/deployment/minikube.md)
   * [Operator](cloud-native/kubernetes/operator/README.md)
     * [OperatorSDK](cloud-native/kubernetes/operator/operatorsdk.md)
@@ -98,6 +99,6 @@
   * [参考资料](cloud-native/prometheus/can-kao-zi-liao.md)
   * [Q&A](cloud-native/prometheus/q-and-a.md)
 * [Rook](cloud-native/rook.md)
-* [Istio](cloud-native/istio.md)
 * [Helm](cloud-native/helm.md)
+* [Istio](cloud-native/istio.md)
 
