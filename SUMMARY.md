@@ -65,6 +65,8 @@
   * [部署](cloud-native/kubernetes/deployment/README.md)
     * [Kind](cloud-native/kubernetes/deployment/kind.md)
     * [Minikube](cloud-native/kubernetes/deployment/minikube.md)
+  * [CNI](cloud-native/kubernetes/cni/README.md)
+    * [Flannel](cloud-native/kubernetes/cni/flannel.md)
   * [Operator](cloud-native/kubernetes/operator/README.md)
     * [OperatorSDK](cloud-native/kubernetes/operator/operatorsdk.md)
   * [StorageClass](cloud-native/kubernetes/storageclass.md)
