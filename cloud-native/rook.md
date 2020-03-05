@@ -149,7 +149,7 @@ kubectl get secret rook-ceph-dashboard-password -n rook-ceph -o jsonpath='{.data
 
 {% embed url="https://rook-ceph.minikube.local/" %}
 
-![](../.gitbook/assets/image%20%281%29.png)
+![](../.gitbook/assets/image%20%282%29.png)
 
 ### 使用rbd存储
 
@@ -426,7 +426,7 @@ spec:
 
 {% embed url="https://rook-ceph-rgw.minikube.local/" %}
 
-![](../.gitbook/assets/image%20%289%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
 #### 使用S3用户
 
@@ -460,7 +460,7 @@ kubectl get secret rook-ceph-object-user-my-store-my-user -n rook-ceph -o jsonpa
 
 根据上述步骤获取到的信息，使用S3客户端进行连接即可使用该S3用户
 
-![](../.gitbook/assets/image%20%2820%29.png)
+![](../.gitbook/assets/image%20%2821%29.png)
 
 #### 使用S3存储桶
 

@@ -2,7 +2,7 @@
 
 ipvs全 _vs_称之为IP虚拟服务器（IP Virtual Server，简写为_IPVS_）。是运行在LVS下的提供负载平衡功能的一种技术。ipvs是在linux内核netfilter模块之上实现的四层负载均衡模块。
 
-### 安装
+### 开启ipvs模块
 
 添加sysctl配置
 
@@ -30,7 +30,7 @@ modprobe ip_vs_sh
 modprobe nf_conntrack_ipv4
 ```
 
-安装ipvsadm工具
+### 安装ipvsadm
 
 ```text
 yum install -y ipvsadm
