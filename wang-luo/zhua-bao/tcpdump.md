@@ -1,5 +1,13 @@
 # tcpdump
 
+### 安装
+
+```text
+yum install -y tcpdump
+```
+
+### 使用
+
 例子：监听eth0接口
 
 ```text
