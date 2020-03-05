@@ -17,13 +17,13 @@ Cortex项目创建于2016年2月份。在2018年8月成为CNCF沙盒项目。项
 
 Cortex的定位是提供Prometheus as a Service，采用中心化的架构。Prometheus可能来自于多个不同的地域，所有的数据都汇入一个Cortex数据中心，由Cortex集中写入，查询和告警。
 
-![](../../.gitbook/assets/image%20%2811%29.png)
+![](../../.gitbook/assets/image%20%2823%29.png)
 
 
 
 Thanos采用的是分散式的架构，其数据可以分散在多个数据中心，且分别存储于多个对象存储桶中。对于数据的写入，查询和告警可分散也可集中。
 
-![](../../.gitbook/assets/image%20%282%29.png)
+![](../../.gitbook/assets/image%20%283%29.png)
 
 ## 特性对比
 

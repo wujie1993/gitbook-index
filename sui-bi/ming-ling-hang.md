@@ -8,6 +8,21 @@
 awk '{print $n}'
 ```
 
+例子： 将csv格式的文件进行分割
+
+```text
+cat << EOF >staff.csv
+US Gavo 35
+US Jane 21
+US Bill 25
+China Jimmy 42
+EOF
+
+
+# 以国家名称进行分组
+awk '{print > $1".csv"}' staff.csv
+```
+
 ## grep
 
 例子：打印具带有关键字的行
@@ -33,6 +48,12 @@ oc get PrometheusRule --all-namespaces|grep -v NAMESPACE|awk '{print $2}'|while 
 ```
 
 ## sed
+
+例子：替换文件内容
+
+```text
+sed -i 's/替换前的内容/替换后的内容/g' file.txt
+```
 
 例子：文件内容追加
 

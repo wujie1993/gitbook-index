@@ -37,11 +37,14 @@
 
 * [Ceph](cun-chu/ceph/README.md)
   * [安装](cun-chu/ceph/an-zhuang.md)
+  * [故障处理](cun-chu/ceph/gu-zhang-chu-li.md)
 
 ## 网络
 
+* [Overlay网络](wang-luo/sui-dao-wang-luo.md)
 * [IPVS](wang-luo/ipvs.md)
 * [网络工具](wang-luo/zhua-bao/README.md)
+  * [tshark](wang-luo/zhua-bao/tshark.md)
   * [tcpdump](wang-luo/zhua-bao/tcpdump.md)
 * [防火墙](wang-luo/fang-huo-qiang/README.md)
   * [nftables](wang-luo/fang-huo-qiang/nftables.md)
@@ -67,6 +70,8 @@
     * [Minikube](cloud-native/kubernetes/deployment/minikube.md)
   * [CNI](cloud-native/kubernetes/cni/README.md)
     * [Flannel](cloud-native/kubernetes/cni/flannel.md)
+    * [OVS](cloud-native/kubernetes/cni/ovs.md)
+    * [Calico](cloud-native/kubernetes/cni/calico.md)
   * [Operator](cloud-native/kubernetes/operator/README.md)
     * [OperatorSDK](cloud-native/kubernetes/operator/operatorsdk.md)
   * [StorageClass](cloud-native/kubernetes/storageclass.md)
