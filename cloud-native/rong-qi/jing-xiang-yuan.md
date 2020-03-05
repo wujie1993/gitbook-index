@@ -9,10 +9,19 @@
 | quay.io |  [quay.azk8s.cn](http://mirror.azk8s.cn/help/quay-proxy-cache.html) |
 | gcr.io | [gcr.mirrors.ustc.edu.cn](http://gcr.mirrors.ustc.edu.cn/) |
 
-例子：拉取 gcr.io/google\_containers/kubernetes-dashboard-amd64:v1.7.0镜像
+例子：拉取 gcr.io镜像
 
 ```text
 docker pull gcr.azk8s.cn/google_containers/kubernetes-dashboard-amd64:v1.7.0
 docker tag gcr.azk8s.cn/google_containers/kubernetes-dashboard-amd64:v1.7.0 gcr.io/google_containers/kubernetes-dashboard-amd64:v1.7.0
+docker rmi gcr.azk8s.cn/google_containers/kubernetes-dashboard-amd64:v1.7.0
+```
+
+例子：拉取k8s.gcr.io镜像
+
+```text
+docker pull gcr.azk8s.cn/google_containers/debian-iptables-amd64:v12.0.1
+docker tag gcr.azk8s.cn/google_containers/debian-iptables-amd64:v12.0.1 k8s.gcr.io/debian-iptables-amd64:v12.0.1
+docker rmi gcr.azk8s.cn/google_containers/debian-iptables-amd64:v12.0.1
 ```
 
