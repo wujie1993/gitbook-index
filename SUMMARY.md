@@ -2,6 +2,10 @@
 
 * [主页](README.md)
 
+## 开发
+
+* [golang手册](http://golang-2.gitbook.io/)
+
 ## 随笔
 
 * [Git](sui-bi/git.md)
