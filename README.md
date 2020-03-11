@@ -6,3 +6,7 @@
 
 {% embed url="https://github.com/wujie1993" %}
 
+### 开源中国主页
+
+{% embed url="https://my.oschina.net/u/3390908" %}
+
