@@ -5,6 +5,7 @@
 ## 开发
 
 * [golang手册](http://golang-2.gitbook.io/)
+* [python手册](https://python-22.gitbook.io/handbook/)
 
 ## 随笔
 
