@@ -10,7 +10,9 @@
 
 ## 快速配置
 
-{% embed url="https://github.com/wujie1993/dev-env/tree/master/vim" %}
+安装前请确保golang已经安装配置完毕
+
+{% embed url="https://golang-2.gitbook.io/handbook/golang" %}
 
 下载配置脚本
 
@@ -21,7 +23,7 @@ git clone git@github.com:wujie1993/dev-env.git $GOPATH/src/github.com/wujie1993/
 执行配置脚本
 
 ```bash
-cd $GOPATH/src/github.com/wujie1993/dev-env/vim && sh ./setup.sh
+cd $GOPATH/src/github.com/wujie1993/dev-env/centos7 && sh ./setup.sh
 ```
 
 打开vim编辑器，安装vim插件
