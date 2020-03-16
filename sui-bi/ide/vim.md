@@ -10,10 +10,6 @@
 
 ## 快速配置
 
-安装前请确保golang已经安装配置完毕
-
-{% embed url="https://golang-2.gitbook.io/handbook/golang" %}
-
 下载配置脚本
 
 ```bash
