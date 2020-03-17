@@ -34,8 +34,6 @@
       * [根据字段匹配对日志进行结构化](sui-bi/linux/ri-zhi-cai-ji/fluentd/gen-ju-zi-duan-pi-pei-dui-ri-zhi-jin-hang-jie-gou-hua.md)
     * [Logstash](sui-bi/linux/ri-zhi-cai-ji/logstash.md)
 * [开源项目管理](sui-bi/kai-yuan-xiang-mu-guan-li.md)
-* [科学上网](sui-bi/ke-xue-shang-wang/README.md)
-  * [Clash](sui-bi/ke-xue-shang-wang/clash.md)
 
 ## 存储
 
@@ -58,6 +56,9 @@
   * [dig](wang-luo/yu-ming-jie-xi/dig.md)
   * [nslookup](wang-luo/yu-ming-jie-xi/nslookup.md)
   * [dnsmasq](wang-luo/yu-ming-jie-xi/dnsmasq.md)
+* [科学上网](wang-luo/ke-xue-shang-wang/README.md)
+  * [Clash](wang-luo/ke-xue-shang-wang/clash.md)
+  * [Proxfier](wang-luo/ke-xue-shang-wang/proxfier.md)
 
 ## 云原生 <a id="cloud-native"></a>
 
