@@ -87,3 +87,9 @@ git config --global https.proxy 'socks5://127.0.0.1:1081'
 1. `git commit --amend`\(注：修改完成后`Esc+wq+Enter`保存退出\)  
 2. `git push --force`
 
+### 撤销工作区的变动
+
+```text
+git checkout -- .
+```
+
