@@ -50,8 +50,15 @@ firewall-cmd --reload
 例子：开启sshd服务的白名单访问
 
 ```text
-firewall-cmd --add-service=ssh --zone=public
+firewall-cmd --add-service=ssh --zone=public --permanent
 ```
 
 ### 移除规则
+
+例子：移除本地8080端口的tcp规则
+
+```text
+firewall-cmd --delete-port=8080/tcp --zone=public --permanent
+firewall-cmd --reload
+```
 
