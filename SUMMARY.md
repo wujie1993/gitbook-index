@@ -40,6 +40,7 @@
 * [Ceph](cun-chu/ceph/README.md)
   * [安装](cun-chu/ceph/an-zhuang.md)
   * [故障处理](cun-chu/ceph/gu-zhang-chu-li.md)
+* [Etcd](cun-chu/etcd.md)
 
 ## 网络
 
