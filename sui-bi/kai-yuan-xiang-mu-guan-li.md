@@ -1,71 +1,58 @@
 # 开源项目管理
 
-## 提交流程
+### 问题处理流程
 
-1. 如果是他人的项目，先对项目进行fork
-2. 如果要提交的内容属于可描述的问题，使用如下模板创建issue
+![](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gICAg5oql5ZGK6ICFLS0-PumXrumimDogMS4g5Yib5bu66Zeu6aKYXG4gICAgTm90ZSByaWdodCBvZiDpl67popg6IOKRoCDov5DooYznjq_looM8YnIvPuKRoSDpl67popjlpI3njrA8YnIvPuKRoiDpooTmnJ_nu5Pmnpw8YnIvPuKRoyDmoIfnrb5zdGFnZTogd2FpdGluZ1xuICAgIOaPkOS6pOiAhS0tPj7pl67popg6IDIuIOaMh-WumumXrumimOWkhOeQhuW5tuabtOaWsOagh-etvlxuICAgIE5vdGUgcmlnaHQgb2Yg6Zeu6aKYOiDmoIfnrb5zdGFnZTogZG9pbmdcbiAgICDmj5DkuqTogIUtLT4-5LuT5bqTOiAzLiDlj5Hotbfmj5DkuqTmiJZQUlxuICAgIE5vdGUgcmlnaHQgb2Yg5o-Q5Lqk6ICFOiDmj5DkuqTpmYTluKbpl67popjnvJblj7dcbiAgICDmj5DkuqTogIUtLT4-6Zeu6aKYOiA0LiDmm7TmlrDmoIfnrb5cbiAgICBOb3RlIHJpZ2h0IG9mIOmXrumimDog5qCH562-c3RhZ2U6IGRvbmVcbiAgICDmj5DkuqTogIUtLT4-5a6h6ZiF6ICFOiA1LiDmjIflrprpl67popjlrqHpmIVcbiAgICBOb3RlIHJpZ2h0IG9mIOWuoemYheiAhTog5a6h6ZiF5bm26aqM6K-B57uT5p6cPGJyLz7kuI3pgJrov4fliJnov5Tlm57mraXpqqQyXG4gICAg5a6h6ZiF6ICFLS0-PumXrumimDogNi4g5pu05paw5qCH562-XG4gICAgTm90ZSByaWdodCBvZiDpl67popg6IOagh-etvmxndG1cbiAgICDlrqHpmIXogIUtLT4-57u05oqk6ICFOiA3LiDmjIflrprpl67popjlrqHpmIVcbiAgICBOb3RlIHJpZ2h0IG9mIOe7tOaKpOiAhTog5a6h6ZiF5LiN6YCa6L-HPGJyLz7liJnov5Tlm57mraXpqqQyXG4gICAg57u05oqk6ICFLS0-PumXrumimDogOC4g5YWz6ZetaXNzdWVcbiAgICDnu7TmiqTogIUtLT4-5o-Q5Lqk6ICFOiA5LiDmjIflrprpl67popjmnIDnu4jlrozmiJDogIUiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9fQ)
 
-   ```text
-   <!-- **Are you in the right place?**
-   1. For issues or feature requests, please create an issue in this repository.
-   2. Did you already search the existing open issues for anything similar? -->
+**备注**
 
+* 问题报告者\(reporter\)可以是任何成员
+* 提交者提交完代码后需要在issue中说明验证的方法
+* 审阅者一般选择除提交者外较为熟悉相关代码模块的成员
+* 审阅者需要根据提交者提供的验证方法验证结果
 
-   **Bug Report**
+### 问题模板
 
-   What happened:
+**bug模板**
 
-   What you expected to happen:
+```text
+**发生了什么**:
+<!-- 此处补充问题产生的结果 -->
 
-   How to reproduce it (minimal and precise):
-   <!-- Please let us know any circumstances for reproduction of your bug. -->
+**预期的结果**:
+<!-- 此处补充正常情况下应该是什么结果 -->
 
-   Share your codes of demo
+**如何重现**:
+<!-- 此处补充复现问题的步骤 -->
 
-   **Environment**:
-   * OS (e.g. from /etc/os-release):
-   * Kernel (e.g. `uname -a`):
+**环境**:
 
-   ```
+- 操作系统: 
+- 程序版本:
+- 机器配置:
+```
 
-3. 如果要提交的内容属于可描述的特性，使用如下模板创建issue
+**新特性模板**
 
-   ```text
-   **Is your feature request related to a problem? Please describe.**
-   A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+```text
+**哪些方面的提升**
+<!-- 此处补充该新特性所带来的好处 -->
 
-   **Describe the solution you'd like**
-   A clear and concise description of what you want to happen.
+**原因或需求**
+<!-- 此处补充实现该新特性的缘由或现实需求 -->
+```
 
-   **Describe alternatives you've considered**
-   A clear and concise description of any alternative solutions or features you've considered.
+### 提交信息格式
 
-   **Additional context**
-   Add any other context or screenshots about the feature request here.
+```text
+{{ 所属模块 }} {{ issue编号 }}: {{ 简单描述 }}
 
-   ```
+{{ 详细描述 }}
 
-4. 如果要提交的内容是微小的调整，则无需创建issue
-5. 根据需要提交的内容在fork下来的项目master分支中创建新分支，如：fix-readme-typo，feature-support-user-login
-6. 将内容commit到新建的分支中，在push前对commit进行必要的合并，保证提交树的简洁
-7. 在确认已将所有内容变更提交完成后，向源项目提交pull requrest
-8. 在pull request中会有ci流程对提交的内容进行检查，检查通过后会分配给源项目的reviewer再次检查，在这期间对于新分支进行提交会再次触发ci流程
-9. reviewer检查通过后会对pull request执行merge操作，将新分支中的提交合并到master分支中，在合并完成后对于新分支的提交不会再被识别
+Signed-off-by: {{ 用户名 }} <{{ 用户邮箱 }}>
+```
 
-## 提交规范
+### 分支管理
 
-1. 一个commit对应处理一个问题，如果对于一个小问题做了多次commit，在push前需要对commit进行合并
-2. 每个commit使用如下格式
-
-   ```text
-   {{ 模块简称 }} {{ issue编号 }}: {{ 提交内容简介 }}
-
-   {{ 提交内容描述 }}
-
-   Signed-off-by: {{ 提交者名称 }} {{ 提交者邮箱 }}
-   ```
-
-3. 如果处理的问题较大，涉及多个模块的变更，视模块间是否存在关联。如果存在关联，则将多个模块的commit合并为一个commit，如果不存在关联，则以模块为单位分开为多个commit。
-
-
+![](../.gitbook/assets/image%20%2812%29.png)
 

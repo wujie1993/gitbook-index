@@ -17,7 +17,7 @@ Cortex项目创建于2016年2月份。在2018年8月成为CNCF沙盒项目。项
 
 Cortex的定位是提供Prometheus as a Service，采用中心化的架构。Prometheus可能来自于多个不同的地域，所有的数据都汇入一个Cortex数据中心，由Cortex集中写入，查询和告警。
 
-![](../../.gitbook/assets/image%20%2824%29.png)
+![](../../.gitbook/assets/image%20%2825%29.png)
 
 
 

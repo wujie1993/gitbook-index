@@ -460,7 +460,7 @@ kubectl get secret rook-ceph-object-user-my-store-my-user -n rook-ceph -o jsonpa
 
 根据上述步骤获取到的信息，使用S3客户端进行连接即可使用该S3用户
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](../.gitbook/assets/image%20%2822%29.png)
 
 #### 使用S3存储桶
 
