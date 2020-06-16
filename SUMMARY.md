@@ -9,6 +9,7 @@
 
 ## 随笔
 
+* [WSL2](sui-bi/wsl2.md)
 * [Git](sui-bi/git.md)
 * [IDE](sui-bi/ide/README.md)
   * [Vim](sui-bi/ide/vim.md)
