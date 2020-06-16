@@ -16,12 +16,10 @@ kind主要用于在本地测试和开发kubernetes，通过简单的命令即可
 
 在使用kind前，需要确保docker已经在本地安装完毕
 
-首先下载kind二进制文件
+以安装v0.8.1版本为例
 
 ```text
-curl -Lo ./kind "https://github.com/kubernetes-sigs/kind/releases/download/v0.7.0/kind-$(uname)-amd64"
-chmod +x ./kind
-mv kind /usr/local/bin/
+GO111MODULE="on" go get sigs.k8s.io/kind@v0.8.1
 ```
 
 创建kubernetes集群
