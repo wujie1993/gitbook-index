@@ -6,11 +6,11 @@
 
 * [golang手册](http://golang-2.gitbook.io/)
 * [python手册](https://python-22.gitbook.io/handbook/)
+* [Ansible](kai-fa/ansible.md)
 
 ## 随笔
 
 * [WSL2](sui-bi/wsl2.md)
-* [Ansible](sui-bi/ansible.md)
 * [Git](sui-bi/git.md)
 * [IDE](sui-bi/ide/README.md)
   * [Vim](sui-bi/ide/vim.md)
