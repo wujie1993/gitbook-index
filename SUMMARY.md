@@ -34,6 +34,7 @@
   * [Hyper-V](sui-bi/xu-ni-hua/hyper-v.md)
 * [命令行工具](sui-bi/ming-ling-hang.md)
 * [测试工具](sui-bi/untitled/README.md)
+  * [ioping](sui-bi/untitled/ioping.md)
   * [apache bench](sui-bi/untitled/http-bing-fa-ce-shi.md)
   * [dd](sui-bi/untitled/io-xing-neng-ce-shi.md)
   * [postman](sui-bi/untitled/postman.md)
