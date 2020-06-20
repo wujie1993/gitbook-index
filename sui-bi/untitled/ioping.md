@@ -4,17 +4,25 @@ ioping主要用于测试磁盘io延迟
 
 ### 安装
 
-**centos环境**
+centos环境
 
 ```text
 yum install -y epel-release
 yum install -y ioping
 ```
 
-**ubuntu环境**
+ubuntu环境
 
 ```text
 apt install ioping
+```
+
+### 使用
+
+例子：测试/dev/sda磁盘的io延迟
+
+```text
+ioping -c 20 /dev/sda
 ```
 
 ### 可用参数
@@ -49,13 +57,5 @@ apt install ioping
       -q              suppress human-readable output
       -h              display this message and exit
       -v              display version and exit
-```
-
-### 使用
-
-例子：测试/dev/sda磁盘的io延迟
-
-```text
-ioping -c 20 /dev/sda
 ```
 
