@@ -19,3 +19,35 @@ localhostForwarding=true
 
 打开 任务管理器 -&gt; 服务，重启LxssManager服务
 
+### 如何通过ssh连接wsl 2
+
+重装openssh-server
+
+```bash
+sudo apt-get remove openssh-server
+sudo apt-get install openssh-server
+```
+
+配置sshd
+
+{% code title="/etc/ssh/sshd\_config" %}
+```text
+# 修改端口不与宿主机冲突
+Port 2222
+# 允许使用密码认证方式登录
+PasswordAuthentication yes
+```
+{% endcode %}
+
+重启sshd
+
+```bash
+ sudo service ssh --full-restart
+```
+
+在windows宿主机上测试连接
+
+```bash
+ssh 127.0.0.1 2222
+```
+
