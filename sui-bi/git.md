@@ -29,6 +29,10 @@ git config user.email {{ 邮箱 }}
 
 ## 实用技巧
 
+### 大文件存储git-lfs
+
+{% embed url="https://www.jianshu.com/p/493b81544f80" %}
+
 ### github代理
 
 git拉取推送代码的方式有http和ssh两种

@@ -1,5 +1,9 @@
 # Ansible
 
+### 开发自定义模块
+
+{% embed url="https://docs.ansible.com/ansible/latest/dev\_guide/developing\_modules\_general.html" %}
+
 ### 任务运行时间统计
 
 配置ansible.cfg
