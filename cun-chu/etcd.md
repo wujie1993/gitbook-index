@@ -34,5 +34,9 @@ ETCDCTL_API=3 etcdctl --write-out=table endpoint status
 
 {% embed url="https://www.centos.bz/2018/06/etcd%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%82%E5%B8%B8%EF%BC%9Amvcc-database-space-exceeded%E8%A7%A3%E5%86%B3/" %}
 
+分布式锁
+
+{% embed url="https://tangxusc.github.io/blog/2019/05/etcd-lock%E8%AF%A6%E8%A7%A3/" %}
+
 
 
