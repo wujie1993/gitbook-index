@@ -125,3 +125,7 @@
 * [Helm](cloud-native/helm.md)
 * [Istio](cloud-native/istio.md)
 
+## 优质文章推荐 <a id="you-zhi-wen-zhang"></a>
+
+* [吴叶磊](https://aleiwu.com/post/)
+
