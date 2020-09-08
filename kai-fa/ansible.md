@@ -40,3 +40,11 @@ strategy = mitogen_linear
 strategy_plugins = /usr/lib/python2.7/site-packages/ansible_mitogen/plugins/strategy
 ```
 
+### Q&A
+
+如何获取ansible主控机器地址
+
+```text
+- debug: var="{{ ansible_env['SSH_CLIENT'].split() | first }}"
+```
+
