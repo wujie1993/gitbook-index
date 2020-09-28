@@ -18,6 +18,7 @@
 * [Markdown](sui-bi/markdown/README.md)
   * [mermaid](sui-bi/markdown/mermaid.md)
 * [Linux](sui-bi/linux/README.md)
+  * [文件](sui-bi/linux/wen-jian.md)
   * [SSH](sui-bi/linux/ssh.md)
   * [Systemd](sui-bi/linux/systemd.md)
   * [TLS加密](sui-bi/linux/tls-jia-mi/README.md)

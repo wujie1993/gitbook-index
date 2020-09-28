@@ -78,7 +78,7 @@ git config --global https.proxy 'socks5://127.0.0.1:1081'
 
 {% embed url="https://segmentfault.com/a/1190000007748862" %}
 
-### 撤销上回的提交
+### 撤销已提交的改动
 
 1. `git reset commitId`，\(注：不要带--hard\)到上个版本  
 2. `git stash`，暂存修改  
@@ -91,9 +91,15 @@ git config --global https.proxy 'socks5://127.0.0.1:1081'
 1. `git commit --amend`\(注：修改完成后`Esc+wq+Enter`保存退出\)  
 2. `git push --force`
 
-### 撤销工作区的变动
+### 撤销未add的改动
 
 ```text
-git checkout -- .
+git checkout -- {{ path }}
+```
+
+### 撤销已add但未commit的改动
+
+```text
+git reset {{ commit_id or branch or path}}
 ```
 
