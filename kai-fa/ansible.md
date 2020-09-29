@@ -42,9 +42,18 @@ strategy_plugins = /usr/lib/python2.7/site-packages/ansible_mitogen/plugins/stra
 
 ### Q&A
 
-如何获取ansible主控机器地址
+Q: 如何获取ansible主控机器地址
 
 ```text
 - debug: var="{{ ansible_env['SSH_CLIENT'].split() | first }}"
+```
+
+Q: playbook运行卡在gather\_facts
+
+A: 将gather\_facts信息采集改为最少
+
+```text
+[default]
+gather_subset = min
 ```
 
