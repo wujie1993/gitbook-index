@@ -42,7 +42,7 @@ PasswordAuthentication yes
 重启sshd
 
 ```bash
- sudo service ssh --full-restart
+sudo service ssh --full-restart
 ```
 
 在windows宿主机上测试连接
