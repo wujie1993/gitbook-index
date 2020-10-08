@@ -7,6 +7,9 @@
 * [golang手册](http://golang-2.gitbook.io/)
 * [python手册](https://python-22.gitbook.io/handbook/)
 * [Ansible](kai-fa/ansible.md)
+* [Python](kai-fa/python/README.md)
+  * [pyenv](kai-fa/python/pyenv.md)
+  * [安装](kai-fa/python/an-zhuang.md)
 
 ## 随笔
 
