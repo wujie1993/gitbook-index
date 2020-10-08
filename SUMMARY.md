@@ -21,6 +21,7 @@
     * [循环](kai-fa/python/yu-fa/xun-huan.md)
   * [工具](kai-fa/python/gong-ju/README.md)
     * [pyenv](kai-fa/python/gong-ju/pyenv.md)
+* [Shell](kai-fa/shell.md)
 
 ## 随笔
 
@@ -32,6 +33,7 @@
 * [Markdown](sui-bi/markdown/README.md)
   * [mermaid](sui-bi/markdown/mermaid.md)
 * [Linux](sui-bi/linux/README.md)
+  * [账号](sui-bi/linux/zhang-hao.md)
   * [文件](sui-bi/linux/wen-jian.md)
   * [SSH](sui-bi/linux/ssh.md)
   * [Systemd](sui-bi/linux/systemd.md)
