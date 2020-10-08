@@ -8,8 +8,19 @@
 * [python手册](https://python-22.gitbook.io/handbook/)
 * [Ansible](kai-fa/ansible.md)
 * [Python](kai-fa/python/README.md)
-  * [pyenv](kai-fa/python/pyenv.md)
-  * [安装](kai-fa/python/an-zhuang.md)
+  * [Hello,world!](kai-fa/python/hello-world.md)
+  * [类型](kai-fa/python/an-zhuang/README.md)
+    * [数字](kai-fa/python/an-zhuang/shu-zi.md)
+    * [字符串](kai-fa/python/an-zhuang/zi-fu-chuan.md)
+    * [列表](kai-fa/python/an-zhuang/lie-biao.md)
+    * [元组](kai-fa/python/an-zhuang/yuan-zu.md)
+    * [集合](kai-fa/python/an-zhuang/ji-he.md)
+    * [字典](kai-fa/python/an-zhuang/zi-dian.md)
+  * [语法](kai-fa/python/yu-fa/README.md)
+    * [流程控制](kai-fa/python/yu-fa/liu-cheng-kong-zhi.md)
+    * [循环](kai-fa/python/yu-fa/xun-huan.md)
+  * [工具](kai-fa/python/gong-ju/README.md)
+    * [pyenv](kai-fa/python/gong-ju/pyenv.md)
 
 ## 随笔
 
