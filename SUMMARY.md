@@ -5,7 +5,6 @@
 ## 开发
 
 * [golang手册](http://golang-2.gitbook.io/)
-* [python手册](https://python-22.gitbook.io/handbook/)
 * [Ansible](kai-fa/ansible.md)
 * [Python](kai-fa/python/README.md)
   * [Hello,world!](kai-fa/python/hello-world.md)
@@ -33,6 +32,7 @@
 * [Markdown](sui-bi/markdown/README.md)
   * [mermaid](sui-bi/markdown/mermaid.md)
 * [Linux](sui-bi/linux/README.md)
+  * [Untitled](sui-bi/linux/untitled.md)
   * [账号](sui-bi/linux/zhang-hao.md)
   * [文件](sui-bi/linux/wen-jian.md)
   * [SSH](sui-bi/linux/ssh.md)
