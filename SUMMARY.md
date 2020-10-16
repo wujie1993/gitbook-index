@@ -32,6 +32,7 @@
 * [Markdown](sui-bi/markdown/README.md)
   * [mermaid](sui-bi/markdown/mermaid.md)
 * [Linux](sui-bi/linux/README.md)
+  * [时钟同步](sui-bi/linux/shi-zhong-tong-bu.md)
   * [Untitled](sui-bi/linux/untitled.md)
   * [账号](sui-bi/linux/zhang-hao.md)
   * [文件](sui-bi/linux/wen-jian.md)
