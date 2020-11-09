@@ -48,16 +48,24 @@ $ cat text | grep "Ready"
 I'm Ready.
 ```
 
-例子：打印不带Ready关键字的行
+**可选参数**
 
 ```text
-$ cat << EOF > text
-I'm Ready.
-But it's too late.
-EOF
-
-$ cat text | grep -v Ready
-But it's too late.
+-i    忽略大小写
+-n    显示行号
+–color    高亮关键字，centos7默认已经高亮
+-c    统计符合条件的行数
+-o    只打印关键字，每个被匹配的关键字单独显示一行
+-B    同时显示之前的行，后面必须有数字，如 -B2
+-A    同时显示之后的行
+-w    只匹配独立单词，也就是精确匹配
+-v    反向查找
+-e    同时匹配多个目标
+-q    静默模式，只关心有没有匹配到，不关心内容
+-E    可以使用扩展正则，，相当于egrep
+-P    使用兼容perl的正则
+-r    递归
+-I    忽略二进制文件（默认情况下grep不会忽略二进制文件）
 ```
 
 ## wc
