@@ -32,8 +32,6 @@ US Jane 21
 US Bill 25
 ```
 
-
-
 ## grep
 
 例子：打印带有Ready关键字的行
@@ -66,6 +64,12 @@ I'm Ready.
 -P    使用兼容perl的正则
 -r    递归
 -I    忽略二进制文件（默认情况下grep不会忽略二进制文件）
+```
+
+例子：过滤空白行
+
+```text
+$ grep -Ev "^$" test.txt
 ```
 
 ## wc
