@@ -21,6 +21,7 @@
   * [工具](kai-fa/python/gong-ju/README.md)
     * [pyenv](kai-fa/python/gong-ju/pyenv.md)
 * [Shell](kai-fa/shell.md)
+* [Vue](kai-fa/vue.md)
 
 ## 随笔
 
