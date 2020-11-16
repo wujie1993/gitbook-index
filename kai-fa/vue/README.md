@@ -52,18 +52,9 @@ npm -v
 npm config set registry http://registry.npm.taobao.org
 ```
 
-### 创建项目
-
-1. 创建项目目录并下载vuejs脚本
+### 安装vue-cli
 
 ```text
-mkdir vuejs-demo && cd vuejs-demo
-wget https://cn.vuejs.org/js/vue.js
-```
-
-2. 下载vuejs脚本到
-
-```text
-
+npm install -g @vue/cli
 ```
 
