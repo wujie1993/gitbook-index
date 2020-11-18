@@ -147,9 +147,9 @@
 ## 优质文章推荐 <a id="you-zhi-wen-zhang"></a>
 
 * [吴叶磊](https://aleiwu.com/post/)
+* [阳明](https://www.qikqiak.com/)
 
 ## DevOps
 
-* [Untitled](devops/untitled.md)
 * [参考资料](devops/can-kao-zi-liao.md)
 
