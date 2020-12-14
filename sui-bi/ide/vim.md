@@ -225,5 +225,7 @@ set pastetoggle=<F9>
 ```
 {% endcode %}
 
+###  [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)不生效
 
+升级git至最新版本
 
