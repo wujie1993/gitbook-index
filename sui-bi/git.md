@@ -1,5 +1,11 @@
 # Git
 
+## 安装
+
+{% embed url="https://cloud.tencent.com/developer/article/1590046" %}
+
+## 使用
+
 ### 初始化仓库
 
 ```text
