@@ -53,3 +53,19 @@ Host example.com
 {{ 用户名 }} ALL=(ALL) NOPASSWD: ALL
 ```
 
+### 如何配置ssh代理？
+
+首先安装[nc](https://linux.die.net/man/1/nc)工具
+
+```text
+yum install nc -y
+```
+
+在`~/.ssh/config`中为需要代理的主机名配置ProxyCommand，其中-x参数指定的是sock5代理的地址
+
+```text
+Host github.com   
+  IdentityFile ~/.ssh/id_rsa 
+  ProxyCommand nc -x localhost:1080 %h %p
+```
+
