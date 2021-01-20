@@ -78,7 +78,7 @@ git config --global https.proxy 'socks5://127.0.0.1:1081'
 yum install nc -y
 ```
 
-在`~/.ssh/config`中为需要代理的主机名配置ProxyCommand，其中-x参数指定的是sock5代理的地址
+在`~/.ssh/config`中为需要代理的主机名配置ProxyCommand
 
 {% code title="~/.ssh/config" %}
 ```text
