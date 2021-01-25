@@ -36,7 +36,7 @@ git config user.email {{ 邮箱 }}
 在提交commit后如果发现其中的作者信息没有更新，可以使用下述命令重置作者信息并重新提交
 
 ```text
- git commit -s -amend --reset-author
+ git commit -s --amend --reset-author
 ```
 
 ## 实用技巧
