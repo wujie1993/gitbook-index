@@ -54,5 +54,5 @@ Signed-off-by: {{ 用户名 }} <{{ 用户邮箱 }}>
 
 ### 分支管理
 
-![](../.gitbook/assets/image%20%2812%29.png)
+![](../../.gitbook/assets/image%20%2812%29.png)
 

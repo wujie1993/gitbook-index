@@ -59,7 +59,8 @@
   * [apache bench](sui-bi/untitled/http-bing-fa-ce-shi.md)
   * [dd](sui-bi/untitled/io-xing-neng-ce-shi.md)
   * [postman](sui-bi/untitled/postman.md)
-* [开源项目管理](sui-bi/kai-yuan-xiang-mu-guan-li.md)
+* [开源项目管理](sui-bi/kai-yuan-xiang-mu-guan-li/README.md)
+  * [Github](sui-bi/kai-yuan-xiang-mu-guan-li/github.md)
 * [软件包管理](sui-bi/bao-guan-li.md)
 * [网络镜像源](sui-bi/wang-luo-jing-xiang.md)
 
