@@ -1,22 +1,15 @@
-# Systemd
-
-### 
+# systemd
 
 ### Q&A
 
-#### 如何在systemd中source /etc/profile？
+#### 如何在systemd中加载/etc/profile中的环境变量？
 
 ```text
-[Unit]
-Description=Run command with source /etc/profile
-
 [Service]
-Type=oneshot
-RemainAfterExit=true
-ExecStart=/bin/bash -c 'source /etc/profile && /bin/sh /root/test.sh'
-
-[Install]
-WantedBy=multi-user.target
+...
+# 在启动命令前使用source /etc/profile指令加载环境变量
+ExecStart=/bin/bash -c 'source /etc/profile && {{ 启动命令 }}'
+...
 ```
 
 #### 使用systemctl status命令查看不到日志？

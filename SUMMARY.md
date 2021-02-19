@@ -40,7 +40,7 @@
   * [账号](sui-bi/linux/zhang-hao.md)
   * [文件](sui-bi/linux/wen-jian.md)
   * [SSH](sui-bi/linux/ssh.md)
-  * [Systemd](sui-bi/linux/systemd.md)
+  * [systemd](sui-bi/linux/systemd.md)
   * [TLS加密](sui-bi/linux/tls-jia-mi/README.md)
     * [Openssl](sui-bi/linux/tls-jia-mi/openssl.md)
   * [存储](sui-bi/linux/cun-chu/README.md)
