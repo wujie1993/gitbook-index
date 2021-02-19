@@ -20,7 +20,7 @@ ExecStart=/bin/bash -c 'source /etc/profile && {{ 启动命令 }}'
 systemctl restart systemd-journald.service
 ```
 
-#### 如何同时输出日志到systemd和本地文件中？
+#### 如何将日志输出到本地文件中？
 
 程序直接将日志输出到控制台，在程序启动脚本中使用如下命令
 
@@ -34,7 +34,7 @@ nohup {{ 程序路径 }} >> {{ 本地日志文件路径 }} 2>&1 &
 ...
 
 [Service]
-# 使用forking模式可以截获启动脚本的子进程以及子进程的控制台输出
+# 使用forking模式可以截获启动脚本的子进程
 Type=forking
 # 使用脚本做为启动命令
 ExecStart={{ 脚本路径 }}
