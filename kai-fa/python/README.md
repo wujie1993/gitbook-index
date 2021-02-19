@@ -48,5 +48,5 @@ lrwxrwxrwx. 1 root root       16 Mar  9 17:04 python3-config -> python3.8-config
 
 ## 参考资料
 
-* 通过python实现所有算法 [链接](https://github.com/TheAlgorithms/Python)
+* [通过python实现所有算法](https://github.com/TheAlgorithms/Python)
 
