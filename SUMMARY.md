@@ -4,6 +4,10 @@
 
 ## 开发
 
+* [IDE环境](kai-fa/ide/README.md)
+  * [Vim](kai-fa/ide/vim.md)
+  * [VSCode](kai-fa/ide/vscode/README.md)
+    * [code-server](kai-fa/ide/vscode/code-server.md)
 * [golang手册](http://golang-2.gitbook.io/)
 * [Ansible](kai-fa/ansible.md)
 * [Python](kai-fa/python/README.md)
@@ -30,9 +34,6 @@
 
 * [WSL2](sui-bi/wsl2.md)
 * [Git](sui-bi/git.md)
-* [IDE](sui-bi/ide/README.md)
-  * [Vim](sui-bi/ide/vim.md)
-  * [VSCode](sui-bi/ide/vscode.md)
 * [Markdown](sui-bi/markdown/README.md)
   * [mermaid](sui-bi/markdown/mermaid.md)
 * [Linux](sui-bi/linux/README.md)
