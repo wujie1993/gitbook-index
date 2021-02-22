@@ -6,8 +6,7 @@
 
 * [IDE环境](kai-fa/ide/README.md)
   * [Vim](kai-fa/ide/vim.md)
-  * [VSCode](kai-fa/ide/vscode/README.md)
-    * [code-server](kai-fa/ide/vscode/code-server.md)
+  * [VSCode](kai-fa/ide/vscode.md)
 * [golang手册](http://golang-2.gitbook.io/)
 * [Ansible](kai-fa/ansible.md)
 * [Python](kai-fa/python/README.md)
