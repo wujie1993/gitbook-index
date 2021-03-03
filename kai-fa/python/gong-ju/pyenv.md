@@ -1,5 +1,5 @@
 ---
-description: 便携式沙盒环境
+description: 便携式python沙盒执行环境
 ---
 
 # pyenv
