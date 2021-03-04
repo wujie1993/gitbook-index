@@ -54,6 +54,7 @@
     * [Logstash](sui-bi/linux/ri-zhi-cai-ji/logstash.md)
 * [虚拟化](sui-bi/xu-ni-hua/README.md)
   * [Hyper-V](sui-bi/xu-ni-hua/hyper-v.md)
+  * [PXE](sui-bi/xu-ni-hua/pxe.md)
 * [命令行工具](sui-bi/ming-ling-hang.md)
 * [测试工具](sui-bi/untitled/README.md)
   * [ioping](sui-bi/untitled/ioping.md)
