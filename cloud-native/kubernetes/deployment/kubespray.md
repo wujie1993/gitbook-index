@@ -24,10 +24,16 @@ git@github.com:kubernetes-sigs/kubespray.git && cd kubespray
 sudo apt install python3
 ```
 
+**centos7环境**
+
+```text
+sudo yum install python3
+```
+
 3、安装python依赖包
 
 ```text
-sudo pip3 install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
 {% hint style="info" %}
