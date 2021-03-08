@@ -14,6 +14,7 @@ description: 部署生产环境就绪的kubernetes集群
 
 * 关闭防火墙或配置服务器间的互信任策略
 * 系统时钟同步
+* ansible节点到k8s节点的ssh免密登录
 
 1、下载kubespray
 
