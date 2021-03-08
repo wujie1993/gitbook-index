@@ -14,7 +14,7 @@ description: 部署生产环境就绪的kubernetes集群
 
 * 关闭防火墙或配置服务器间的互信任策略
 * 系统时钟同步
-* ansible节点到k8s节点的ssh免密登录
+* ansible 节点到 k8s 节点的 ssh 免密登录
 
 1、下载kubespray
 
@@ -76,6 +76,69 @@ ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root 
 
 拉取gcr.io的镜像可以配置国内镜像源gcr\_image\_repo: registry.aliyuncs.com
 {% endhint %}
+
+8、查看集群、节点以及 Pod 状态
+
+```text
+kubectl cluster-info
+kubectl get node -o wide
+kubectl get pod -o wide
+```
+
+## 组件安装
+
+### kube-dashboard
+
+1、配置启用 dashboard
+
+{% code title="inventory/mycluster/group\_vars/k8s-cluster/addons.yml" %}
+```text
+dashboard_enabled: true
+```
+{% endcode %}
+
+2、安装配置 dashboard
+
+```text
+ansible-playbook -i inventory/mycluster/hosts.yaml --tags "apps" --become --become-user=root cluster.yml
+```
+
+3、通过 NodePort 方式暴露 dashboard 服务
+
+```text
+kubectl edit svc kubernetes-dashboard -n kube-system
+```
+
+```text
+apiVersion: v1
+kind: Service
+metadata:
+  ...
+  name: kubernetes-dashboard
+  namespace: kube-system
+spec:
+  ...
+  ports:
+  - nodePort: 30000
+    port: 443
+    protocol: TCP
+    targetPort: 8443
+  ...
+  type: NodePort
+
+```
+
+4、创建集群管理用户并获取其登录 token 
+
+```text
+kubectl create sa admin -n kube-system
+kubectl create clusterrolebinding --clusterrole='cluster-admin' --serviceaccount=kube-system:admin admin
+kubectl get secret -n kube-system | grep admin | awk '{print $1}' | xargs kubectl -n kube-system get secret -o jsonpath='{.data.token}' | base64 --decode
+```
+
+5、通过浏览器访问 proxy 节点的 30000 端口，使用上方获取的 token 登录 dashboard
+
+
 
 ## 离线安装
 
