@@ -7,7 +7,8 @@
 | docker.io | hub-mirror.c.163.com |
 | docker.io | docker.mirrors.ustc.edu.cn |
 | quay.io | quay.mirrors.ustc.edu.cn |
-| gcr.io | gcr.mirrors.ustc.edu.cn |
+| gcr.io | gcr.mirrors.ustc.edu.cn;registry.aliyuncs.com |
+|  k8s.gcr.io | registry.aliyuncs.com/google\_containers |
 
 例子：拉取 gcr.io镜像
 

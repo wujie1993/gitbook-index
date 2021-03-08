@@ -10,6 +10,11 @@ description: 部署生产环境就绪的kubernetes集群
 
 ## 快速开始
 
+前置动作：
+
+* 关闭防火墙或配置服务器间的互信任策略
+* 系统时钟同步
+
 1、下载kubespray
 
 ```text
@@ -62,8 +67,14 @@ cat inventory/mycluster/group_vars/k8s-cluster/k8s-cluster.yml
 7、执行安装
 
 ```text
-ansible-playbook -i inventory/mycluster/hosts.yaml/inventory.ini  --become --become-user=root cluster.yml
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
 ```
+
+{% hint style="info" %}
+拉取k8s.gcr.io的镜像时可能会出错，建议预先从其他的镜像地址中先拉取好，在inventory/mycluster/hosts.yaml中配置download\_always\_pull: false避免重复拉取已经存在的镜像；
+
+拉取gcr.io的镜像可以配置国内镜像源gcr\_image\_repo: registry.aliyuncs.com
+{% endhint %}
 
 ## 离线安装
 
