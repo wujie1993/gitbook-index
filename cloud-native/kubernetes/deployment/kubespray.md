@@ -89,7 +89,7 @@ kubectl get pod -o wide
 
 ### kube-dashboard
 
-1、配置启用 dashboard
+1、配置 dashboard
 
 {% code title="inventory/mycluster/group\_vars/k8s-cluster/addons.yml" %}
 ```text
@@ -97,7 +97,7 @@ dashboard_enabled: true
 ```
 {% endcode %}
 
-2、安装配置 dashboard
+2、安装 dashboard
 
 ```text
 ansible-playbook -i inventory/mycluster/hosts.yaml --tags "apps" --become --become-user=root cluster.yml
@@ -143,7 +143,7 @@ kubectl get secret -n kube-system | grep admin | awk '{print $1}' | xargs kubect
 
 ### metrics-server
 
-1、配置启用 metrics-server
+1、配置 metrics-server
 
 {% code title="inventory/mycluster/group\_vars/k8s-cluster/addons.yml" %}
 ```text
@@ -151,7 +151,7 @@ metrics_server_enabled: true
 ```
 {% endcode %}
 
-2、安装配置 metrics-server
+2、安装 metrics-server
 
 ```text
 ansible-playbook -i inventory/mycluster/hosts.yaml --tags "apps" --become --become-user=root cluster.yml
@@ -161,7 +161,7 @@ ansible-playbook -i inventory/mycluster/hosts.yaml --tags "apps" --become --beco
 
 ### helm
 
-1、配置启用 helm
+1、配置 helm
 
 {% code title="inventory/mycluster/group\_vars/k8s-cluster/addons.yml" %}
 ```text
@@ -169,13 +169,30 @@ helm_enabled: true
 ```
 {% endcode %}
 
-2、安装配置 helm\_enabled
+2、安装 helm
 
 ```text
 ansible-playbook -i inventory/mycluster/hosts.yaml --tags "apps" --become --become-user=root cluster.yml
 ```
 
 3、在 \[kube-master\] 节点上可执行 helm 指令
+
+### local-path-provisioner
+
+1、配置 local-path-provisioner
+
+{% code title="inventory/mycluster/group\_vars/k8s-cluster/addons.yml" %}
+```text
+local_path_provisioner_enabled: true
+local_path_provisioner_helper_image_repo: "busybox"
+```
+{% endcode %}
+
+2、安装 local-path-provisioner
+
+```text
+ansible-playbook -i inventory/mycluster/hosts.yaml --tags "apps" --become --become-user
+```
 
 ## 离线安装
 
