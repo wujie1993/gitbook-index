@@ -128,15 +128,18 @@ spec:
 
 ```
 
-4、创建集群管理用户并获取其登录 token 
+4、创建集群管理用户
 
 ```text
 kubectl create sa admin -n kube-system
 kubectl create clusterrolebinding --clusterrole='cluster-admin' --serviceaccount=kube-system:admin admin
-kubectl get secret -n kube-system | grep admin | awk '{print $1}' | xargs kubectl -n kube-system get secret -o jsonpath='{.data.token}' | base64 --decode
 ```
 
-5、通过浏览器访问 proxy 节点的 30000 端口，使用上方获取的 token 登录 dashboard
+5、通过浏览器访问 proxy 节点的 30000 端口，使用下方命令获取 token 登录 dashboard
+
+```text
+kubectl get secret -n kube-system | grep admin | awk '{print $1}' | xargs kubectl -n kube-system get secret -o jsonpath='{.data.token}' | base64 --decode
+```
 
 ### metrics-server
 
