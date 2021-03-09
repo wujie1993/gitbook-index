@@ -10,7 +10,7 @@ description: 部署生产环境就绪的kubernetes集群
 
 ## 快速开始
 
-前置动作：
+前置步骤：
 
 * 关闭防火墙或配置服务器间的互信任策略
 * 系统时钟同步
@@ -19,7 +19,7 @@ description: 部署生产环境就绪的kubernetes集群
 1、下载kubespray
 
 ```text
-git@github.com:kubernetes-sigs/kubespray.git && cd kubespray
+git@github.com:kubernetes-sigs/kubespray.git && cd kubespray && git checkout release-2.15
 ```
 
 2、安装python3与pip3
@@ -74,7 +74,7 @@ ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root 
 {% hint style="info" %}
 拉取k8s.gcr.io的镜像时可能会出错，建议预先从其他的镜像地址中先拉取好，在inventory/mycluster/hosts.yaml中配置download\_always\_pull: false避免重复拉取已经存在的镜像；
 
-拉取gcr.io的镜像可以配置国内镜像源gcr\_image\_repo: registry.aliyuncs.com
+拉取gcr.io的镜像可以配置国内镜像源gcr\_image\_repo: registry.aliyuncs.com/
 {% endhint %}
 
 8、查看集群、节点以及 Pod 状态
@@ -138,7 +138,41 @@ kubectl get secret -n kube-system | grep admin | awk '{print $1}' | xargs kubect
 
 5、通过浏览器访问 proxy 节点的 30000 端口，使用上方获取的 token 登录 dashboard
 
+### metrics-server
 
+1、配置启用 metrics-server
+
+{% code title="inventory/mycluster/group\_vars/k8s-cluster/addons.yml" %}
+```text
+metrics_server_enabled: true
+```
+{% endcode %}
+
+2、安装配置 metrics-server
+
+```text
+ansible-playbook -i inventory/mycluster/hosts.yaml --tags "apps" --become --become-user=root cluster.yml
+```
+
+3、访问 dashboard 访问 pod 可看到运行指标
+
+### helm
+
+1、配置启用 helm
+
+{% code title="inventory/mycluster/group\_vars/k8s-cluster/addons.yml" %}
+```text
+helm_enabled: true
+```
+{% endcode %}
+
+2、安装配置 helm\_enabled
+
+```text
+ansible-playbook -i inventory/mycluster/hosts.yaml --tags "apps" --become --become-user=root cluster.yml
+```
+
+3、在 \[kube-master\] 节点上可执行 helm 指令
 
 ## 离线安装
 
