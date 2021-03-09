@@ -184,7 +184,8 @@ ansible-playbook -i inventory/mycluster/hosts.yaml --tags "apps" --become --beco
 {% code title="inventory/mycluster/group\_vars/k8s-cluster/addons.yml" %}
 ```text
 local_path_provisioner_enabled: true
-local_path_provisioner_helper_image_repo: "busybox"
+local_path_provisioner_claim_root: /data/k8s/local-path-provisioner/
+local_path_provisioner_image_tag: "v0.0.17"
 ```
 {% endcode %}
 
