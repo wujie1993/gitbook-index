@@ -14,12 +14,12 @@ kind主要用于在本地测试和开发kubernetes，通过简单的命令即可
 
 ## 快速开始
 
-在使用kind前，需要确保docker已经在本地安装完毕
+在使用kind前，请确保已在本地安装 [go](https://golang.org/) \([1.11+](https://golang.org/doc/devel/release.html#policy)\) 和 docker。
 
-以安装v0.8.1版本为例
+以安装v0.10.0版本为例，下载并安装kind
 
 ```text
-GO111MODULE="on" go get sigs.k8s.io/kind@v0.8.1
+GO111MODULE="on" go get sigs.k8s.io/kind@v0.10.0
 ```
 
 创建kubernetes集群
