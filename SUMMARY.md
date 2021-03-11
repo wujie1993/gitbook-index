@@ -155,5 +155,7 @@
 
 ## DevOps
 
+* [CICD](devops/cicd/README.md)
+  * [Jenkins](devops/cicd/jenkins.md)
 * [参考资料](devops/can-kao-zi-liao.md)
 
