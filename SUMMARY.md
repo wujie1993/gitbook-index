@@ -96,7 +96,6 @@
 ## 云原生 <a id="cloud-native"></a>
 
 * [容器](cloud-native/rong-qi/README.md)
-  * [镜像源](cloud-native/rong-qi/jing-xiang-yuan.md)
   * [Docker](cloud-native/rong-qi/docker/README.md)
     * [Dockerfile](cloud-native/rong-qi/docker/dockerfile.md)
     * [docker-compose](cloud-native/rong-qi/docker/docker-compose.md)
@@ -105,6 +104,8 @@
     * [Chroot](cloud-native/rong-qi/yuan-li/chroot.md)
     * [Namespace](cloud-native/rong-qi/yuan-li/namespace.md)
     * [Cgroup](cloud-native/rong-qi/yuan-li/cgroup.md)
+* [镜像仓库](cloud-native/jing-xiang-yuan/README.md)
+  * [Harbor](cloud-native/jing-xiang-yuan/harbor.md)
 * [Kubernetes](cloud-native/kubernetes/README.md)
   * [部署](cloud-native/kubernetes/deployment/README.md)
     * [Kind](cloud-native/kubernetes/deployment/kind.md)
