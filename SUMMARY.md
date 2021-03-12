@@ -47,6 +47,7 @@
   * [存储](sui-bi/linux/cun-chu/README.md)
     * [rsync](sui-bi/linux/cun-chu/rsync.md)
     * [NFS](sui-bi/linux/cun-chu/nfs.md)
+  * [路由](sui-bi/linux/lu-you.md)
   * [日志采集](sui-bi/linux/ri-zhi-cai-ji/README.md)
     * [Journalctl](sui-bi/linux/ri-zhi-cai-ji/journalctl.md)
     * [Fluentd](sui-bi/linux/ri-zhi-cai-ji/fluentd/README.md)
