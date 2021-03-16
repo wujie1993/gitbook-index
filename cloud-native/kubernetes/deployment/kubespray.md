@@ -94,6 +94,7 @@ kubectl get pod -o wide
 {% code title="inventory/mycluster/group\_vars/k8s-cluster/addons.yml" %}
 ```text
 dashboard_enabled: true
+dashboard_token_ttl: 43200
 ```
 {% endcode %}
 

@@ -39,6 +39,14 @@ git config user.email {{ 邮箱 }}
  git commit -s --amend --reset-author
 ```
 
+## 子模块
+
+例子：添加子模块
+
+```text
+git submodule add <项目地址> <目标路径>
+```
+
 ## 实用技巧
 
 ### 大文件存储git-lfs
