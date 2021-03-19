@@ -6,9 +6,19 @@
 
 ## 快速开始 <a id="quickstart"></a>
 
-安装operator
+1、创建命名空间
 
 ```text
-curl https://raw.githubusercontent.com/coreos/prometheus-operator/master/bundle.yaml | kubectl create -f -
+kubectl create ns prometheus
 ```
+
+2、安装operator
+
+```text
+wget https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.46.0/bundle.yaml
+sed -i 's/namespace: default/namespace: prometheus/g' bundle.yaml
+kubectl apply -f bundle.yaml
+```
+
+
 
