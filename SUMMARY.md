@@ -153,6 +153,9 @@
 * [Rook](cloud-native/rook.md)
 * [Helm](cloud-native/helm.md)
 * [Istio](cloud-native/istio.md)
+* [应用部署](cloud-native/ying-yong-bu-shu/README.md)
+  * [Nexus](cloud-native/ying-yong-bu-shu/nexus.md)
+  * [RabbitMQ](cloud-native/ying-yong-bu-shu/rabbitmq.md)
 * [参考资料](cloud-native/can-kao-zi-liao.md)
 
 ## DevOps
