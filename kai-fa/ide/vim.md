@@ -59,7 +59,7 @@ git clone https://github.com/vim/vim.git $GOPATH/src/github.com/vim/vim
 编译安装vim
 
 ```bash
-cd $GOPATH/src/github.com/vim/vim
+cd $GOPATH/src/github.com/vim/vim && git checkout v8.1.2424
 // 如果不需要vim桌面版UI，可以关闭CONF_OPT_GUI配置项，提示vim性能
 sed -i 's/^# CONF_OPT_GUI.*/CONF_OPT_GUI = --disable-gui/' ./src/Makefile
 // 编译配置
@@ -117,6 +117,9 @@ Plugin 'fatih/vim-go'
 " Plugin 'rjohnsondev/vim-compiler-go'
 Plugin 'majutsushi/tagbar'
 Plugin 'fatih/molokai'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
 " Plugin 'Shougo/neocomplete.vim'
 
 call vundle#end()
@@ -125,18 +128,19 @@ filetype plugin on
 
 " nerdtree conf
 let NERDTreeShowHidden=1
-autocmd vimenter * NERDTree
+silent! autocmd VimEnter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+silent! autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+silent! autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+nmap <F7> :NERDTree<CR>
 
-" molokai conf
+" molokai
 syntax enable
 set t_Co=256
 let g:rehash256 = 1
 let g:molokai_original = 1
-colorscheme molokai
+silent! colorscheme molokai
 
 " vim-go
 let g:go_list_type = "quickfix"
@@ -150,7 +154,7 @@ let g:go_highlight_build_constraints = 1
 "autocmd BufWritePost,FileWritePost *.go execute 'GoVet'
 
 " tagbar
-"autocmd vimenter * TagbarToggle
+silent! autocmd VimEnter * TagbarToggle
 nmap <F8> :TagbarToggle<CR>
 
 " neocomplete
