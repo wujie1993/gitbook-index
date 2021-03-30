@@ -196,6 +196,33 @@ local_path_provisioner_image_tag: "v0.0.17"
 ansible-playbook -i inventory/mycluster/hosts.yaml --tags "apps" --become --become-user
 ```
 
+## 集群配置
+
+### 设置 dns上游
+
+1、配置 dns 使用主机 resolve.conf 并设置 dns 上游服务器地址
+
+{% tabs %}
+{% tab title="inventory/mycluster/group\_vars/all/all.yml" %}
+```text
+upstream_dns_servers:
+- <ip>:<port>
+```
+{% endtab %}
+
+{% tab title="inventory/k8s-cluster/k8s-cluster.yml" %}
+```
+resolvconf_mode: host_resolvconf
+```
+{% endtab %}
+{% endtabs %}
+
+2、更新 dns
+
+```text
+ansible-playbook -i inventory/mycluster/hosts.yaml --tags "apps,resolvconf" --
+```
+
 ## 离线安装
 
 在某些私有部署的场景下，无法连接互联网进行下载安装，这需要提前将安装所需的各种依赖资源下载到本地，方法如下：
