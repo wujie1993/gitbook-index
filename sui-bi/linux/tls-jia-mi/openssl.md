@@ -28,6 +28,8 @@ openssl x509 -in {{ 证书路径 }} -noout -subject
 
 ## 生成证书
 
+{% embed url="https://blog.csdn.net/u013958257/article/details/107326771" %}
+
 
 
 ## 参考资料
