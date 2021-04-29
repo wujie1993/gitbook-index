@@ -8,5 +8,7 @@
 
 {% embed url="https://segmentfault.com/a/1190000022772025" %}
 
+3. 执行 npm install 提示错误 gyp ERR! stack Error: EACCES: permission denied
 
+npm install 命令添加参数 `--unsafe-perm=true --allow-root`
 
