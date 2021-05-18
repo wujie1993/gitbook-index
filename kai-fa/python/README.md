@@ -20,7 +20,7 @@ Python是一种支持动态类型的高级脚本语言，由 [Guido van Rossum](
 
 ```text
 wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
-tar xvf Python-3.8.2.tar.xz && Python-3.8.2
+tar xvf Python-3.8.2.tar.xz && cd Python-3.8.2
 ```
 
 安装依赖库

@@ -6,11 +6,11 @@ description: 便携式python沙盒执行环境
 
 pyenv用于python的版本管理，每个版本的python都是用独立的存储区域，并且可依据需要自由切换和组合不同的python版本。
 
-### 项目地址
+## 项目地址
 
 {% embed url="https://github.com/pyenv/pyenv\#installation" %}
 
-### 快速开始
+## 快速开始
 
 安装git用于拉取代码
 
@@ -18,7 +18,7 @@ pyenv用于python的版本管理，每个版本的python都是用独立的存储
 yum install -y git
 ```
 
-安装pyenv
+### 安装pyenv
 
 ```text
 curl https://pyenv.run | bash
@@ -32,7 +32,15 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
 
-以安装python 3.8.0为例，先使用yum安装编译所需的依赖库，在通过pyenv安装python 3.8.0
+### **查看python版本**
+
+```text
+pyenv versions
+```
+
+### 安装并切换python版本
+
+以安装python 3.8.0为例，先使用yum安装编译所需的依赖库，再通过pyenv安装python 3.8.0。
 
 ```text
 yum install -y  zlib-devel openssl-devel bzip2-devel readline-devel sqlite-devel libffi-devel
@@ -40,4 +48,13 @@ pyenv install 3.8.0
 ```
 
 安装后的python存储于/root/.pyenv/versions/3.8.0/bin中
+
+切换使用python 3.8.0版本
+
+```text
+pyenv global 3.8.0
+python --version
+```
+
+
 
