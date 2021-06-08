@@ -24,6 +24,7 @@
   * [工具](kai-fa/python/gong-ju/README.md)
     * [pip](kai-fa/python/gong-ju/pip.md)
     * [pyenv](kai-fa/python/gong-ju/pyenv.md)
+    * [selenium](kai-fa/python/gong-ju/selenium.md)
 * [Shell](kai-fa/shell.md)
 * [Vue](kai-fa/vue/README.md)
   * [Q&A](kai-fa/vue/q-and-a.md)
