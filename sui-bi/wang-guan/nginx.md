@@ -1,5 +1,31 @@
 # Nginx
 
+## 官方网站
+
+{% embed url="https://www.nginx.com/" %}
+
+## 安装
+
+1、配置安装源
+
+{% code title="/etc/yum.repos.d/nginx.repo" %}
+```text
+[nginx]
+name=nginx repo
+baseurl=https://nginx.org/packages/mainline/<OS>/<OSRELEASE>/$basearch/
+gpgcheck=0
+enabled=1
+```
+{% endcode %}
+
+2、安装 nginx
+
+```text
+yum install -y nginx
+```
+
+## 使用
+
 例子：将http协议的请求自动重定向为https协议请求
 
 ```text
