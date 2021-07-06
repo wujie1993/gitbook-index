@@ -69,6 +69,7 @@
   * [Github](sui-bi/kai-yuan-xiang-mu-guan-li/github.md)
 * [软件包管理](sui-bi/bao-guan-li.md)
 * [网络镜像源](sui-bi/wang-luo-jing-xiang.md)
+* [网关](sui-bi/wang-guan.md)
 
 ## 存储
 
