@@ -1,6 +1,4 @@
-# 网关
-
-## Nginx
+# Nginx
 
 例子：将http协议的请求自动重定向为https协议请求
 
