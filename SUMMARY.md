@@ -27,7 +27,6 @@
     * [selenium](kai-fa/python/gong-ju/selenium.md)
 * [Shell](kai-fa/shell.md)
 * [Vue](kai-fa/vue/README.md)
-  * [Q&A](kai-fa/vue/q-and-a.md)
   * [ant-design](kai-fa/vue/ant-design.md)
   * [vue-material](kai-fa/vue/vue-material.md)
 
