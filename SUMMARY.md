@@ -57,6 +57,7 @@
   * [Hyper-V](sui-bi/xu-ni-hua/hyper-v.md)
   * [PXE](sui-bi/xu-ni-hua/pxe.md)
 * [命令行工具](sui-bi/ming-ling-hang.md)
+* [Nexus3](sui-bi/nexus3.md)
 * [堡垒机](sui-bi/bao-lei-ji/README.md)
   * [JumpServer](sui-bi/bao-lei-ji/jumpserver.md)
 * [测试工具](sui-bi/untitled/README.md)
