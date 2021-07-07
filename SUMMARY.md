@@ -78,7 +78,7 @@
   * [安装](cun-chu/ceph/an-zhuang.md)
   * [故障处理](cun-chu/ceph/gu-zhang-chu-li.md)
 * [Etcd](cun-chu/etcd.md)
-* [关系型数据库](cun-chu/guan-xi-xing-shu-ju-ku.md)
+* [Mysql](cun-chu/guan-xi-xing-shu-ju-ku.md)
 
 ## 网络
 
