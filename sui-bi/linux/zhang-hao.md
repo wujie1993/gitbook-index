@@ -9,3 +9,7 @@
 {{ 用户名 }} ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
+### 使用sudo su时缺少/etc/profile中的环境变量
+
+在~/.bachrc中添加source /etc/profile语句
+
