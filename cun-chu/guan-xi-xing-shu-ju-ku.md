@@ -19,3 +19,11 @@ GRANT SELECT ON mydb.* TO 'readonly'@'%';
 FLUSH PRIVILEGES;
 ```
 
+例子：允许root用户远程登录
+
+```text
+USE mysql;
+UPDATE user SET host='%' WHERE user ='root';
+FLUSH PRIVILEGES;
+```
+

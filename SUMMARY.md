@@ -25,6 +25,7 @@
     * [pip](kai-fa/python/gong-ju/pip.md)
     * [pyenv](kai-fa/python/gong-ju/pyenv.md)
     * [selenium](kai-fa/python/gong-ju/selenium.md)
+  * [示例](kai-fa/python/shi-li.md)
 * [Shell](kai-fa/shell.md)
 * [Vue](kai-fa/vue/README.md)
   * [ant-design](kai-fa/vue/ant-design.md)
