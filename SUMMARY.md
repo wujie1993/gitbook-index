@@ -10,6 +10,7 @@
 * [Golang手册](http://golang-2.gitbook.io/)
 * [Ansible](kai-fa/ansible.md)
 * [Python](kai-fa/python/README.md)
+  * [Q&A](kai-fa/python/q-and-a.md)
   * [Hello,world!](kai-fa/python/hello-world.md)
   * [类型](kai-fa/python/an-zhuang/README.md)
     * [数字](kai-fa/python/an-zhuang/shu-zi.md)
