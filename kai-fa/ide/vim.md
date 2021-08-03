@@ -233,3 +233,29 @@ set pastetoggle=<F9>
 
 升级git至最新版本
 
+### python代码格式化
+
+首先安装格式化工具
+
+```text
+pip install autopep8
+```
+
+在将以下内容添加至~/.vimrc
+
+```text
+call vundle#begin()
+...
+Plugin 'Chiel92/vim-autoformat'
+...
+call vundle#end()
+
+" python-autoformat
+" 使用快捷键F6对当前代码文件进行格式化
+nnoremap <F6> :Autoformat<CR>
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+
+```
+
