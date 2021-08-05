@@ -7,6 +7,7 @@
 * [IDE环境](kai-fa/ide/README.md)
   * [Vim](kai-fa/ide/vim.md)
   * [VSCode](kai-fa/ide/vscode.md)
+  * [VSCode Online](kai-fa/ide/vscode-online.md)
 * [Golang手册](http://golang-2.gitbook.io/)
 * [Ansible](kai-fa/ansible.md)
 * [Python](kai-fa/python/README.md)
@@ -167,6 +168,7 @@
 
 ## DevOps
 
+* [运维开发平台](devops/yun-wei-kai-fa-ping-tai.md)
 * [CICD](devops/cicd/README.md)
   * [Jenkins](devops/cicd/jenkins.md)
 * [参考资料](devops/can-kao-zi-liao.md)
