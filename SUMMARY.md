@@ -168,7 +168,7 @@
 
 ## DevOps
 
-* [运维开发平台](devops/yun-wei-kai-fa-ping-tai.md)
+* [开源DevOps平台](devops/devops-ping-tai.md)
 * [CICD](devops/cicd/README.md)
   * [Jenkins](devops/cicd/jenkins.md)
 * [参考资料](devops/can-kao-zi-liao.md)
