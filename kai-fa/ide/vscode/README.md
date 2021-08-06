@@ -22,9 +22,11 @@
 git clone git@github.com:golang/tools.git $GOPATH/src/golang.org/x/tools
 ```
 
-## 插件编写
+## 插件开发
 
 {% embed url="https://www.cnblogs.com/liuxianan/p/vscode-plugin-overview.html" %}
+
+{% embed url="https://zhaomenghuan.js.org/blog/vscode-custom-development-basic-preparation.html" %}
 
 
 
