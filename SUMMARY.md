@@ -11,6 +11,7 @@
     * [theia](kai-fa/ide/vscode/theia.md)
 * [Golang手册](http://golang-2.gitbook.io/)
 * [Ansible](kai-fa/ansible.md)
+* [SaltStack](kai-fa/saltstack.md)
 * [Python](kai-fa/python/README.md)
   * [Q&A](kai-fa/python/q-and-a.md)
   * [Hello,world!](kai-fa/python/hello-world.md)
