@@ -4,7 +4,7 @@
 
 ### mac
 
-1、安装openjdk8
+1、安装openjdk-1.8
 
 ```text
 brew tap AdoptOpenJDK/openjdk
@@ -15,6 +15,12 @@ brew install adoptopenjdk8
 
 ```text
 brew install maven
+```
+
+3、maven默认会捆绑安装java-1.16，修改maven所使用的java运行时版本，创建/etc/mavenrc或~/.mavenrc文件，设置以下内容
+
+```text
+JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 ```
 
 ## Q&A
