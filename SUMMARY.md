@@ -34,6 +34,7 @@
 * [Vue](kai-fa/vue/README.md)
   * [ant-design](kai-fa/vue/ant-design.md)
   * [vue-material](kai-fa/vue/vue-material.md)
+* [Java](kai-fa/java.md)
 
 ## 随笔
 
