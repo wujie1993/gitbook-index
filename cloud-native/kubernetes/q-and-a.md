@@ -36,5 +36,11 @@ curl -k -H "Content-Type: application/json" -X PUT --data-binary @test-ns.json h
 
 ### 证书过期如何续签
 
-[https://www.qikqiak.com/post/update-k8s-10y-expire-certs/](https://www.qikqiak.com/post/update-k8s-10y-expire-certs/)
+{% embed url="https://www.qikqiak.com/post/update-k8s-10y-expire-certs/" %}
+
+### ETCD集群地址变更
+
+{% embed url="https://pytimer.github.io/2019/05/change-etcd-cluster-member-ip/" %}
+
+
 
