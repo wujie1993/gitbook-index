@@ -68,7 +68,7 @@ salt-key -a salt-minion01 -y
 8、 测试连接
 
 ```text
-salt * test.ping
+salt "*" test.ping
 ```
 
 ### 参考资料
