@@ -20,7 +20,7 @@ curl -fsSL https://repo.saltproject.io/py3/redhat/7/x86_64/latest.repo | sudo te
 2、安装 salt-master
 
 ```text
-yum install salt-master
+yum install salt-master -y
 ```
 
 3、启动 salt-master 并配置开机自启动
@@ -33,7 +33,7 @@ systemctl enable salt-master
 4、安装 salt-minion
 
 ```text
-yum install salt-minion
+yum install salt-minion -y
 ```
 
 5、配置 salt-minion

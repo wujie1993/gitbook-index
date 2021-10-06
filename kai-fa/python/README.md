@@ -16,27 +16,27 @@ Python是一种支持动态类型的高级脚本语言，由 [Guido van Rossum](
 
 {% embed url="https://www.python.org/downloads/source/" caption="下载地址" %}
 
-以安装3.8.2版本为例，首先获取源代码
+1、以安装3.8.2版本为例，首先获取源代码
 
 ```text
 wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
 tar xvf Python-3.8.2.tar.xz && cd Python-3.8.2
 ```
 
-安装依赖库
+2、安装依赖库
 
 ```text
 yum install -y zlib zlib-devel
 ```
 
-根据源码编译并安装
+3、根据源码编译并安装
 
 ```text
 ./configure
 make && make install
 ```
 
-查看python安装位置
+4、查看python安装位置
 
 ```text
 $ ll /usr/local/bin/ | grep python3
