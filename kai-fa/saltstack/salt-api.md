@@ -17,8 +17,20 @@ systemctl enable salt-api
 2、安装 python 依赖
 
 ```text
-pip install PyOpenSSL
+pip3 install PyOpenSSL
 ```
 
 3、生成 tls 证书
+
+```text
+salt-call --local tls.create_self_signed_cert
+```
+
+### 参考文档
+
+{% embed url="https://www.cnblogs.com/yanjieli/p/10916198.html" %}
+
+
+
+
 
