@@ -38,17 +38,23 @@ cd $GOPATH/src/github.com/wujie1993/dev-env/centos7 && sh ./setup.sh
 
 ## 手动配置
 
-安装epel源
+安装依赖包
 
+{% tabs %}
+{% tab title="CentOS" %}
 ```bash
 yum install -y epel-release
-```
-
-安装编译vim所需的依赖包
-
-```bash
 yum install -y gcc git ncurses-devel ctags ruby ruby-devel lua lua-devel luajit luajit-devel ctags git python python-devel tcl-devel perl perl-devel perl-ExtUtils-ParseXS perl perl-devel perl-ExtUtils-ParseXS perl-ExtUtils-Embed
 ```
+{% endtab %}
+
+{% tab title="Ubuntu" %}
+```
+apt update
+apt install -y gcc ctags
+```
+{% endtab %}
+{% endtabs %}
 
 下载vim代码
 
