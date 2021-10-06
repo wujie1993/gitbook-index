@@ -38,7 +38,7 @@ cd $GOPATH/src/github.com/wujie1993/dev-env/centos7 && sh ./setup.sh
 
 ## 手动配置
 
-安装依赖包
+1、安装依赖包
 
 {% tabs %}
 {% tab title="CentOS" %}
@@ -56,13 +56,13 @@ apt install -y gcc ctags
 {% endtab %}
 {% endtabs %}
 
-下载vim代码
+2、下载vim代码
 
 ```bash
 git clone https://github.com/vim/vim.git $GOPATH/src/github.com/vim/vim
 ```
 
-编译安装vim
+3、编译安装vim
 
 ```bash
 cd $GOPATH/src/github.com/vim/vim && git checkout v8.1.2424
@@ -83,7 +83,7 @@ sed -i 's/^# CONF_OPT_GUI.*/CONF_OPT_GUI = --disable-gui/' ./src/Makefile
 make VIMRUNTIMEDIR=/usr/local/share/vim/vim81 && make install
 ```
 
-在~/.vimrc路径上创建vim配置文件
+4、在~/.vimrc路径上创建vim配置文件
 
 {% code title="~/.vimrc" %}
 ```text
@@ -168,13 +168,13 @@ nmap <F8> :TagbarToggle<CR>
 ```
 {% endcode %}
 
-安装vim插件管理工具
+5、安装vim插件管理工具
 
 ```bash
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
-下载golang插件代码
+6、下载golang插件代码（有翻墙可跳过）
 
 ```bash
 git clone git@github.com:golang/net.git $GOPATH/src/golang.org/x/net
@@ -183,7 +183,7 @@ git clone git@github.com:golang/tools.git $GOPATH/src/golang.org/x/tools
 git clone git@github.com:golang/lint.git $GOPATH/src/golang.org/x/lint
 ```
 
-打开vim编辑器并加载插件
+7、打开vim编辑器并加载插件
 
 ```text
 vim -c PluginInstall -c GoInstallBinaries
