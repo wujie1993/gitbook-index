@@ -4,15 +4,27 @@
 
 例子：循环执行指令10次
 
-```text
+```
 for i in {1..10}; do echo "Hello, World"; done
 ```
 
 ### 分支
 
-例子：根据参数值的不同输出不同的内容
+例子：使用 if 进行分支控制
 
-```text
+```
+if [ $score >=80  ]; then
+    echo "great"
+elif [ $score >= 60 ]; then
+    echo "good"
+else
+    echo "bad"
+fi
+```
+
+例子：使用 switch 进行分支控制
+
+```
 case $msg in
     "hello")
         echo "hi"
@@ -25,4 +37,3 @@ case $msg in
         ;;
 esac
 ```
-
