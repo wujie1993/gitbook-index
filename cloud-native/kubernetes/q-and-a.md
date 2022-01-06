@@ -59,3 +59,10 @@ firewall-cmd --zone=trusted --add-source=<pod cidr>
 firewall-cmd --zone=public --add-masquerade --permanent
 firewall-cmd --zone=public --add-masquerade
 ```
+
+在开启了 NodeLocal DNSCache 的情况下，需要额外将集群 dns 地址加入白名单中
+
+```
+firewall-cmd --zone=trusted --add-source=<cluster dns> --permanent
+firewall-cmd --zone=trusted --add-source=<cluster dns>
+```
