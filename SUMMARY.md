@@ -9,12 +9,12 @@
   * [VSCode](kai-fa/ide/vscode/README.md)
     * [code-server](kai-fa/ide/vscode/vscode-online.md)
     * [theia](kai-fa/ide/vscode/theia.md)
-* [Golang手册](http://golang-2.gitbook.io/)
+* [Golang手册](http://golang-2.gitbook.io)
 * [Ansible](kai-fa/ansible.md)
 * [SaltStack](kai-fa/saltstack/README.md)
   * [salt-api](kai-fa/saltstack/salt-api.md)
 * [Python](kai-fa/python/README.md)
-  * [Q&A](kai-fa/python/q-and-a.md)
+  * [Q\&A](kai-fa/python/q-and-a.md)
   * [Hello,world!](kai-fa/python/hello-world.md)
   * [类型](kai-fa/python/an-zhuang/README.md)
     * [数字](kai-fa/python/an-zhuang/shu-zi.md)
@@ -103,11 +103,11 @@
   * [dig](wang-luo/yu-ming-jie-xi/dig.md)
   * [nslookup](wang-luo/yu-ming-jie-xi/nslookup.md)
   * [dnsmasq](wang-luo/yu-ming-jie-xi/dnsmasq.md)
-* [科学上网](wang-luo/ke-xue-shang-wang/README.md)
+* [代理](wang-luo/ke-xue-shang-wang/README.md)
   * [Clash](wang-luo/ke-xue-shang-wang/clash.md)
   * [Proxfier](wang-luo/ke-xue-shang-wang/proxfier.md)
 
-## 云原生 <a id="cloud-native"></a>
+## 云原生 <a href="#cloud-native" id="cloud-native"></a>
 
 * [容器](cloud-native/rong-qi/README.md)
   * [Docker](cloud-native/rong-qi/docker/README.md)
@@ -132,7 +132,7 @@
   * [Operator](cloud-native/kubernetes/operator/README.md)
     * [OperatorSDK](cloud-native/kubernetes/operator/operatorsdk.md)
   * [StorageClass](cloud-native/kubernetes/storageclass.md)
-  * [Q&A](cloud-native/kubernetes/q-and-a.md)
+  * [Q\&A](cloud-native/kubernetes/q-and-a.md)
 * [Openshift](cloud-native/openshift/README.md)
   * [集群部署](cloud-native/openshift/bu-shu.md)
   * [快速使用](cloud-native/openshift/kuai-su-shi-yong.md)
@@ -162,7 +162,7 @@
     * [参考资料](cloud-native/prometheus/cortex/can-kao-zi-liao.md)
   * [Thanos与Cortex方案对比](cloud-native/prometheus/cun-chu-fang-an-cha-yi-dui-bi.md)
   * [参考资料](cloud-native/prometheus/can-kao-zi-liao.md)
-  * [Q&A](cloud-native/prometheus/q-and-a.md)
+  * [Q\&A](cloud-native/prometheus/q-and-a.md)
 * [Rook](cloud-native/rook.md)
 * [Helm](cloud-native/helm.md)
 * [Istio](cloud-native/istio.md)
@@ -177,4 +177,3 @@
 * [CICD](devops/cicd/README.md)
   * [Jenkins](devops/cicd/jenkins.md)
 * [参考资料](devops/can-kao-zi-liao.md)
-
