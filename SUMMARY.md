@@ -105,6 +105,7 @@
   * [dnsmasq](wang-luo/yu-ming-jie-xi/dnsmasq.md)
 * [代理](wang-luo/ke-xue-shang-wang/README.md)
   * [Clash](wang-luo/ke-xue-shang-wang/clash.md)
+  * [Redsocks](wang-luo/ke-xue-shang-wang/redsocks.md)
   * [Proxfier](wang-luo/ke-xue-shang-wang/proxfier.md)
 
 ## 云原生 <a href="#cloud-native" id="cloud-native"></a>
