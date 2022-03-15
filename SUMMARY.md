@@ -106,6 +106,8 @@
 * [代理](wang-luo/ke-xue-shang-wang/README.md)
   * [Clash](wang-luo/ke-xue-shang-wang/clash.md)
   * [Redsocks](wang-luo/ke-xue-shang-wang/redsocks.md)
+  * [Redsocks2](wang-luo/ke-xue-shang-wang/redsocks2.md)
+  * [COW](wang-luo/ke-xue-shang-wang/cow.md)
   * [Proxfier](wang-luo/ke-xue-shang-wang/proxfier.md)
 
 ## 云原生 <a href="#cloud-native" id="cloud-native"></a>
