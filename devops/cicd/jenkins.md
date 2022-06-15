@@ -94,7 +94,7 @@ cat /data/jenkins/home/secrets/initialAdminPassword
 
 #### 如何配置gitlab webhook触发流水线执行
 
-在 Jenkins 的插件管理中安装 Gitlab 插件，然后在流水线中勾选启用 GitLab webhook，记录下方的 URL，为了安全起见，展开高级选项并生成一串 token 密钥。
+在 Jenkins 的插件管理中安装 [Gitlab 插件](https://github.com/jenkinsci/gitlab-plugin)，然后在流水线中勾选启用 GitLab webhook，记录下方的 URL，为了安全起见，展开高级选项并生成一串 token 密钥。
 
 ![](<../../.gitbook/assets/image (35).png>)
 
@@ -112,3 +112,36 @@ cat /data/jenkins/home/secrets/initialAdminPassword
 
 ![](<../../.gitbook/assets/image (30).png>)
 
+通过Webhook触发的流水线中可以使用下参数：
+
+```
+gitlabBranch
+gitlabSourceBranch
+gitlabActionType
+gitlabUserName
+gitlabUserUsername
+gitlabUserEmail
+gitlabSourceRepoHomepage
+gitlabSourceRepoName
+gitlabSourceNamespace
+gitlabSourceRepoURL
+gitlabSourceRepoSshUrl
+gitlabSourceRepoHttpUrl
+gitlabMergeRequestTitle
+gitlabMergeRequestDescription
+gitlabMergeRequestId
+gitlabMergeRequestIid
+gitlabMergeRequestState
+gitlabMergedByUser
+gitlabMergeRequestAssignee
+gitlabMergeRequestLastCommit
+gitlabMergeRequestTargetProjectId
+gitlabTargetBranch
+gitlabTargetRepoName
+gitlabTargetNamespace
+gitlabTargetRepoSshUrl
+gitlabTargetRepoHttpUrl
+gitlabBefore
+gitlabAfter
+gitlabTriggerPhrase
+```
