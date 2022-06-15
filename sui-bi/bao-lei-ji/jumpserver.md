@@ -17,15 +17,15 @@
 
 1、创建工作目录
 
-```text
+```
 mkdir /opt/jumpserver && cd /opt/jumpserver
 ```
 
-2. 配置 docker-compose.yml 和环境变量
+2\. 配置 docker-compose.yml 和环境变量
 
 {% tabs %}
 {% tab title="docker-compose.yml" %}
-```text
+```
 version: '2.4'
 services:
   mysql:
@@ -243,15 +243,14 @@ LOG_LEVEL=ERROR
 
 2、启动 jumpserver
 
-```text
+```
 docker-compose up -d
 ```
 
 ### 使用
 
-浏览器访问 http://&lt;ip&gt;:80
+浏览器访问 http://\<ip>:80
 
 SSH命令行访问 `ssh -p 2222 <ip>`
 
 默认登录账密 admin/admin
-

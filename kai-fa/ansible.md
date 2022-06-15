@@ -2,13 +2,13 @@
 
 ### 开发自定义模块
 
-{% embed url="https://docs.ansible.com/ansible/latest/dev\_guide/developing\_modules\_general.html" %}
+{% embed url="https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html" %}
 
 ### 任务运行时间统计
 
 配置ansible.cfg
 
-```text
+```
 [defaults]
 callback_whitelist = profile_tasks
 ```
@@ -17,7 +17,7 @@ callback_whitelist = profile_tasks
 
 配置ansible.cfg
 
-```text
+```
 [defaults]
 stdout_callback = yaml
 ```
@@ -28,23 +28,23 @@ stdout_callback = yaml
 
 安装mitogen加速模块
 
-```text
+```
 pip install mitogen
 ```
 
 配置ansible.cfg
 
-```text
+```
 [defaults]
 strategy = mitogen_linear
 strategy_plugins = /usr/lib/python2.7/site-packages/ansible_mitogen/plugins/strategy
 ```
 
-### Q&A
+### Q\&A
 
 **Q: 如何获取ansible主控机器地址**
 
-```text
+```
 - debug: var="{{ ansible_env['SSH_CLIENT'].split() | first }}"
 ```
 
@@ -52,8 +52,7 @@ strategy_plugins = /usr/lib/python2.7/site-packages/ansible_mitogen/plugins/stra
 
 将gather\_facts信息采集改为最少
 
-```text
+```
 [default]
 gather_subset = min
 ```
-

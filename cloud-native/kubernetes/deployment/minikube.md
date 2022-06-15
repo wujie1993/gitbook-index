@@ -42,19 +42,19 @@ systemctl disable firewalld
 
 ### 关闭swap
 
-```text
+```
 swapoff -a && sed -i '/ swap / s/^/#/' /etc/fstab
 ```
 
 ### 启动minikube
 
-```text
+```
 minikube start --vm-driver=none --kubernetes-version v1.15.5
 ```
 
 ### 启动ingress
 
-```text
+```
 minikube addons enable ingress
 ```
 
@@ -67,7 +67,7 @@ minikube dashboard --url=true
 
 得到如下输出，dashboard侦听在localhost地址上
 
-```text
+```
 * Verifying dashboard health ...
 * Launching proxy ...
 * Verifying proxy health ...
@@ -76,27 +76,27 @@ http://127.0.0.1:35951/api/v1/namespaces/kube-system/services/http:kubernetes-da
 
 如果需要通过外部访问，按`CTRL+C`中断，并使用以下命令以NodePort方式暴露服务
 
-```text
+```
 kubectl delete svc kubernetes-dashboard -n kube-system
 kubectl expose deployment kubernetes-dashboard --type=NodePort --port=80 -n kube-system
 kubectl get svc kubernetes-dashboard -n kube-system
 ```
 
-## Q&A
+## Q\&A
 
 ### 如何在CentOS8中运行
 
 默认情况下minikube使用iptables模式启动kube-proxy，在centos8中使用的是nftables，与kube-proxy使用的iptables指令不兼容，因而无法写入规则并导致ip地址转发不生效，解决这个问题的一种途径是以IPVS方式启动kube-proxy
 
-1. 编辑kube-proxy配置
+1\. 编辑kube-proxy配置
 
 `kubectl edit configmap kube-proxy -n kube-system`
 
-2. 修改`mode: 'ipvs'`
+2\. 修改`mode: 'ipvs'`
 
-3. 加载内核ipvs模块
+3\. 加载内核ipvs模块
 
-```text
+```
 modprobe ip_vs_rr
 modprobe ip_vs_sh
 modprobe ip_vs_wrr
@@ -111,7 +111,7 @@ modprobe ip_vs
 
 在启动命令中添加以下参数
 
-```text
+```
 --extra-config=apiserver.enable-admission-plugins="NamespaceLifecycle,LimitRanger,ServiceAccount,PersistentVolumeLabel,DefaultStorageClass,DefaultTolerationSeconds,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota"
 ```
 
@@ -119,7 +119,7 @@ modprobe ip_vs
 
 在启动命令中添加以下参数
 
-```text
+```
 -v 10 --logtostderr
 ```
 
@@ -127,7 +127,6 @@ modprobe ip_vs
 
 在启动命令中添加以下参数
 
-```text
+```
  --image-repository="registry.cn-hangzhou.aliyuncs.com/google_containers"
 ```
-

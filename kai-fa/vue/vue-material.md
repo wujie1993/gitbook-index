@@ -10,9 +10,8 @@
 
 ### 快速开始
 
-1. 安装vue-material
+1\. 安装vue-material
 
-```text
+```
 npm install vue-material --save
 ```
-

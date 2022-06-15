@@ -35,7 +35,7 @@ pip install -r requirements.txt
 配置inventory
 
 {% code title="/etc/ansible/hosts-ceph-nautilus" %}
-```text
+```
 [mons]
 centos7-dev
 
@@ -47,8 +47,8 @@ centos7-dev
 配置group\_vars
 
 {% tabs %}
-{% tab title="group\_vars/all.yml" %}
-```text
+{% tab title="group_vars/all.yml" %}
+```
 ---
 ceph_release_num:
   nautilus: 14
@@ -93,7 +93,7 @@ dashboard_enabled: False-
 ```
 {% endtab %}
 
-{% tab title="group\_vars/osds.yml" %}
+{% tab title="group_vars/osds.yml" %}
 ```
 ---
 devices:
@@ -106,10 +106,9 @@ devices:
 
 执行部署
 
-```text
+```
 cp site.yml.sample site.yml
 ansible-playbook -i /etc/ansible/hosts-ceph-nautilus site.yml
 ```
 
 检查集群状态`ceph -s`
-

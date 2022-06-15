@@ -9,7 +9,7 @@
   * [VSCode](kai-fa/ide/vscode/README.md)
     * [code-server](kai-fa/ide/vscode/vscode-online.md)
     * [theia](kai-fa/ide/vscode/theia.md)
-* [Golang手册](http://golang-2.gitbook.io)
+* [Golang手册](http://golang-2.gitbook.io/)
 * [Ansible](kai-fa/ansible.md)
 * [SaltStack](kai-fa/saltstack/README.md)
   * [salt-api](kai-fa/saltstack/salt-api.md)

@@ -1,11 +1,11 @@
 # WSL2
 
-## Q&A
+## Q\&A
 
 ### 如何配置wsl 2资源限制
 
-{% code title="%UserProfile%\\.wslconfig" %}
-```text
+{% code title="%UserProfile%\.wslconfig" %}
+```
 [wsl2]
 memory=6GB
 swap=0
@@ -13,11 +13,11 @@ localhostForwarding=true
 ```
 {% endcode %}
 
-{% embed url="https://docs.microsoft.com/en-us/windows/wsl/release-notes\#build-18945" %}
+{% embed url="https://docs.microsoft.com/en-us/windows/wsl/release-notes#build-18945" %}
 
 ### 重启wsl 2
 
-打开 任务管理器 -&gt; 服务，重启LxssManager服务
+打开 任务管理器 -> 服务，重启LxssManager服务
 
 ### 如何通过ssh连接wsl 2
 
@@ -30,8 +30,8 @@ sudo apt-get install openssh-server
 
 配置sshd
 
-{% code title="/etc/ssh/sshd\_config" %}
-```text
+{% code title="/etc/ssh/sshd_config" %}
+```
 # 修改端口不与宿主机冲突
 Port 2222
 # 允许使用密码认证方式登录
@@ -50,4 +50,3 @@ sudo service ssh --full-restart
 ```bash
 ssh 127.0.0.1 2222
 ```
-

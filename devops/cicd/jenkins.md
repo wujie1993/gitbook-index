@@ -8,12 +8,12 @@
 
 1、创建 Dockerfile，在 Jenkins 镜像中预装 Blue Ocean 插件（可选）
 
-```text
+```
 mkdir /opt/jenkins && cd /opt/jenkins
 ```
 
 {% code title="Dockerfile" %}
-```text
+```
 FROM jenkins/jenkins:2.263.4-lts-jdk11
 USER root
 RUN apt-get update && apt-get install -y apt-transport-https \
@@ -32,14 +32,14 @@ RUN jenkins-plugin-cli --plugins blueocean:1.24.4
 
 2、构建 Jenkins 镜像（可选）
 
-```text
+```
 docker build -t jenkins:2.263.4-lts-jdk11-blueocean .
 ```
 
 3、创建 docker-compose.yml 文件
 
 {% code title="docker-compose.yml" %}
-```text
+```
 services:
   jenkins:
     # 如果无需预装 Blue Ocean 插件，可以直接使用官方镜像
@@ -71,22 +71,44 @@ services:
 
 4、创建 Jenkins 数据目录并授权
 
-```text
+```
 mkdir -p /opt/jenkins/home
 chown 1000:1000 /opt/jenkins/home
 ```
 
 5、启动 Jenkins
 
-```text
+```
 docker-compose up -d
 ```
 
 6、获取 Jenkins 管理员初始密码
 
-```text
+```
 cat /data/jenkins/home/secrets/initialAdminPassword
 ```
 
-7、浏览器访问 Jenkins 地址 http://&lt;ip&gt;:80，使用管理员初始密码登录
+7、浏览器访问 Jenkins 地址 http://\<ip>:80，使用管理员初始密码登录
+
+### Q\&A
+
+#### 如何配置gitlab webhook触发流水线执行
+
+在 Jenkins 的插件管理中安装 Gitlab 插件，然后在流水线中勾选启用 GitLab webhook，记录下方的 URL，为了安全起见，展开高级选项并生成一串 token 密钥。
+
+![](<../../.gitbook/assets/image (35).png>)
+
+![](<../../.gitbook/assets/image (37).png>)
+
+在 Gitlab 项目中进入 Setting -> Webhook，填入上方生成的 URL 与 Token 密钥，保存后即可发送测试
+
+![](<../../.gitbook/assets/image (34).png>)
+
+![](<../../.gitbook/assets/image (33).png>)
+
+![](<../../.gitbook/assets/image (32).png>)
+
+在 Webhook 条件触发时，可在 Jenkins 流水线上看到任务被调用执行
+
+![](<../../.gitbook/assets/image (30).png>)
 

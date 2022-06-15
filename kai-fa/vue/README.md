@@ -14,51 +14,51 @@
 
 {% embed url="https://nodejs.org/en/download/" %}
 
-1. 下载nodejs二进制压缩包
+1\. 下载nodejs二进制压缩包
 
-```text
+```
 wget https://nodejs.org/dist/v14.15.0/node-v14.15.0-linux-x64.tar.xz
 ```
 
-2. 解压至安装目录
+2\. 解压至安装目录
 
-```text
+```
 sudo mkdir -p /usr/local/lib/nodejs
 sudo tar -xJvf node-v14.15.0-linux-x64.tar.xz -C /usr/local/lib/nodejs
 ```
 
-3. 在/etc/profile中添加环境变量初始化
+3\. 在/etc/profile中添加环境变量初始化
 
-```text
+```
 export PATH=$PATH:/usr/local/lib/nodejs/node-v14.15.0-linux-x64/bin
 ```
 
-4. 更新环境变量
+4\. 更新环境变量
 
-```text
+```
 source /etc/profile
 ```
 
-5. 查看nodejs与npm版本
+5\. 查看nodejs与npm版本
 
-```text
+```
 node -v
 npm -v
 ```
 
-6. 配置国内npm源
+6\. 配置国内npm源
 
-```text
+```
 npm config set registry http://registry.npm.taobao.org
 ```
 
 ### 安装vue-cli
 
-```text
+```
 npm install -g @vue/cli
 ```
 
-## Q&A
+## Q\&A
 
 1、配置vue.config.js代理devserver.proxy结果返回404
 
@@ -71,4 +71,3 @@ npm install -g @vue/cli
 3、执行 npm install 提示错误 gyp ERR! stack Error: EACCES: permission denied
 
 npm install 命令添加参数 `--unsafe-perm=true --allow-root`
-

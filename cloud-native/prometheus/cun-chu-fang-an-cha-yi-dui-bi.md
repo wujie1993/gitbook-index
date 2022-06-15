@@ -6,10 +6,10 @@ Thanos项目创建于2017年12月份。在2019年8月份成为CNCF沙盒项目�
 
 Cortex项目创建于2016年2月份。在2018年8月成为CNCF沙盒项目。项目维护成员主要来自于Weavework。
 
-| 项目名称 | Watch | Star | Fork | Issues | Contributors |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| [Thanos](https://github.com/thanos-io/thanos) | 157 | 5.2k | 654 | 87 | 188 |
-| [Cortex](https://github.com/cortexproject/cortex) | 90 | 2.4k | 296 | 230 | 90 |
+| 项目名称                                              | Watch | Star | Fork | Issues | Contributors |
+| ------------------------------------------------- | ----- | ---- | ---- | ------ | ------------ |
+| [Thanos](https://github.com/thanos-io/thanos)     | 157   | 5.2k | 654  | 87     | 188          |
+| [Cortex](https://github.com/cortexproject/cortex) | 90    | 2.4k | 296  | 230    | 90           |
 
 从项目发展上讲Thanos相对于Cortex更加年轻，在活跃度上呈后来者居上的态势。且prometheus-operator项目中已经引入了Thanos的部署用例和代码库，两者的契合度相对较高。Cortex目前实验性的blocks数据块写入后端存储的特性也复用了Thanos的代码。
 
@@ -17,30 +17,30 @@ Cortex项目创建于2016年2月份。在2018年8月成为CNCF沙盒项目。项
 
 Cortex的定位是提供Prometheus as a Service，采用中心化的架构。Prometheus可能来自于多个不同的地域，所有的数据都汇入一个Cortex数据中心，由Cortex集中写入，查询和告警。
 
-![](../../.gitbook/assets/image%20%2825%29.png)
+![](<../../.gitbook/assets/image (25).png>)
 
 
 
 Thanos采用的是分散式的架构，其数据可以分散在多个数据中心，且分别存储于多个对象存储桶中。对于数据的写入，查询和告警可分散也可集中。
 
-![](../../.gitbook/assets/image%20%284%29.png)
+![](<../../.gitbook/assets/image (4).png>)
 
 ## 特性对比
 
-| 特性名称 | Thanos | Cortex |
-| :--- | :--- | :--- |
-| 全局查询 | 集群级支持 | 租户级支持 |
-| 全局告警 | 集群级支持 | 租户级支持 |
-| 高可用 | 部分支持 | 支持 |
-| 长期存储 | 支持 | 支持 |
-| 多集群 | 支持 | 不支持 |
-| 多租户 | 部分支持 | 支持 |
-| 集群拓展 | 支持 | 支持 |
-| 查询缓存 | 支持 | 支持 |
-| 查询拆分 | 按时间区间拆分 | 按天拆分 |
-| 下采样 | 支持 | 不支持 |
-| 数据去重 | 查询时去重 | 写入时去重 |
-| 存储时效 | 支持 | 不支持 |
+| 特性名称 | Thanos  | Cortex |
+| ---- | ------- | ------ |
+| 全局查询 | 集群级支持   | 租户级支持  |
+| 全局告警 | 集群级支持   | 租户级支持  |
+| 高可用  | 部分支持    | 支持     |
+| 长期存储 | 支持      | 支持     |
+| 多集群  | 支持      | 不支持    |
+| 多租户  | 部分支持    | 支持     |
+| 集群拓展 | 支持      | 支持     |
+| 查询缓存 | 支持      | 支持     |
+| 查询拆分 | 按时间区间拆分 | 按天拆分   |
+| 下采样  | 支持      | 不支持    |
+| 数据去重 | 查询时去重   | 写入时去重  |
+| 存储时效 | 支持      | 不支持    |
 
 ### 数据写入
 
@@ -129,7 +129,5 @@ Cortex的多租户功能需要外部做一定程度的开发封装，在网关�
 
 ### 参考资料
 
-{% embed url="https://www.youtube.com/watch?time\_continue=80&v=KmJnmd3K3Ws&feature=emb\_logo" %}
-
-
+{% embed url="https://www.youtube.com/watch?time_continue=80&v=KmJnmd3K3Ws&feature=emb_logo" %}
 

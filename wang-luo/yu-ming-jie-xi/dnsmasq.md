@@ -2,7 +2,7 @@
 
 ## 介绍
 
-_Dnsmasq_ 提供DNS 缓存和DHCP 服务功能。作为域名解析服务器\(DNS\)，_dnsmasq_可以通过缓存DNS 请求来提高对访问过的网址的连接速度。
+_Dnsmasq_ 提供DNS 缓存和DHCP 服务功能。作为域名解析服务器(DNS)，_dnsmasq_可以通过缓存DNS 请求来提高对访问过的网址的连接速度。
 
 ## 安装与配置
 
@@ -16,7 +16,7 @@ yum install dnsmasq -y
 
 配置侦听地址与端口
 
-```text
+```
 # dns服务侦听端口，默认就是53，可不配
 port=53
 # dns服务侦听接口，如果需要侦听多个接口，可重复配置多条
@@ -37,7 +37,7 @@ systemctl enable dnsmasq
 修改/etc/resolv.conf，将系统的域名解析服务地址指向当前机器上的dnsmasq服务
 
 {% code title="/etc/resolv.conf" %}
-```text
+```
 nameserver {{ 本机ip地址 }}
 ```
 {% endcode %}
@@ -48,8 +48,8 @@ nameserver {{ 本机ip地址 }}
 
 添加上游dns配置文件/etc/dnsmasq.d/public\_upstream.conf，添加以下配置项
 
-{% code title="/etc/dnsmasq.d/public\_upstream.conf" %}
-```text
+{% code title="/etc/dnsmasq.d/public_upstream.conf" %}
+```
 # 上游dns服务器地址配置文件路径
 resolv-file=/etc/resolv.dnsmasq.conf
 # 使上游dns服务器查询按照配置文件中的顺序查询而不是同时查询
@@ -60,7 +60,7 @@ strict-order
 添加上游dns服务地址配置文件
 
 {% code title="/etc/resolv.dnsmasq.conf" %}
-```text
+```
 nameserver 8.8.8.8
 nameserver 114.114.114.114
 ```
@@ -76,8 +76,8 @@ systemctl restart dnsmasq
 
 添加自定义域名解析配置文件/etc/dnsmasq.d/local\_host.conf，添加以下配置项
 
-{% code title="/etc/dnsmasq.d/local\_host.conf" %}
-```text
+{% code title="/etc/dnsmasq.d/local_host.conf" %}
+```
 # 不使用/etc/hosts中的解析配置
 no-hosts
 # 将指定域名解析为指定的地址，可添加多条策略
@@ -87,7 +87,7 @@ address=/{{ 域名 }}/{{ ip地址 }}
 
 例子：泛域名解析
 
-```text
+```
 # 解析*.example.com到192.168.1.1
 address=/.example.com/192.168.1.1
 ```
@@ -97,6 +97,4 @@ address=/.example.com/192.168.1.1
 ```bash
 systemctl restart dnsmasq
 ```
-
-
 

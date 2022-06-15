@@ -4,7 +4,7 @@ Bucket组件是一个用于查看对象存储桶中数据块内容的命令集�
 
 ### 可选参数
 
-```text
+```
 usage: thanos bucket [<flags>] <command> [<args> ...]
 
 Bucket utility commands
@@ -60,7 +60,7 @@ Subcommands:
 
 例子：`$ thanos bucket web --objstore.config-file="..."`
 
-```text
+```
 usage: thanos bucket web [<flags>]
 
 Web interface for remote storage bucket
@@ -126,7 +126,7 @@ Flags:
 
 例子：`thanos bucket verify --objstore.config-file="..."`
 
-```text
+```
 usage: thanos bucket verify [<flags>]
 
 Verify all blocks in the bucket against specified issues
@@ -185,7 +185,7 @@ Flags:
 
 例子：`$ thanos bucket ls -o json --objstore.config-file="..."`
 
-```text
+```
 usage: thanos bucket ls [<flags>]
 
 List all blocks in the bucket
@@ -219,13 +219,13 @@ Flags:
                            template.
 ```
 
-### inspect 
+### inspect&#x20;
 
 bucket inspect用于将存储桶中的指定数据块信息以表格形式打印到标准输出控制台中
 
-例子：$ thanos bucket inspect -l environment=\"prod\" --objstore.config-file="..."
+例子：$ thanos bucket inspect -l environment=\\"prod\\" --objstore.config-file="..."
 
-```text
+```
 usage: thanos bucket inspect [<flags>]
 
 Inspect all blocks in the bucket in detailed, table-like way
@@ -265,8 +265,6 @@ Flags:
                              are then further sorted by the 'UNTIL' value.
       --timeout=5m           Timeout to download metadata from remote storage
 ```
-
-
 
 
 
