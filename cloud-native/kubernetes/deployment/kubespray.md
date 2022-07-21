@@ -85,6 +85,45 @@ kubectl get node -o wide
 kubectl get pod -o wide
 ```
 
+### 通过 kubespray 镜像部署
+
+1、拉取 kubespray 代码
+
+```
+git@github.com:kubernetes-sigs/kubespray.git && \
+cd kubespray && \
+git checkout v2.19.0
+```
+
+2、拉取运行镜像
+
+```
+docker run --rm -it -v $(pwd)/inventory/sample:/inventory -v ${HOME}/.ssh/id_rsa:/root/.ssh/id_rsa quay.io/kubespray/kubespray:v2.19.0 bash
+```
+
+{% hint style="info" %}
+注意：运行 kubespray 容器的节点不能与 k8s 节点相同，否则部署中途 kubespray 容器会被中止。
+{% endhint %}
+
+3、编辑 inventory 清单
+
+```
+cat /inventory/inventory.ini
+```
+
+4、查看并编辑 group\_vars 参数
+
+```
+cat /inventory/group_vars/all/all.yml
+cat /inventory/group_vars/k8s-cluster/k8s-cluster.yml
+```
+
+5、执行集群部署
+
+```
+ansible-playbook -i /inventory/inventory.ini --private-key /root/.ssh/id_rsa cluster.yml
+```
+
 ## 组件安装
 
 ### kube-dashboard
