@@ -166,6 +166,7 @@
   * [Thanos与Cortex方案对比](cloud-native/prometheus/cun-chu-fang-an-cha-yi-dui-bi.md)
   * [参考资料](cloud-native/prometheus/can-kao-zi-liao.md)
   * [Q\&A](cloud-native/prometheus/q-and-a.md)
+* [Skywalking](cloud-native/skywalking.md)
 * [Rook](cloud-native/rook.md)
 * [Helm](cloud-native/helm.md)
 * [Istio](cloud-native/istio.md)
@@ -180,3 +181,7 @@
 * [CICD](devops/cicd/README.md)
   * [Jenkins](devops/cicd/jenkins.md)
 * [参考资料](devops/can-kao-zi-liao.md)
+
+## 机器学习
+
+* [Kubeflow](ji-qi-xue-xi/kubeflow.md)
