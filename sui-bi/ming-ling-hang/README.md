@@ -135,3 +135,23 @@ $ sed -i 's/^#/d' /etc/profile
 ```
 netstat -anp|grep $(ps -ef|grep <进程名>|grep -v "grep"|awk '{print $2}')|grep LISTEN|awk '{print $4}'
 ```
+
+### yq
+
+#### 一款轻量级命令行配置文件编辑工具
+
+#### 项目地址
+
+{% embed url="https://github.com/mikefarah/yq" %}
+
+例子：读取 yaml 文件中的项
+
+```
+yq '.a.b[0].c' file.yaml
+```
+
+例子：设置 yaml 文件中的项
+
+```
+yq -i '.a.b[0].c = "cool"' file.yaml
+```
