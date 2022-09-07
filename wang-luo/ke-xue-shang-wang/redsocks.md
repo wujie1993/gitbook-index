@@ -78,3 +78,9 @@ iptables -t nat -A REDSOCKS -p tcp -j REDIRECT --to-ports 8888
 iptables -t nat -A OUTPUT -p tcp --dport 443 -j REDSOCKS
 iptables -t nat -A OUTPUT -p tcp --dport 80 -j REDSOCKS
 ```
+
+### Q & A
+
+Q1: 连接数超标导致网络代理中断
+
+A1: 配置 base.redsocks\_conn\_max = 1024（默认128）

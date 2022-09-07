@@ -184,4 +184,5 @@
 
 ## 机器学习
 
-* [Kubeflow](ji-qi-xue-xi/kubeflow.md)
+* [Kubeflow](ji-qi-xue-xi/kubeflow/README.md)
+  * [示例](ji-qi-xue-xi/kubeflow/shi-li.md)
