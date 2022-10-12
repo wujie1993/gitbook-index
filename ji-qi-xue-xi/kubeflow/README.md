@@ -30,11 +30,13 @@
 
 ```bash
 mkdir /opt/kubeflow && cd /opt/kubeflow
-wget https://github.com/kubeflow/manifests/archive/refs/tags/v1.6.0-rc.1.tar.gz
-tar -zxvf v1.6.0-rc.1.tar.gz && cd v1.6.0-rc.1
+wget https://github.com/kubeflow/manifests/archive/refs/tags/v1.6.1.tar.gz
+tar -zxvf v1.6.1.tar.gz && cd v1.6.1
 ```
 
-由于kubeflow部署过程中需要使用到外网镜像，建议先将使用到的镜像拉取到本地仓库中，然后修改kustomization.yaml文件，配置images项修改镜像名
+由于kubeflow部署过程中需要使用到外网镜像，建议先将使用到的镜像拉取到本地仓库中，然后修改kustomization.yaml 文件，配置 images 项修改镜像名
+
+> 同步外网镜像可参考 [https://github.com/wujie1993/mirrors](https://github.com/wujie1993/mirrors)
 
 3、一键部署
 
